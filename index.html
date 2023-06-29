@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/b69d422be5.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="slider.css" type="text/css" rel="stylesheet">
+
+
+    <title>Shopping Das Embalagens</title>
+</head>
+
+<body>
+    <div id="inicio">Topo</div>
+
+    <header class="header">
+
+
+
+
+        <div class="header-container-logo">
+            <a href="#inicio" class="logo-link">
+                <img src="LOGO_COR_HORIZ.png" alt="Shopping das Embalagens" class="logo-img" />
+            </a>
+            <div class="header-mobile-menu">
+
+                <i class="fa fa-bars" aria-hidden="true"></i>
+
+            </div>
+
+            <nav class="nav-header">
+
+                <i id="close-btn" class="fa-regular fa-circle-xmark"></i>
+                <ul class="header-list">
+
+                    <li>
+                        <a href="#inicio">Início</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="">Produtos</a>
+
+                        <div class="dropdown-content">
+                            <a href="#produtos">Produtos em Destaque</a>
+
+                            <a href="" class="descartaveis-subMenu">Descartáveis</a>
+
+                            <div class="descartaveis-subMenu-itens" style="display: none ;">
+                                <a href="">Alumínio</a>
+                                <a href="">Isopor</a>
+                                <a href="">Bolos e Tortas</a>
+                                <a href="">Copos</a>
+                                <a href="">Potes</a>
+                                <a href="">Tampas</a>
+                                <a href="">Pratos</a>
+                                <a href="">Talheres e Mexedores</a>
+                                <a href="">Sacos e Sacolas plásticas</a>
+                                <a href="">Freezer e Microondas</a>
+                                <a href="">Papel e Papel</a>
+                                <a href="">Oriental </a>
+                                <a href="">Linha ECO</a>
+
+                            </div>
+                            <a href="" class="domesticos-subMenu">Utensílios Domésticos</a>
+                            <div class="domesticos-subMenu-itens" style="display: none ;">
+                                <a href="">5</a>
+                                <a href="">4</a>
+                                <a href="">3</a>
+                                <a href="">2</a>
+                                <a href="">1</a>
+                            </div>
+                            <a href="" class="cozinha-subMenu">Cozinha</a>
+                            <div class="cozinha-subMenu-itens" style="display: none ;">
+                                <a href="">6</a>
+                                <a href="">7</a>
+                                <a href="">8</a>
+                                <a href="">9</a>
+                                <a href="">10</a>
+                            </div>
+                            <a href="" class="festa-subMenu">Artigos Para Festas</a>
+                            <div class="festa-subMenu-itens" style="display: none ;">
+                                <a href="">11</a>
+                                <a href="">12</a>
+                                <a href="">13</a>
+                                <a href="">14</a>
+                                <a href="">15</a>
+                            </div>
+                            <a href="" class="limpeza-subMenu">Utensílios para Limpeza</a>
+                            <div class="limpeza-subMenu-itens" style="display: none ;">
+                                <a href="">16</a>
+                                <a href="">17</a>
+                                <a href="">18</a>
+                                <a href="">19</a>
+                                <a href="">20</a>
+                            </div>
+                            <a href="" class="higiene-subMenu">Utensílios para Higiene</a>
+                            <div class="higiene-subMenu-itens" style="display: none ;">
+                                <a href="">21</a>
+                                <a href="">22</a>
+                                <a href="">23</a>
+                                <a href="">24</a>
+                                <a href="">25</a>
+                                <a href="">25</a>
+                                <a href="">25</a>
+                                <a href="">25</a>
+                                <a href="">25</a>
+                                <a href="">25</a>
+                                <a href="">25</a>
+                                <a href="">25</a>
+                                <a href="">25</a>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li><a href="#quemSomos" onclick="clickMenu()">Quem Somos</a></li>
+                    <li><a href="#contatos" onclick="clickMenu()">Contatos</a></li>
+                </ul>
+
+            </nav>
+        </div>
+
+
+
+    </header>
+    <section class="banner-container">
+        <img class="banner-img" src="ShopEmbBanner.png" alt="shopping das embalagens banner">
+    </section>
+
+    <section id="slider-container" class="carousel slide" data-bs-ride="carousel">
+        <div id="indicadores" class="carousel-indicators">
+            <button type="button" data-bs-target="#slider-container" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#slider-container" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#slider-container" data-bs-slide-to="2"></button>
+        </div>
+        <div id="banners-img" class="carousel-inner">
+            <div>
+                <img src="images/1.png" class="carousel-item active">
+            </div>
+            <div>
+                <img src="images/2.png" class="carousel-item">
+            </div>
+            <div>
+                <img src="images/3.jpg" class="carousel-item">
+            </div>
+        </div>
+
+        <button type="button" class="carousel-control-prev" data-bs-target="#slider-container" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button type="button" class="carousel-control-next" data-bs-target="#slider-container" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </section>
+
+    <div class="destaque-produtos-titulo-container" id="produtos">
+        <h2 class="titulo-destaque-produtos">Produtos em Destaque</h2>
+    </div>
+
+    <section class="card-produtos">
+        <article class="card">
+            <img class="card-img-top" id="quentinha-img" src="images/quentinhaImg.png">
+            <div class="card-body">
+                <div class="card-text-container">
+
+                    <h5 class="card-title">Quentinhas de Isopor</h5>
+                    <p class="card-text">Quentinhas de isopor de 500ml, 750ml e 1100ml</p>
+                </div>
+                <a href="#" class="btn btn-primary">Ver Tudo</a>
+            </div>
+        </article>
+        <article class="card">
+            <img class="card-img-top" src="images/coposDescartaveis.png">
+            <div class="card-body">
+                <div class="card-text-container">
+                    <h5 class="card-title">Copos Descartáveis</h5>
+                    <p class="card-text">Copos descartáveis PS e PP a partir de 50ml.</p>
+                </div>
+                <a href="#" class="btn btn-primary">Ver Tudo</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <img class="card-img-top" src="images/talherImg.png">
+            <div class="card-body">
+                <div class="card-text-container">
+
+                    <h5 class="card-title">Talheres Descartáveis</h5>
+                    <p class="card-text">Linha de talheres para refeições e para sobremesas</p>
+                </div>
+                <a href="#" class="btn btn-primary">Ver Tudo</a>
+            </div>
+        </article>
+        <article class="card">
+            <img class="card-img-top" src="images/sacolasImg.png">
+            <div class="card-body">
+                <div class="card-text-container">
+
+                    <h5 class="card-title">Sacola Plástica</h5>
+                    <p class="card-text">Sacolas Leves, Reforçadas e Biodegradáveis</p>
+                </div>
+                <a href="#" class="btn btn-primary">Ver Tudo</a>
+            </div>
+        </article>
+        <article class="card">
+            <img class="card-img-top" src="images/bobinaPicotadaImg.png">
+            <div class="card-body">
+                <div class="card-text-container">
+                    <h5 class="card-title">Bobina Picotada</h5>
+                    <p class="card-text">Bobinas de saco picotado com tamanhos a partir de 20X30.</p>
+                </div>
+                <a href="#" class="btn btn-primary">Ver Tudo</a>
+            </div>
+        </article>
+        <article class="card">
+            <img class="card-img-top" src="images/sacoCristalImg.png">
+            <div class="card-body">
+                <div class="card-text-container">
+
+                    <h5 class="card-title">Saco cristal</h5>
+                    <p class="card-text">Saco Plástico Cristal Virgem com Medidas a Partir de 10x20.</p>
+                </div>
+                <a href="#" class="btn btn-primary">Ver Tudo</a>
+            </div>
+        </article>
+        <article class="card">
+            <img class="card-img-top" src="images/sacoLixoImg.png">
+            <div class="card-body">
+                <div class="card-text-container">
+
+                    <h5 class="card-title">Saco de Lixo</h5>
+                    <p class="card-text">Sacos De Lixo em Diversos Tamanhos, Leves e Reforçados.</p>
+                </div>
+                <a href="#" class="btn btn-primary">Ver Tudo</a>
+            </div>
+        </article>
+        <article class="card">
+            <img class="card-img-top" src="images/filmePvcImg.png">
+            <div class="card-body">
+                <div class="card-text-container">
+
+                    <h5 class="card-title">Filme PVC</h5>
+                    <p class="card-text">Bobinas de Filme PVC Com Tamanhos A Partir de 15 Metros.</p>
+                </div>
+                <a href="#" class="btn btn-primary">Ver Tudo</a>
+            </div>
+        </article>
+    </section>
+
+
+    <section class="facaContatoContainer">
+        <div class="facaContatoContent">
+            <h2>Faça já seu Orçamento</h2>
+            <p>Entre em contato via WhatsApp para Orçamentos e Pedidos. </p>
+        </div>
+        <div class="facaContatoBtn zoom-in-out-box">
+            <button type="button" class="btn btn-outline-success">WhatsApp <i class="bi bi-whatsapp"></i></button>
+
+        </div>
+
+    </section>
+
+    <section class="quemSomos">
+        <div class="quemSomosContainer">
+
+            <div class="quemSomosImg">
+                <img class="img-thumbnail" src="images/quemSomosImg.png" alt="Shopping das Embalagens Imagem">
+            </div>
+
+            <div class="quemSomosContent">
+                <h2 id="quemSomos">Quem somos?</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit diam ultricies curabitur nunc, magna primis
+                    habitasse vestibulum risus hac egestas pulvinar sem eros, a tristique ut sapien mus vivamus
+                    sollicitudin bibendum luctus ullamcorper. Facilisi ad cras curae est suspendisse taciti odio
+                    maecenas sagittis viverra, purus penatibus dictumst habitant dapibus inceptos euismod eros dis
+                    ligula, porta sed conubia lectus parturient fusce orci cubilia nullam. Sollicitudin at ultrices
+                    tristique ultricies dignissim sociosqu cursus, pretium congue quisque torquent libero malesuada,
+                    accumsan hendrerit class vitae erat mollis. Aliquet mollis ut elementum at eleifend magnis dapibus
+                    vel commodo eu pulvinar imperdiet, non odio eros tellus scelerisque feugiat hendrerit consequat arcu
+                    libero a. Aptent quis neque lectus class quam feugiat, iaculis parturient porttitor ac et suscipit
+                    ultricies, himenaeos ut eros cubilia malesuada.</p>
+            </div>
+        </div>
+        <div class="quemSomosTopicos">
+            <article>
+                <img class="topicosIcones" id="missao" src="images/missaoIcon.png">
+                <h2>Missão</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit fusce hac egestas euismod risus, dictumst
+                    dapibus erat luctus urna vel volutpat augue suspendisse curabitur.</p>
+            </article>
+            <article>
+                <img class="topicosIcones" id="visao" src="images/visaoIcon.png">
+                <h2>visão</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit fusce hac egestas euismod risus, dictumst
+                    dapibus erat luctus urna vel volutpat augue suspendisse curabitur.</p>
+            </article>
+            <article>
+                <img id="valores" class="topicosIcones" src="images/valoresIcon.png" alt="">
+                <h2>Valores</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit fusce hac egestas euismod risus, dictumst
+                    dapibus erat luctus urna vel volutpat augue suspendisse curabitur.</p>
+            </article>
+        </div>
+    </section>
+    <!-- 
+        <foter>
+            <div class="column">
+              <div class="logo-footer">
+                <img  src="LOGO_COR_HORIZ.png" alt="Logo">
+              </div>
+              <div class="address">
+                <p>Rua casa nova, Nº 9<br>
+                   Bairro Oiticíca - Campo Grande/RJ <br>
+                   CEP: 23075-150
+                </p>
+              </div>
+              <div class="social">
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+            <div class="column">
+              <h3 class="titulo-footer">Contatos</h3>
+              <p>Email: embalagenscasanova@hotmail.com</p>
+              <p>Telefone: (21) 2411-9976</p>
+              <p>WhatsApp: (21) 975956593</p>
+            </div>
+            <div class="column">
+              <h3 class="titulo-footer">Mapa do Site</h3>
+              <ul class="ul-footer">
+                <li><a href="#">Página Inicial</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contato</a></li>
+              </ul>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Nome da Empresa. Todos os direitos reservados.</p>
+              </div>
+          </footer> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
