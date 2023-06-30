@@ -38,15 +38,9 @@ a {
 
 
 .header {
-    width: 100%;
-    box-shadow: 0px 5px 5px #000000af;
+    z-index: 99999;
     margin: 0%;
     padding: 0%;
-
-}
-
-
-.header-container-logo {
     position: fixed;
     display: flex;
     flex-direction: row;
@@ -57,7 +51,7 @@ a {
     justify-content: space-between;
     align-items: center;
     top: 0;
-    z-index: 1;
+
 }
 
 .logo-img {
@@ -133,23 +127,6 @@ a {
     transform: scale(1, 1);
 }
 
-/* .header-list li::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    transition: all 0.3s;
-    background-color: #ffffff1a;
-} */
-
-/* .header-list li:hover::after {
-    opacity: 0;
-    transform: scale(0.1, 1);
-    
-} */
 
 .dropdown {
     position: fixed;
@@ -235,7 +212,7 @@ a {
 
 .banner-container {
 
-    display: flex;
+    
     width: 100%;
     justify-content: center;
     box-shadow: 0px 5px 5px #00000042;
@@ -246,6 +223,7 @@ a {
 .banner-img,
 .carousel-item {
     width: 100%;
+   
 }
 
 .destaque-produtos-titulo-container {
@@ -253,7 +231,7 @@ a {
     flex-wrap: nowrap;
     justify-content: center;
     background-color: whitesmoke;
-    
+
 
 }
 
@@ -276,7 +254,6 @@ a {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
-    width: 100%;
     justify-content: center;
     padding: 20px 0 150px 0;
     background-color: whitesmoke;
@@ -291,8 +268,7 @@ a {
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
+    
     align-items: center;
     text-align: center;
     padding: 10px;
@@ -323,24 +299,20 @@ a {
 
 .btn {
     background-color: #277af7;
-    width: 100px;
+    /* width: 100px; */
     align-self: center;
 }
 
 
 .facaContatoContainer {
-    position:relative;
-    top: 10%;
-    top: 50%;
+
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
     align-items: center;
-    width: 85%;
+    width: 95%;
     margin: auto;
-    max-height: 320px;
     padding: 30px 10px;
     color: #ececec;
     border-radius: 5px;
@@ -350,52 +322,38 @@ a {
 
 }
 
-.facaContatoContent,
-.facaContatoBtn {
-    display: flex;
-    flex-direction: column;
-    text-transform: uppercase;
-    font-weight: 600;
+
+
+
+.facaContatoContainer h2 {
+    flex: 1 0 140px;
     text-align: center;
 }
 
+.facaContatoContainer p {
+    flex: 1 0 140px;
+    text-align: center;
 
-.facaContatoContent {
-    flex: 0.5;
 }
-
-
 
 .btn-outline-success {
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-wrap: nowrap;
     color: #ececec;
     background-color: #08be08;
-    width: 300px;
-    height: 65px;
+    padding: 10px;
     text-align: center;
     font-size: 19pt;
     border-radius: 10px;
-    box-shadow: 2px 2px 100px  #277af7b0;
+    box-shadow: 2px 2px 10px #000000;
+    flex: 0.5 0 50px;
+
+
+
 }
 
-.zoom-in-out-box {
-   
-    animation: zoom-in-zoom-out 700ms ease infinite;
-  }
-  
-  @keyframes zoom-in-zoom-out {
-    0% {
-      transform: scale(1, 1);
-    }
-    50% {
-      transform: scale(1.1, 1.1);
-    }
-    100% {
-      transform: scale(1, 1);
-    }
-  }
+
 
 .quemSomosContainer {
     display: flex;
@@ -407,71 +365,71 @@ a {
     padding: 100px;
     margin-top: 200px;
     background-image: url(images/quemSomosBg.png);
-    background-size:cover;
+    background-size: cover;
 }
 
 
 
-.quemSomosContent{
+.quemSomosContent {
     flex: 2;
-    position:relative;
-    
+    position: relative;
+
 }
 
-.quemSomosImg{
+.quemSomosImg {
     flex: 2;
 }
 
 
 .quemSomosImg img {
-    box-shadow: 1px 1px 20px  #000000;
+    box-shadow: 1px 1px 20px #000000;
     border-radius: 15px;
-    
+
 }
 
-.quemSomosContent p{
+.quemSomosContent p {
     color: #0000007e;
 }
 
-.quemSomosTopicos{
+.quemSomosTopicos {
     display: flex;
-    justify-content: space-between;
-    /* padding: 25px; */
     width: 100%;
     background-color: #F1F2F2;
-    
+
 }
 
-.quemSomosTopicos article{
+.quemSomosTopicos article {
     padding: 20px;
     text-align: center;
     text-transform: uppercase;
     border-radius: 5px;
-    margin: 25px 0  ;
+    margin: 25px 0;
+
+
 }
 
-.quemSomosTopicos article i{
+.quemSomosTopicos article i {
     font-size: 48px;
     margin: 0 0 10px 0;
 }
 
-.topicosIcones{
-width: 100px;
-margin-bottom: 30px;
+.topicosIcones {
+    width: 100px;
+    margin-bottom: 30px;
 
 }
 
-.quemSomosTopicos p{
+.quemSomosTopicos p {
     text-transform: lowercase;
-    
+
 }
 
-.quemSomosTopicos article:nth-child(2){
+.quemSomosTopicos article:nth-child(2) {
     background-color: #304296;
-    color: whitesmoke;   
-    box-shadow: -1px 1px 10px  #000000;
+    color: whitesmoke;
+    box-shadow: -1px 1px 10px #000000;
 
-    
+
 }
 
 
@@ -481,77 +439,104 @@ footer {
     display: flex;
     gap: 200px;
 
-  }
-  
-  .column {
+}
+
+.column {
     flex: 1;
     margin-right: 20px;
     color: #000000;
     display: flex;
     flex-direction: column;
 
-  }
-  
-  .column:last-child {
+}
+
+.column:last-child {
     margin-right: 0;
-  }
-  .column:first-child{
+}
+
+.column:first-child {
     margin-left: 100px;
     align-items: baseline;
 
-  }
-  
-  .logo-footer img {
+}
+
+.logo-footer img {
     width: 200px;
     border-radius: 50px;
-    
-  }
-  
-  .address, .social {
-    margin-top: 10px;
-  }
 
-  .social{
+}
+
+.address,
+.social {
+    margin-top: 10px;
+}
+
+.social {
     display: flex;
     gap: 20px;
-  }
-  
-  .social a {
+}
+
+.social a {
     margin-right: 5px;
     font-size: 2rem;
-  }
-  
-  .titulo-footer {
+}
+
+.titulo-footer {
     margin-bottom: 10px;
-  }
-  
-  .ul-footer {
+}
+
+.ul-footer {
     list-style-type: none;
     padding-left: 0;
-  }
-  
-  .ul-footer li {
+}
+
+.ul-footer li {
     margin-bottom: 5px;
-  }
-  
-  .ul-footer li a {
+}
+
+.ul-footer li a {
     color: #ececec;
     text-decoration: none;
-  }
-  
-  .ul-footer li a:hover {
-    text-decoration: underline;
-  }
-  
+}
 
-  @media screen and (max-width: 921px) {
-    .header-mobile-menu {
+.ul-footer li a:hover {
+    text-decoration: underline;
+}
+
+
+@media screen and (max-width: 921px) {
+
+    .header {
         display: flex;
-        font-size: 1.5rem;
+        justify-content: space-between;
+        width: 100%;
     }
 
-    .nav-header{
+    .header-mobile-menu {
+        display: block;
+        font-size: 1.7rem;
+        position: absolute;
+        left: 90%;
+        
+    }
+
+    .nav-header {
         display: none;
     }
+
+
+    .titulo-destaque-produtos {
+        font-size: 20px;
+        margin: 60px 0 10px 0;
+        
     }
 
+    .card-img-top {
+        width: 50%;
+    
+    }
+    .quemSomosTopicos {
+        flex-wrap: wrap;
+    }
+
+}
