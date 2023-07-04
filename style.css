@@ -212,7 +212,7 @@ a {
 
 .banner-container {
 
-    
+
     width: 100%;
     justify-content: center;
     box-shadow: 0px 5px 5px #00000042;
@@ -223,7 +223,7 @@ a {
 .banner-img,
 .carousel-item {
     width: 100%;
-   
+
 }
 
 .destaque-produtos-titulo-container {
@@ -268,7 +268,7 @@ a {
 }
 
 .card {
-    
+
     align-items: center;
     text-align: center;
     padding: 10px;
@@ -357,33 +357,41 @@ a {
 
 .quemSomosContainer {
     display: flex;
-    max-width: 100%;
-    min-width: 75%;
-    flex-wrap: wrap;
+    /* max-width: 100%;
+    min-width: 75%; */
+
     flex-direction: row;
     justify-content: space-between;
     padding: 100px;
-    margin-top: 200px;
+    margin-top: 100px;
     background-image: url(images/quemSomosBg.png);
     background-size: cover;
+    background-repeat: no-repeat;
+
+
 }
 
 
 
 .quemSomosContent {
-    flex: 2;
+    flex: 1;
     position: relative;
+    right: -5%;
+    text-align: right;
+    min-width: 449px;
 
 }
 
 .quemSomosImg {
-    flex: 2;
+    flex: 1;
+
 }
 
 
 .quemSomosImg img {
     box-shadow: 1px 1px 20px #000000;
     border-radius: 15px;
+    min-width: max-content;
 
 }
 
@@ -503,6 +511,52 @@ footer {
     text-decoration: underline;
 }
 
+@media screen and (max-width: 1095px) {
+
+    .quemSomosContainer {
+        background-color: #304296;
+        flex-direction: column-reverse;
+        text-align: center;
+        justify-content: center;
+        background-image: none;
+        padding: 20px;
+
+
+    }
+
+    .quemSomosContent  {
+        align-items: center;
+        margin: 0%;
+        padding: 0%;
+        position:static;
+        text-align: center;
+        color: #ececec;
+        min-width: auto;
+
+    }
+
+    .quemSomosContent p{
+        color: #ececec;
+        font-size: smaller;
+        
+    }
+
+
+}
+
+@media screen and (max-width: 990px) {
+    .quemSomosContainer {
+        
+       
+        text-align: center;
+        justify-content: center;
+
+    }
+    .quemSomosImg img{
+        min-width: 50%;
+    }
+    
+}
 
 @media screen and (max-width: 921px) {
 
@@ -517,7 +571,7 @@ footer {
         font-size: 1.7rem;
         position: absolute;
         left: 90%;
-        
+
     }
 
     .nav-header {
@@ -528,13 +582,14 @@ footer {
     .titulo-destaque-produtos {
         font-size: 20px;
         margin: 60px 0 10px 0;
-        
+
     }
 
     .card-img-top {
         width: 50%;
-    
+
     }
+
     .quemSomosTopicos {
         flex-wrap: wrap;
     }
