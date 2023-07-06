@@ -357,26 +357,21 @@ a {
 
 .quemSomosContainer {
     display: flex;
-    /* max-width: 100%;
-    min-width: 75%; */
-
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    width: 100%;
     padding: 100px;
     margin-top: 100px;
-    background-image: url(images/quemSomosBg.png);
+    background-image: url(images/quemSomosBg.svg);
     background-size: cover;
-    background-repeat: no-repeat;
-
-
 }
 
 
 
 .quemSomosContent {
     flex: 1;
-    position: relative;
-    right: -5%;
+    
     text-align: right;
     min-width: 449px;
 
@@ -384,6 +379,8 @@ a {
 
 .quemSomosImg {
     flex: 1;
+    width: 100%;
+
 
 }
 
@@ -511,52 +508,31 @@ footer {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 1095px) {
+@media screen and (max-width: 1050px) {
 
     .quemSomosContainer {
-        background-color: #304296;
+        padding: 40px 90px;
         flex-direction: column-reverse;
+        background-image: url(images/quemSomosBgVert.svg);
+        background-size: cover;
+
+    }
+
+    .quemSomosContent {
         text-align: center;
         justify-content: center;
-        background-image: none;
-        padding: 20px;
-
-
+        padding: 0 0 50px 0;
     }
 
-    .quemSomosContent  {
-        align-items: center;
-        margin: 0%;
-        padding: 0%;
-        position:static;
-        text-align: center;
-        color: #ececec;
-        min-width: auto;
-
+    .quemSomosImg {
+        display: flex;
+        justify-content: center;
     }
 
-    .quemSomosContent p{
-        color: #ececec;
-        font-size: smaller;
-        
-    }
 
 
 }
 
-@media screen and (max-width: 990px) {
-    .quemSomosContainer {
-        
-       
-        text-align: center;
-        justify-content: center;
-
-    }
-    .quemSomosImg img{
-        min-width: 50%;
-    }
-    
-}
 
 @media screen and (max-width: 921px) {
 
@@ -588,6 +564,21 @@ footer {
     .card-img-top {
         width: 50%;
 
+    }
+
+    .quemSomosContent {
+        min-width: 340px;
+        width: 100%;
+        /* right: 20%; */
+        padding: 0 0 100px 0;
+    }
+
+
+    .quemSomosImg img {
+        position: relative;
+        bottom: 6rem;
+        height: 250px;
+        margin: 0%;
     }
 
     .quemSomosTopicos {
