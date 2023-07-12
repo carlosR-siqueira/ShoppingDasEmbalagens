@@ -207,6 +207,14 @@ a {
     border-radius: 10px;
 }
 
+.dropdown-content a {
+    border: dotted 1px #30439621;
+    border-radius: 3px;
+}
+
+.cozinha-subMenu {
+    line-height: 30px;
+}
 
 
 
@@ -371,7 +379,7 @@ a {
 
 .quemSomosContent {
     flex: 1;
-    
+
     text-align: right;
     min-width: 449px;
 
@@ -434,6 +442,57 @@ a {
     color: whitesmoke;
     box-shadow: -1px 1px 10px #000000;
 
+
+}
+
+.localizacao {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    background-color: #304296;
+    color: #ececec;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.localizacao h2 {
+    flex: 1;
+    text-align: center;
+    font-size: 40pt;
+}
+
+
+
+
+.localizacao .maps {
+    flex: 1;
+
+}
+
+.map-responsive {
+
+    overflow: hidden;
+
+    padding-bottom: 56.25%;
+
+    position: relative;
+
+    height: 0;
+
+}
+
+.map-responsive iframe {
+
+    left: 0;
+
+    top: 0;
+
+    height: 100%;
+
+    width: 100%;
+
+    position: absolute;
 
 }
 
