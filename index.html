@@ -88,7 +88,7 @@
                             <a href="">9</a>
                             <a href="">10</a>
                         </div>
-                        
+
                     </div>
 
                 </li>
@@ -227,11 +227,12 @@
     </section>
 
 
-    <section  class="facaContatoContainer">
+    <section class="facaContatoContainer">
         <div class="facaContatoText">
             <h2>Faça já seu Orçamento</h2>
             <p>Entre em contato via WhatsApp para Orçamentos e Pedidos. </p>
         </div>
+        <div id="linha-vertical"></div>
         <button type="button" class="btn-outline-success ">WhatsApp <i class="bi bi-whatsapp"></i></button>
 
 
@@ -239,7 +240,7 @@
 
     <div id="quemSomos"></div>
 
-    <section  class="quemSomosContainer">
+    <section class="quemSomosContainer">
 
 
         <div class="quemSomosImg">
@@ -258,75 +259,102 @@
                 vel commodo eu pulvinar imperdiet, non odio eros tellus scelerisque feugiat hendrerit consequat arcu
                 libero a. Aptent quis neque lectus class quam feugiat, iaculis parturient porttitor ac et suscipit
                 ultricies, himenaeos ut eros cubilia malesuada.</p>
-            </div>
-            
-        </section>
-        <section class="quemSomosTopicos">
-            <article>
-                <img class="topicosIcones" id="missao" src="images/missaoIcon.png">
-                <h2>Missão</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit fusce hac egestas euismod risus, dictumst
-                    dapibus erat luctus urna vel volutpat augue suspendisse curabitur.</p>
-            </article>
-            <article>
-                <img class="topicosIcones" id="visao" src="images/visaoIcon.png">
-                <h2>visão</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit fusce hac egestas euismod risus, dictumst
-                    dapibus erat luctus urna vel volutpat augue suspendisse curabitur.</p>
-            </article>
-            <article>
-                <img id="valores" class="topicosIcones" src="images/valoresIcon.png" alt="">
-                <h2>Valores</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit fusce hac egestas euismod risus, dictumst
-                    dapibus erat luctus urna vel volutpat augue suspendisse curabitur.</p>
-            </article>
-        </section>
+        </div>
 
-        <section class="localizacao">
+    </section>
+    <section class="quemSomosTopicos">
+        <article>
+            <img class="topicosIcones" id="missao" src="images/missaoIcon.png">
+            <h2>Missão</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit fusce hac egestas euismod risus, dictumst
+                dapibus erat luctus urna vel volutpat augue suspendisse curabitur.</p>
+        </article>
+        <article>
+            <img class="topicosIcones" id="visao" src="images/visaoIcon.png">
+            <h2>visão</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit fusce hac egestas euismod risus, dictumst
+                dapibus erat luctus urna vel volutpat augue suspendisse curabitur.</p>
+        </article>
+        <article>
+            <img id="valores" class="topicosIcones" src="images/valoresIcon.png" alt="">
+            <h2>Valores</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit fusce hac egestas euismod risus, dictumst
+                dapibus erat luctus urna vel volutpat augue suspendisse curabitur.</p>
+        </article>
+    </section>
+
+    <section class="address">
+        <article class="localizacao">
             <h2>Venha conhecer nossa loja!</h2>
+            <div id="linha-vertical"></div>
+            <address>
 
-            <div class="maps map-responsive">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14703.234422248237!2d-43.56812302151035!3d-22.88352759563703!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9be3db7dd25da3%3A0xd846d0ffc7025c69!2sShopping%20das%20Embalagens!5e0!3m2!1spt-BR!2sbr!4v1689128250265!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                R. Casa Nova, 9 - Campo Grande<br> CEP:23075-150 Rio de Janeiro - RJ <br><br>
+                <input class="comoChegarBtn" type="button" value="Como Chegar?" onclick="openModal()">
+            </address>
+            <div id="myModal" class="modal-maps">
+                <div class="modal-maps-content">
+
+                    <div id="map" class="maps map-responsive">
+                        <span class="close-maps" onclick="closeModal()">&times;</span>
+
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14703.234422248237!2d-43.56812302151035!3d-22.88352759563703!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9be3db7dd25da3%3A0xd846d0ffc7025c69!2sShopping%20das%20Embalagens!5e0!3m2!1spt-BR!2sbr!4v1689128250265!5m2!1spt-BR!2sbr"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                    </div>
+                </div>
             </div>
-        </section>
-    <!-- 
-        <foter>
-            <div class="column">
-              <div class="logo-footer">
-                <img  src="LOGO_COR_HORIZ.png" alt="Logo">
-              </div>
-              <div class="address">
-                <p>Rua casa nova, Nº 9<br>
-                   Bairro Oiticíca - Campo Grande/RJ <br>
-                   CEP: 23075-150
+        </article>
+
+
+
+    </section>
+    <footer>
+        <div id="linha-horizontal"></div>
+        <div class="content-footer">
+            <div class="bloco1">
+
+                <div class="logo-footer">
+                    <img src="LOGO_branco_HORIZ.png" alt="Logo">
+                </div>
+                <article>
+                    <p>A melhor opção de descartáveis na Zona Oeste</p>
+                </article>
+                <div class="social">
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                <address>
+                    <span id="address-title">
+                        Endereço:
+                    </span> <br>
+                    R. Casa Nova, 9 - Campo Grande<br> CEP:23075-150 Rio de Janeiro - RJ <br><br>
+                </address>
+            </div>
+            <div class="bloco2">
+                <h3 class="titulo-footer">FUNCIONAMENTO</h3>
+                <br><br>
+                <p>
+                    Segunda a Sexta: 8:30h às 18:30h <br>
+                    Sábados: 8:30h às 14hs
                 </p>
-              </div>
-              <div class="social">
-                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-              </div>
+
             </div>
-            <div class="column">
-              <h3 class="titulo-footer">Contatos</h3>
-              <p>Email: embalagenscasanova@hotmail.com</p>
-              <p>Telefone: (21) 2411-9976</p>
-              <p>WhatsApp: (21) 975956593</p>
+            <div class="bloco3">
+
+                <h3 class="titulo-footer">Contatos</h3><br>
+                <p>Email: embalagenscasanova@hotmail.com</p>
+                <p>Telefone: (21) 2411-9976</p>
+                <p>WhatsApp: (21) 975956593</p>
             </div>
-            <div class="column">
-              <h3 class="titulo-footer">Mapa do Site</h3>
-              <ul class="ul-footer">
-                <li><a href="#">Página Inicial</a></li>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#">Produtos</a></li>
-                <li><a href="#">Serviços</a></li>
-                <li><a href="#">Contato</a></li>
-              </ul>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Nome da Empresa. Todos os direitos reservados.</p>
-              </div>
-          </footer> -->
+        </div>
+        <div class="copyright">
+            <p>Direitos reservados &copy; 2023 Shopping Das Embalagens. |Desenvolvido por: Carlos Siqueira.</p>
+        </div>
+    </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

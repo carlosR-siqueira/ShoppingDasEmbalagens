@@ -107,3 +107,15 @@ function higieneMouseEnter() {
 function higieneMouseOut() {
     subMenuHigieneItens.classList.remove('subMenu')
 }
+
+
+ // Função para abrir a janela modal
+ function openModal() {
+    document.getElementById("myModal").style.display = "block";
+    initMap();
+  }
+
+  // Função para fechar a janela modal
+  function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+  }
