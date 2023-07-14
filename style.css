@@ -586,49 +586,13 @@ a {
     margin-bottom: 50px;
 }
 
-footer {
-    background-color: #1d3883;
-    /* background-color: #20409A; */
-    width: 100%;
-    
-
-
+.footer {
+    background: #152F4F;
+    color: white;
+    margin-top: 1px !important;
+    display: flex !important;
+    justify-content: space-between !important;
 }
-
-.content-footer{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    color: whitesmoke;
-    padding: 30px 70px;
-
-   
-
-}
-
-.bloco1 {
-    /* margin-left: 50px; */
-    flex: 1;
-    align-self: center;
-}
-
-
-
-.bloco2 {
-    flex: 1;
-    
-}
-
-
-.logo-footer img {
-    width: 220px;
-    border-radius: 50px;
-    
-
-}
-
-
 
 .social {
     display: flex;
@@ -640,42 +604,94 @@ footer {
     font-size: 2rem;
 }
 
-.titulo-footer {
-    margin-bottom: 10px;
+footer .btn-facebook a {
+    padding: 6px 14px !important;
 }
 
-.ul-footer {
-    list-style-type: none;
-    padding-left: 0;
+footer .btn-envelop a {
+    color: #D6403A;
+    font-size: 15px;
+    padding: 12px 12px;
 }
 
-.ul-footer li {
-    margin-bottom: 5px;
+footer .round-btn a {
+    padding: 6px 12px;
 }
 
-.ul-footer li a {
-    color: #ececec;
-    text-decoration: none;
+
+
+footer .round-btn {
+    margin: 15px 4px;
 }
 
-.ul-footer li a:hover {
-    text-decoration: underline;
+footer li {
+    list-style: none;
 }
 
-.copyright {
-    background-color: #000000;
-    color: #f5f5f5;
-    padding: 5px;
-    text-align: center;
-   
-  }
-  
-  .copyright p {
-    font-family: 'Orbitron', sans-serif;
-    margin:0 ;
-    
+.round-btn {
+    display: inline;
+    height: 40px;
+    width: 40px;
+    background: #fff;
+    border-radius: 50%;
+    float: left;
+    margin: 15px 8px;
+    box-shadow: 2px 2px 5px 0px rgb(82, 0, 67);
+    border: 1px solid;
+    /*border: 1px solid #622657;*/
+}
 
-  }
+.round-btn a {
+    display: block !important;
+    padding: 7px 12px;
+    font-size: 18px;
+    border-radius: 50%;
+}
+
+.round-btn .icon {
+    padding: 3px;
+}
+
+.round-btn .icon img {
+    height: 24px;
+    width: 32px;
+    margin-top: 6px;
+}
+
+.btn-facebook a {
+    color: #3b5998;
+    padding: 8px 13px;
+}
+
+
+
+
+
+.btn-instagram a {
+    color: #dd3f5c;
+}
+
+.btn-whatsapp a {
+    color: #155E54;
+}
+
+.btn-envelop a {
+    color: #D6403A;
+    font-size: 15px;
+    padding: 9px 12px;
+}
+
+.standard_social_links {
+    margin-left: 1rem;
+}
+
+
+
+
+.copyright p {
+    border-top: 1px solid rgba(255, 255, 255, .1);
+}
+
 
 @media screen and (max-width: 1050px) {
 
