@@ -109,13 +109,13 @@ function higieneMouseOut() {
 }
 
 
- // Função para abrir a janela modal
+ // Função para abrir a janela modal maps
  function openModal() {
     document.getElementById("myModal").style.display = "block";
     initMap();
   }
 
-  // Função para fechar a janela modal
+  // Função para fechar a janela modal maps
   function closeModal() {
     document.getElementById("myModal").style.display = "none";
   }

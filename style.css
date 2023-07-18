@@ -242,6 +242,7 @@ a {
     flex-wrap: nowrap;
     justify-content: center;
     background-color: whitesmoke;
+    width: 100%;
 
 
 }
@@ -580,39 +581,40 @@ a {
 
 }
 
-#linha-horizontal {
-    width: 100%;
-    border: 1px solid #ffffff;
-    margin-bottom: 50px;
-}
+
 
 footer{
-    margin: 0%;
-
+    display: flex;
+    flex-direction: column;
+    margin-top: 1px;
+    
 }
-.footer {
 
+
+.footer-container {
+   
     background-color: #121213;
     width: 100%;
     height: 100%;
     float: left;
     font-size: 18px;
     padding: 50px 10px 50px 10px;
+    border-bottom: #ffffff50;
     
 
 }
 
-.footer .left {
+.footer-container .left {
 
     width: 100%;
     float: left;
-    border-bottom: 1px #222424 solid;
+    border-bottom: solid 1px #222424 ;
     border-right: 0;
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
 
-.footer .title-footer {
+.footer-container .title-footer {
 
     color: #ffffff;
     font-family: 'DM Sans', sans-serif;
@@ -624,7 +626,7 @@ footer{
 
 }
 
-.footer .title-footer span {
+.footer-container .title-footer span {
 
     color: #2fcacf;
     font-family: 'DM Sans', sans-serif;
@@ -634,7 +636,7 @@ footer{
 
 /* Footer links */
 
-.footer .address {
+.footer-container .address {
 
     width: 100%;
     float: left;
@@ -644,7 +646,7 @@ footer{
 
 }
 
-.footer .address a {
+.footer-container .address a {
 
     display: block;
     line-height: 33px;
@@ -657,29 +659,33 @@ footer{
 
 }
 
-.footer .address a:hover {
+.footer-container .address a:hover {
     color: #2fcacf;
 }
 
-.Copyright {
+.Copyright-container {
     background-color: #121213;
     font-family: 'DM Sans', sans-serif;
     color: #ffffff;
     font-size: 14px;
     font-weight: normal;
+    padding: 20px;
+    text-align: center;
+    
+    
 }
 
 
 /*Rede Sociais*/
 
-.footer .footer-icons {
+.footer-container .footer-icons {
 
     width: 100%;
     float: left;
     margin-bottom: 20px;
 }
 
-.footer .footer-icons a {
+.footer-container .footer-icons a {
 
     display: inline-block;
     width: 35px;
@@ -697,13 +703,13 @@ footer{
 
 }
 
-.footer .footer-icons a:hover {
-    background-color: #2fcacf;
+.footer-container .footer-icons a:hover {
+    background-color: #1d3883;
 }
 
 /*Right*/
 
-.footer .right {
+.footer-container .right {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -714,7 +720,6 @@ footer{
 .right-p {
 
     font-family: 'DM Sans', sans-serif;
-    vertical-align: top;
     font-size: 11pt;
     color: #ffffffb9;
 }
@@ -725,53 +730,41 @@ footer{
 
 
 
+.Copyright-container p{
+    margin: 0;
+}
+
+
 /*Responsive*/
 @media (min-width: 1280px) {
 
-    .footer {
+    .footer-container {
         padding: 100px 50px 50px 100px;
     }
 
-    .footer .Copyright {
+    .footer-container .Copyright {
         font-size: 16px;
     }
 
-    .footer form input,
-    .footer form textarea {
-        width: 100%;
-        float: left;
-    }
 
-    .footer form button {
-        padding: 10px 35px;
-    }
+    
 
 }
 
 @media (min-width: 768px) {
 
-    .footer .left {
+    .footer-container .left {
         width: 48%;
         border-bottom: 0;
     }
 
-    .footer .right {
+    .footer-container .right {
         width: 48%;
         padding-left: 4%;
         border-left: 1px #222424 solid;
     }
 
-    .footer form {
-        margin-top: 30px;
-    }
 
-    .footer form {
-        display: block;
-    }
-
-    .footer form button {
-        float: none;
-    }
 
 }
 
@@ -802,6 +795,10 @@ footer{
     .quemSomosImg {
         display: flex;
         justify-content: center;
+    }
+
+    .quemSomosTxt{
+        padding: 20px;
     }
 
 

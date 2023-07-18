@@ -22,16 +22,16 @@
     <div id="inicio">Topo</div>
 
     <header class="header">
-
+        
         <a href="#inicio" class="logo-link">
             <img src="LOGO_COR_HORIZ.png" alt="Shopping das Embalagens" class="logo-img" />
         </a>
         <div class="header-mobile-menu">
-
+    
             <i class="fa fa-bars" aria-hidden="true"></i>
-
+    
         </div>
-
+        
         <nav class="nav-header">
 
             <i id="close-btn" class="fa-regular fa-circle-xmark"></i>
@@ -249,7 +249,7 @@
 
         <div class="quemSomosContent">
             <h2>Quem somos?</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit diam ultricies curabitur nunc, magna primis
+            <p class="quemSomosTxt">Lorem ipsum dolor sit amet consectetur adipiscing elit diam ultricies curabitur nunc, magna primis
                 habitasse vestibulum risus hac egestas pulvinar sem eros, a tristique ut sapien mus vivamus
                 sollicitudin bibendum luctus ullamcorper. Facilisi ad cras curae est suspendisse taciti odio
                 maecenas sagittis viverra, purus penatibus dictumst habitant dapibus inceptos euismod eros dis
@@ -261,7 +261,7 @@
                 ultricies, himenaeos ut eros cubilia malesuada.</p>
         </div>
 
-    </section>
+    </section> 
     <section class="quemSomosTopicos">
         <article>
             <img class="topicosIcones" id="missao" src="images/missaoIcon.png">
@@ -299,9 +299,7 @@
                         <span class="close-maps" onclick="closeModal()">&times;</span>
 
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14703.234422248237!2d-43.56812302151035!3d-22.88352759563703!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9be3db7dd25da3%3A0xd846d0ffc7025c69!2sShopping%20das%20Embalagens!5e0!3m2!1spt-BR!2sbr!4v1689128250265!5m2!1spt-BR!2sbr"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4371.3241707902025!2d-43.5695366716625!3d-22.882707016979815!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9be3db7dd25da3%3A0xd846d0ffc7025c69!2sShopping%20das%20Embalagens!5e0!3m2!1spt-BR!2sbr!4v1689644987907!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                     </div>
                 </div>
@@ -314,59 +312,63 @@
 
 
     <footer>
-        <div class="footer">
-            
+
+        <div class="footer-container">
+
 
             <div class="left">
-                
-            <img src="LOGO_BRANCO_HORIZ.png" alt="Logo" width="220px">
-            <p class="right-p">A melhor opção de descartáveis na Zona Oeste! </p><br>
-            
-            <div class="footer-icons">
 
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-pinterest"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
+                <img src="LOGO_BRANCO_HORIZ.png" alt="Logo" width="220px">
+                <p class="right-p">A melhor opção de descartáveis na Zona Oeste! </p><br>
+
+                <div class="footer-icons">
+
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+
+                </div>
+
+
+                <address class="address">
+                    <span id="address-title">
+                        Endereço:
+                    </span> <br>
+                    R. Casa Nova, 9 - Campo Grande<br> CEP:23075-150 Rio de Janeiro - RJ <br><br>
+                </address>
 
             </div>
 
+            <!--Left-->
+            <div class="right">
 
-            <address class="address">
-                <span id="address-title">
-                    Endereço:
-                </span> <br>
-                R. Casa Nova, 9 - Campo Grande<br> CEP:23075-150 Rio de Janeiro - RJ <br><br>
-            </address>
+                <h4 class="title-footer">Funcionamento</h4>
+                <p class="right-p">
+                    Segunda a Sexta - 8:30H às 18:30H <br>
+                    Sábados - 8:30h às 14H <br>
+                    Domingos e Feriados - Fechado
+                </p><br>
 
-        </div>
-        
-        <!--Left-->
+                <h4 class="title-footer">Contato</h4>
 
-        <div class="right">
+                <p class="right-p">Email: embalagenscasanova@hotmail.com</p>
+                <p class="right-p">Telefone: (21) 2411-9976</p>
+                <p class="right-p">WhatsApp: (21) 975956593</p>
 
-            <h4 class="title-footer">Funcionamento</h4>
-            <p class="right-p">
-                Segunda a Sexta - 8:30h às 18:30h <br>
-                Sábados - 8:30h às 14hs <br>
-                Domingos e Feriados - Fechado
-            </p><br>
+                
+            </div>
+            <!--Right-->
             
-            <h4 class="title-footer">Contato</h4>
 
-            <p class="right-p">Email: embalagenscasanova@hotmail.com</p>
-            <p class="right-p">Telefone: (21) 2411-9976</p>
-            <p class="right-p">WhatsApp: (21) 975956593</p>
-
-
+            
         </div>
-        <!--Right-->
-        
-    </div>
-    
-    <div class="Copyright">
+        <div class="Copyright-container">
             <p>Direitos reservados &copy; 2023 Shopping Das Embalagens. | Desenvolvido por: Carlos Siqueira.</p>
         </div>
+
+        
+
     </footer>
 
     <!-- <footer class="mt-5 pt-5 pb-5 footer">
