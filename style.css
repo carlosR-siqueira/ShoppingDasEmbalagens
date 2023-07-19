@@ -583,24 +583,27 @@ a {
 
 
 
-footer{
+footer {
     display: flex;
     flex-direction: column;
     margin-top: 1px;
-    
+    padding: 0%;
+
 }
 
 
 .footer-container {
-   
+    display: flex;
+    justify-content: center;
     background-color: #121213;
     width: 100%;
     height: 100%;
     float: left;
     font-size: 18px;
-    padding: 50px 10px 50px 10px;
+    padding: 0%;
     border-bottom: #ffffff50;
-    
+    margin: 0%;
+
 
 }
 
@@ -608,7 +611,7 @@ footer{
 
     width: 100%;
     float: left;
-    border-bottom: solid 1px #222424 ;
+    border-bottom: solid 1px #242222;
     border-right: 0;
     margin-bottom: 20px;
     padding-bottom: 20px;
@@ -619,7 +622,7 @@ footer{
     color: #ffffff;
     font-family: 'DM Sans', sans-serif;
     font-weight: initial;
-    font-size: 26px;
+    font-size: 18px;
     width: 100%;
     float: left;
     margin-bottom: 15px;
@@ -633,6 +636,34 @@ footer{
     font-weight: bold;
 
 }
+
+.payment-methods{
+    margin-bottom: 50px;
+}
+
+.payment{
+    display: flex;
+    gap: 20px;
+    align-items: baseline;
+}
+
+
+.payment li img{
+    width: 50px;
+    
+}
+
+.semJuros{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    
+}
+
+.semJuros img{
+    width: 340px;
+}
+
 
 /* Footer links */
 
@@ -671,21 +702,43 @@ footer{
     font-weight: normal;
     padding: 20px;
     text-align: center;
-    
-    
 }
+
+.carlos-dev {
+    color: inherit;
+}
+
+/* horizontal line */
+.hr {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+hr {
+    margin: 0%;
+    border: 0;
+    width: 75%;
+    border-top: 1px solid #f1f2f277;
+}
+
+/* horizontal line */
 
 
 /*Rede Sociais*/
 
 .footer-container .footer-icons {
-
+    display: flex;
     width: 100%;
     float: left;
-    margin-bottom: 20px;
+    
+    gap: 12px;
+    
+
 }
 
-.footer-container .footer-icons a {
+.footer-container .footer-icons a,
+.right-p a {
 
     display: inline-block;
     width: 35px;
@@ -701,9 +754,11 @@ footer{
     margin-bottom: 5px;
     transition: 0.3s;
 
+
 }
 
-.footer-container .footer-icons a:hover {
+.footer-container .footer-icons a:hover,
+.right-p a:hover {
     background-color: #1d3883;
 }
 
@@ -712,9 +767,10 @@ footer{
 .footer-container .right {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     width: 100%;
     float: left;
+    height: 80vh;
+    
 }
 
 .right-p {
@@ -724,13 +780,13 @@ footer{
     color: #ffffffb9;
 }
 
-.right-p ul li{
+.right-p ul li {
     text-align: center;
 }
 
 
 
-.Copyright-container p{
+.Copyright-container p {
     margin: 0;
 }
 
@@ -747,7 +803,7 @@ footer{
     }
 
 
-    
+
 
 }
 
@@ -797,7 +853,7 @@ footer{
         justify-content: center;
     }
 
-    .quemSomosTxt{
+    .quemSomosTxt {
         padding: 20px;
     }
 
