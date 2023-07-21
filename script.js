@@ -119,3 +119,17 @@ function higieneMouseOut() {
   function closeModal() {
     document.getElementById("myModal").style.display = "none";
   }
+
+  window.addEventListener("scroll", function() {
+    var whatsappIcon = document.querySelector(".whatsapp-icon");
+    var distanceFromTop = window.scrollY;
+  
+    if (distanceFromTop > 200) {
+      whatsappIcon.style.transform = "scale(1)";
+    } else {
+      whatsappIcon.style.transform = "scale(0)";
+    }
+  });
+
+
+
