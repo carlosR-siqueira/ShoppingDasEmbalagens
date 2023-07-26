@@ -109,27 +109,34 @@ function higieneMouseOut() {
 }
 
 
- // Função para abrir a janela modal maps
- function openModal() {
+// Função para abrir a janela modal maps
+function openModal() {
     document.getElementById("myModal").style.display = "block";
     initMap();
-  }
+}
 
-  // Função para fechar a janela modal maps
-  function closeModal() {
+// Função para fechar a janela modal maps
+function closeModal() {
     document.getElementById("myModal").style.display = "none";
-  }
+}
 
-  window.addEventListener("scroll", function() {
+window.addEventListener("scroll", function () {
     var whatsappIcon = document.querySelector(".whatsapp-icon");
     var distanceFromTop = window.scrollY;
-  
+
     if (distanceFromTop > 200) {
-      whatsappIcon.style.transform = "scale(1)";
+        whatsappIcon.style.transform = "scale(1)";
     } else {
-      whatsappIcon.style.transform = "scale(0)";
+        whatsappIcon.style.transform = "scale(0)";
     }
-  });
+});
+
+
+
+
+
+
+
 
 
 
