@@ -116,9 +116,20 @@ function openModal() {
 }
 
 // Função para fechar a janela modal maps
+
+
 function closeModal() {
     document.getElementById("myModal").style.display = "none";
+    
+
 }
+
+
+
+
+
+
+
 
 window.addEventListener("scroll", function () {
     var whatsappIcon = document.querySelector(".whatsapp-icon");
