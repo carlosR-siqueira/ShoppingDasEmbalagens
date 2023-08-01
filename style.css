@@ -67,21 +67,19 @@ a {
 }
 
 .logoReduzContainer {
-    display: flex;
+    display: none;
     width: 100%;
-    justify-content: space-between;
-    align-items: center;
+    align-items:center;
 }
 
-.logoReduzContainer h6 {
+.mobile-title {
     color: #304296;
     display: none;
 }
 
 .logo-img-reduz {
     width: 72px;
-    margin-left: 10px;
-    display: none;
+   
 }
 
 
@@ -90,19 +88,148 @@ a {
     display: none;
 }
 
-#close-btn {
-    display: none ;
-    z-index: 1;
+
+/* open btn menu */
+
+.btn-mobile-menu {
     /* position: absolute; */
-    font-size: 30pt;
-    font-style: none;
-
+    width: 30px;
+    /* Reduzido pela metade */
+    height: 30px;
+    /* Reduzido pela metade */
+    top: 0;
+    left: 0px;
+    cursor: pointer;
 }
 
-#close-btn i {
-    
-    margin: 0 10px 0 0;
+.btn-left {
+    background-color: #304296;
+    position: absolute;
+    height: 4px;
+    /* Reduzido pela metade */
+    width: 15px;
+    /* Reduzido pela metade */
+    top: 15px;
+    /* Reduzido pela metade */
+    left: 0px;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
 }
+
+.btn-left:before {
+    background-color: #304296;
+    position: absolute;
+    width: 15px;
+    /* Reduzido pela metade */
+    height: 4px;
+    /* Reduzido pela metade */
+    content: "";
+    top: -10px;
+    /* Reduzido pela metade */
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+.btn-left:after {
+    background-color: #304296;
+    position: absolute;
+    width: 15px;
+    /* Reduzido pela metade */
+    height: 4px;
+    /* Reduzido pela metade */
+    content: "";
+    top: 10px;
+    /* Reduzido pela metade */
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+.btn-right {
+    background-color: #304296;
+    position: absolute;
+    height: 4px;
+    /* Reduzido pela metade */
+    width: 15px;
+    /* Reduzido pela metade */
+    top: 15px;
+    /* Reduzido pela metade */
+    left: 15px;
+    /* Reduzido pela metade */
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+.btn-right:before {
+    background-color: #304296;
+    position: absolute;
+    width: 15px;
+    /* Reduzido pela metade */
+    height: 4px;
+    /* Reduzido pela metade */
+    content: "";
+    top: -10px;
+    /* Reduzido pela metade */
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+.btn-right:after {
+    background-color: #304296;
+    position: absolute;
+    width: 15px;
+    /* Reduzido pela metade */
+    height: 4px;
+    /* Reduzido pela metade */
+    content: "";
+    top: 10px;
+    /* Reduzido pela metade */
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+.active .btn-left {
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    background: transparent;
+}
+
+.active .btn-left:before {
+    -webkit-transform: rotateZ(45deg) scaleX(1.4) translate(2px, 2px);
+    /* Reduzido pela metade */
+    transform: rotateZ(45deg) scaleX(1.4) translate(2px, 2px);
+    /* Reduzido pela metade */
+}
+
+.active .btn-left:after {
+    -webkit-transform: rotateZ(-45deg) scaleX(1.4) translate(2px, -2px);
+    /* Reduzido pela metade */
+    transform: rotateZ(-45deg) scaleX(1.4) translate(2px, -2px);
+    /* Reduzido pela metade */
+}
+
+.active .btn-right {
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    background: transparent;
+}
+
+.active .btn-right:before {
+    -webkit-transform: rotateZ(-45deg) scaleX(1.4) translate(-2px, 2px);
+    /* Reduzido pela metade */
+    transform: rotateZ(-45deg) scaleX(1.4) translate(-2px, 2px);
+    /* Reduzido pela metade */
+}
+
+.active .btn-right:after {
+    -webkit-transform: rotateZ(45deg) scaleX(1.4) translate(-2px, -2px);
+    /* Reduzido pela metade */
+    transform: rotateZ(45deg) scaleX(1.4) translate(-2px, -2px);
+    /* Reduzido pela metade */
+}
+
+
+/* open btn menu */
+
 
 .header-list {
     display: flex;
@@ -920,7 +1047,15 @@ hr {
 
 @media screen and (max-width: 1050px) {
 
-  
+    #close-btn {
+
+        z-index: 1;
+        /* position: absolute; */
+        font-size: 30pt;
+        font-style: none;
+
+    }
+
     .quemSomosContainer {
         padding: 40px 90px;
         flex-direction: column-reverse;
@@ -986,9 +1121,13 @@ hr {
         width: 100%;
     }
 
-    .logoReduzContainer h6 {
-        display: flex;
-        margin-left: 12px;
+   
+
+    .mobile-title {
+       display: block;
+       font-size: 11pt;
+       margin: 5px 0 0 0 ;
+       font-weight: 900;
     }
 
     .logo-img {
@@ -996,16 +1135,15 @@ hr {
 
     }
 
-    .logo-img-reduz {
-
-        display: block;
+    .logoReduzContainer {
+        display: flex;
+        width: 100%;
+        align-items:center;
     }
-
 
 
     .header-mobile-menu {
         display: block;
-        font-size: 1.7rem;
         position: absolute;
         left: 90%;
 
@@ -1022,25 +1160,58 @@ hr {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        top: 0%;
+        top: 4.11rem;
         left: 0%;
-        background: #ffffff;
-        box-shadow: 10px 10px 10px #00000075;
-        border-radius: 7px;
+        background: #F1F2F2;
+        box-shadow: 5px 10px 12px 1px #0000008c;
         width: 100%;
+        padding: 0%;
         height: 100%;
         margin: 0%;
-        text-align: center;
         font-size: 1.4rem;
+
         transition: all 300ms ease-in-out;
 
     }
 
     .open-mobile-menu li {
+
+        display: flex;
         width: 100%;
         height: 10%;
+        padding: 12px 36px 12px 10px;
+        text-align: left;
+        font-size: 18px;
+        
+
+
 
     }
+
+    .header-list li::before {
+        width: 0%;
+        height: 0%;
+        
+    }
+    
+    .header-list li:hover a {
+        letter-spacing: 0px;
+    }
+    
+  
+    .dropdown-content a:hover {
+        background-color: inherit;
+        color: #ececec;
+    
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: none;
+        flex-direction: none;
+    
+    }
+
+
 
 
     .titulo-destaque-produtos {
