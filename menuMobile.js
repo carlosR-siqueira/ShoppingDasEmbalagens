@@ -1,23 +1,35 @@
 
-
-
-
-
-
 const btnMobile = document.querySelector('.btn-mobile-menu')
-let headerList = document.querySelector(".header-list")
+const headerList = document.querySelector(".header-list")
+const dropBtn = document.querySelector('.drop-btn')
+const dropdownContent = document.querySelector('.dropdown-content')
 
 
 btnMobile.addEventListener('click', openMobileMenu)
-headerList.addEventListener('click', openMobileMenu)
 
-function openMobileMenu(){
-    headerList.classList.toggle('open-mobile-menu')
-    
+
+function openMobileMenu() {
+
     btnMobile.classList.toggle('active')
+    headerList.classList.toggle('open-mobile-menu')
 }
 
+/*dropBtn.addEventListener('click', openDropMenu)
 
+function openDropMenu(){
+
+    headerList.classList.toggle('open-mobile-menu');
+    dropdownContent.classList.toggle('drop-menu')
+}*/
+
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === 'Escape') {
+        headerList.classList.remove('open-mobile-menu');
+        btnMobile.classList.remove('active')
+
+    }
+});
 
 
 

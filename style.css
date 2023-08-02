@@ -69,7 +69,7 @@ a {
 .logoReduzContainer {
     display: none;
     width: 100%;
-    align-items:center;
+    align-items: center;
 }
 
 .mobile-title {
@@ -79,7 +79,7 @@ a {
 
 .logo-img-reduz {
     width: 72px;
-   
+
 }
 
 
@@ -353,7 +353,7 @@ a {
 
 .subMenu a:hover {
     background-color: #2788f7;
-    color: #ececec;
+    color: #ececec; 
 }
 
 .subMenu::-webkit-scrollbar {
@@ -1121,13 +1121,13 @@ hr {
         width: 100%;
     }
 
-   
+
 
     .mobile-title {
-       display: block;
-       font-size: 11pt;
-       margin: 5px 0 0 0 ;
-       font-weight: 900;
+        display: block;
+        font-size: 11pt;
+        margin: 5px 0 0 0;
+        font-weight: 900;
     }
 
     .logo-img {
@@ -1138,7 +1138,7 @@ hr {
     .logoReduzContainer {
         display: flex;
         width: 100%;
-        align-items:center;
+        align-items: center;
     }
 
 
@@ -1155,7 +1155,7 @@ hr {
 
     }
 
-    .open-mobile-menu {
+    .open-mobile-menu, .drop-menu {
         position: fixed;
         display: flex;
         flex-direction: column;
@@ -1164,12 +1164,11 @@ hr {
         left: 0%;
         background: #F1F2F2;
         box-shadow: 5px 10px 12px 1px #0000008c;
-        width: 100%;
+        width: 85%;
         padding: 0%;
         height: 100%;
         margin: 0%;
         font-size: 1.4rem;
-
         transition: all 300ms ease-in-out;
 
     }
@@ -1182,8 +1181,21 @@ hr {
         padding: 12px 36px 12px 10px;
         text-align: left;
         font-size: 18px;
-        
 
+
+
+
+    }
+
+    .header-list li a {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+
+    .drop-btn::after {
+        content: "\003E";
 
 
     }
@@ -1191,24 +1203,36 @@ hr {
     .header-list li::before {
         width: 0%;
         height: 0%;
-        
+
     }
-    
+
     .header-list li:hover a {
         letter-spacing: 0px;
     }
-    
+
+
   
+
+
     .dropdown-content a:hover {
-        background-color: inherit;
-        color: #ececec;
-    
+        background-color: none;
+        color: #000000;
+
     }
-    
+
     .dropdown:hover .dropdown-content {
         display: none;
         flex-direction: none;
-    
+
+    }
+
+    .subMenu{
+        display: none;
+    }
+
+    .subMenu a:hover{
+        background-color: none;
+        color: #000000;
     }
 
 
