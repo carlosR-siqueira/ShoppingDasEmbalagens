@@ -18,8 +18,10 @@ function openMobileMenu() {
 
 function openDropMenu(){
 
-    headerList.classList.toggle('open-mobile-menu');
-    dropdownContent.classList.toggle('drop-menu')
+    headerList.classList.remove('open-mobile-menu')
+    dropdownContent.classList.toggle('drop-menu') 
+
+    
 }*/
 
 
