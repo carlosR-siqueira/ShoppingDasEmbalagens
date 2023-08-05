@@ -3,6 +3,7 @@ const btnMobile = document.querySelector('.btn-mobile-menu')
 const headerList = document.querySelector(".header-list")
 const dropBtn = document.querySelector('.drop-btn')
 const dropdownContent = document.querySelector('.dropdown-content')
+const headerListItens = document.querySelector(".header-list-itens")
 
 
 btnMobile.addEventListener('click', openMobileMenu)
@@ -18,13 +19,13 @@ function openMobileMenu() {
 
 function openDropMenu(){
 
-    headerList.classList.remove('open-mobile-menu')
-    dropdownContent.classList.toggle('drop-menu') 
+    headerListItens.style.display = 'none'
+    dropdownContent.classList.add('drop-menu') 
 
     
-}*/
+}
 
-
+*/
 document.addEventListener("keydown", (event) => {
     if (event.key === 'Escape') {
         headerList.classList.remove('open-mobile-menu');

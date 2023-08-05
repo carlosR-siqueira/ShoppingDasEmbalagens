@@ -330,6 +330,9 @@ a {
 
 }
 
+.arrow-right-menu {
+    display: none;
+}
 
 
 .subMenu {
@@ -353,7 +356,7 @@ a {
 
 .subMenu a:hover {
     background-color: #2788f7;
-    color: #ececec; 
+    color: #ececec;
 }
 
 .subMenu::-webkit-scrollbar {
@@ -1172,6 +1175,7 @@ hr {
         transition: all 300ms ease-in-out;
 
     }
+
     .drop-menu {
         position: fixed;
         display: flex;
@@ -1205,11 +1209,11 @@ hr {
 
     }
 
-    .header-list ul{
+    .header-list ul {
         margin: 0%;
     }
 
-    
+
 
     .header-list li a {
         display: flex;
@@ -1219,14 +1223,14 @@ hr {
         margin: 0%;
     }
 
-    .header-list span{
+    .header-list span {
         font-size: 1.25rem;
     }
 
-    
 
 
-  
+
+
 
     .header-list li::before {
         width: 0%;
@@ -1238,8 +1242,8 @@ hr {
         letter-spacing: 0px;
     }
 
- 
-   
+
+
 
 
     .dropdown-content a:hover {
@@ -1254,11 +1258,15 @@ hr {
 
     }
 
-    .subMenu{
+    .arrow-right-menu {
+        display: block;
+    }
+
+    .subMenu {
         display: none;
     }
 
-    .subMenu a:hover{
+    .subMenu a:hover {
         background-color: none;
         color: #000000;
     }
