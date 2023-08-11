@@ -15,17 +15,20 @@ function openMobileMenu() {
     headerList.classList.toggle('open-mobile-menu')
 }
 
-/*dropBtn.addEventListener('click', openDropMenu)
+dropBtn.addEventListener('click', openDropMenu)
 
 function openDropMenu(){
+    if(window.screen.width <= 921){
 
-    headerListItens.style.display = 'none'
-    dropdownContent.classList.add('drop-menu') 
+        dropdownContent.style.display = 'flex' 
+    }
+
+
 
     
 }
 
-*/
+
 document.addEventListener("keydown", (event) => {
     if (event.key === 'Escape') {
         headerList.classList.remove('open-mobile-menu');
