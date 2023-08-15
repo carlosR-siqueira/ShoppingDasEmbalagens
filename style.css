@@ -348,6 +348,10 @@ a {
     overflow-y: scroll;
 }
 
+.subMenu-itens{
+    display: none;
+}
+
 .subMenu a {
     color: black;
     text-decoration: none;
@@ -1244,11 +1248,12 @@ hr {
     }
 
 
+
+
     .dropdown-content {
         display: none;
         z-index: 999999;
         position: fixed;
-    
         flex-direction: column;
         align-items: flex-end;
         top: 4.11rem;
@@ -1260,7 +1265,7 @@ hr {
         height: 100%;
         margin: 0%;
         font-size: 1.4rem;
-        transition: all 300ms ease-in-out;
+       
     
     }
 
@@ -1274,18 +1279,23 @@ hr {
         font-size: 18px;
     }
 
+    
+
 
     .dropdown-content a:hover  {
         background-color: inherit;
         color: inherit;
+        
     
     }
 
     .dropdown:hover .dropdown-content{
-        display: none;
+        display:none;
         flex-direction: none;
     
     }
+
+    
 
     .arrow-right-menu {
         display: block;
