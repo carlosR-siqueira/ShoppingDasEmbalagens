@@ -3,13 +3,20 @@ const btnMobile = document.querySelector('.btn-mobile-menu')
 const headerList = document.querySelector(".header-list")
 const dropBtn = document.querySelector('.drop-btn')
 const dropdownContent = document.querySelector('.dropdown-content')
-const headerListItens = document.querySelector(".header-list-itens")
+const headerListItens = document.querySelectorAll(".header-list-itens")
 const voltarBtn = document.querySelector('.item-title-container')
+const prodEmDestaque = document.querySelector('.prod-em-destaque')
 
 
+
+// Verifica o tamanho da tela quando a página é carregada
+verificarTamanhoDaTela();
+
+// Adiciona um evento de redimensionamento para verificar sempre que a tela é redimensionada
+window.addEventListener("resize", verificarTamanhoDaTela);
 
 function verificarTamanhoDaTela() {
-    if (window.innerWidth <= 921) {
+    if (window.innerWidth < 921) {
         btnMobile.addEventListener('click', openMobileMenu)
 
 
@@ -37,12 +44,12 @@ function verificarTamanhoDaTela() {
         function itenBtnVoltar() {
 
 
-            dropdownContent.style.display = 'none'
+            dropdownContent.style.display = ''
 
         }
-        
-        function fecharMenu(){
-            dropdownContent.style.display = 'none'
+
+        function fecharMenu() {
+            dropdownContent.style.display = ''
 
         }
 
@@ -51,33 +58,41 @@ function verificarTamanhoDaTela() {
         function verificarClasse() {
             if (btnMobile.classList.contains('active')) {
                 fecharMenu();
-                
+
             }
         }
 
-        
 
-    }else{
+        headerListItens.forEach((itens) =>
+            itens.addEventListener('click', (event) => {
+                btnMobile.classList.remove('active')
+
+                headerList.classList.remove('open-mobile-menu')
+            })
+        );
+
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === 'Escape') {
+                headerList.classList.remove('open-mobile-menu');
+                btnMobile.classList.remove('active')
+
+            }
+        });
+
+    } else {
+        dropBtn.addEventListener('click', closeUp)
+
+        function closeUp() {
+
+            dropdownContent.style.display = ''
+        }
+
         dropdownContent.style.display = ''
-        
+
+
     }
+
 }
-
-// Verifica o tamanho da tela quando a página é carregada
-verificarTamanhoDaTela();
-
-// Adiciona um evento de redimensionamento para verificar sempre que a tela é redimensionada
-window.addEventListener("resize", verificarTamanhoDaTela);
-
-
-
-document.addEventListener("keydown", (event) => {
-    if (event.key === 'Escape') {
-        headerList.classList.remove('open-mobile-menu');
-        btnMobile.classList.remove('active')
-
-    }
-});
-
 
 

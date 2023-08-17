@@ -297,7 +297,8 @@ a {
 }
 
 .dropdown-content {
-    display: none ;
+   
+    display: none;
     border-radius: 10px;
     width: 220%;
     /* padding: 10px; */
@@ -325,7 +326,7 @@ a {
 }
 
 .dropdown:hover .dropdown-content {
-    display: flex;
+    display: flex ;
     flex-direction: column;
 
 }
@@ -1251,7 +1252,7 @@ hr {
 
 
     .dropdown-content {
-        display: none;
+        
         z-index: 999999;
         position: fixed;
         flex-direction: column;
