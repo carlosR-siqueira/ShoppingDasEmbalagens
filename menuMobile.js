@@ -3,6 +3,7 @@ const btnMobile = document.querySelector('.btn-mobile-menu')
 const headerList = document.querySelector(".header-list")
 const dropBtn = document.querySelector('.drop-btn')
 const dropdownContent = document.querySelector('.dropdown-content')
+const dropdown = document.querySelector('.dropdown')
 const headerListItens = document.querySelectorAll(".header-list-itens")
 const voltarBtn = document.querySelector('.item-title-container')
 const prodEmDestaque = document.querySelector('.prod-em-destaque')
@@ -78,7 +79,26 @@ function verificarTamanhoDaTela() {
                 btnMobile.classList.remove('active')
 
             }
+
+
         });
+
+
+
+       /* headerList.addEventListener('blur', (event) => {
+            if (btnMobile.classList.contains('active')) {
+
+                headerList.classList.remove('open-mobile-menu');
+                btnMobile.classList.remove('active')
+            }
+
+        });*/
+
+
+        function clickOutClose() {
+            headerList.classList.remove('open-mobile-menu');
+            btnMobile.classList.remove('active')
+        }
 
     } else {
         dropBtn.addEventListener('click', closeUp)
