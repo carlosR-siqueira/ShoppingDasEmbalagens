@@ -26,7 +26,6 @@ function verificarTamanhoDaTela() {
 
             btnMobile.classList.toggle('active')
             headerList.classList.toggle('open-mobile-menu')
-
         }
 
         dropBtn.addEventListener('click', openDropMenu)
@@ -37,28 +36,25 @@ function verificarTamanhoDaTela() {
 
 
             dropdownContent.style.display = 'flex'
+            
 
         }
 
         voltarBtn.addEventListener('click', itenBtnVoltar)
 
         function itenBtnVoltar() {
-
-
+            
             dropdownContent.style.display = ''
 
         }
 
-        function fecharMenu() {
-            dropdownContent.style.display = ''
-
-        }
+      
 
         btnMobile.addEventListener('click', verificarClasse);
 
         function verificarClasse() {
             if (btnMobile.classList.contains('active')) {
-                fecharMenu();
+                itenBtnVoltar();
 
             }
         }
@@ -66,6 +62,7 @@ function verificarTamanhoDaTela() {
 
         headerListItens.forEach((itens) =>
             itens.addEventListener('click', (event) => {
+                
                 btnMobile.classList.remove('active')
 
                 headerList.classList.remove('open-mobile-menu')
@@ -85,14 +82,14 @@ function verificarTamanhoDaTela() {
 
 
 
-       /* headerList.addEventListener('blur', (event) => {
-            if (btnMobile.classList.contains('active')) {
-
-                headerList.classList.remove('open-mobile-menu');
-                btnMobile.classList.remove('active')
-            }
-
-        });*/
+        /* headerList.addEventListener('blur', (event) => {
+             if (btnMobile.classList.contains('active')) {
+ 
+                 headerList.classList.remove('open-mobile-menu');
+                 btnMobile.classList.remove('active')
+             }
+ 
+         });*/
 
 
         function clickOutClose() {

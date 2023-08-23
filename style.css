@@ -112,8 +112,8 @@ a {
     top: 15px;
     /* Reduzido pela metade */
     left: 0px;
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
+    -webkit-transition-duration: 100ms;
+    transition-duration: 100ms;
 }
 
 .btn-left:before {
@@ -126,8 +126,8 @@ a {
     content: "";
     top: -10px;
     /* Reduzido pela metade */
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
+    -webkit-transition-duration: 100ms;
+    transition-duration: 100ms;
 }
 
 .btn-left:after {
@@ -140,8 +140,8 @@ a {
     content: "";
     top: 10px;
     /* Reduzido pela metade */
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
+    -webkit-transition-duration: 100ms;
+    transition-duration: 100ms;
 }
 
 .btn-right {
@@ -155,8 +155,8 @@ a {
     /* Reduzido pela metade */
     left: 15px;
     /* Reduzido pela metade */
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
+    -webkit-transition-duration: 100ms;
+    transition-duration: 100ms;
 }
 
 .btn-right:before {
@@ -169,8 +169,8 @@ a {
     content: "";
     top: -10px;
     /* Reduzido pela metade */
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
+    -webkit-transition-duration: 100ms;
+    transition-duration: 100ms;
 }
 
 .btn-right:after {
@@ -183,13 +183,13 @@ a {
     content: "";
     top: 10px;
     /* Reduzido pela metade */
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
+    -webkit-transition-duration: 100ms;
+    transition-duration: 100ms;
 }
 
 .active .btn-left {
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
+    -webkit-transition-duration: 100ms;
+    transition-duration: 100ms;
     background: transparent;
 }
 
@@ -1159,9 +1159,29 @@ hr {
 
     .header-list {
         display: none;
+        
+        
+    }
 
+    /* .fadeIn{
+        animation: fadeIn 100ms;
+
+    } */
+
+    .fadeOut{
+        animation: fadeIn 5s forwards reverse;
 
     }
+
+    /* @keyframes fadeOut {
+        0% { left: -100%; }
+        100%{left: 0%;}
+    } */
+
+
+   
+
+    
 
     .open-mobile-menu {
         position: fixed;
@@ -1177,11 +1197,14 @@ hr {
         height: 100%;
         margin: 0%;
         font-size: 1.4rem;
-        transition: all 300ms ease-in-out;
+        animation: fadeIn 300ms;
+        
+
 
     }
 
-    .drop-menu {
+
+    /* .drop-menu {
         z-index: 999999;
         position: fixed;
         display: flex;
@@ -1196,9 +1219,10 @@ hr {
         height: 100%;
         margin: 0%;
         font-size: 1.4rem;
-        transition: all 300ms ease-in-out;
+        animation: fadeIn 300ms;
+        
 
-    }
+    } */
 
     .open-mobile-menu li {
 
@@ -1266,8 +1290,13 @@ hr {
         height: 100%;
         margin: 0%;
         font-size: 1.4rem;
+        animation: fadeIn 300ms;
 
+    }
 
+    @keyframes fadeIn {
+        0% { left: -100%; }
+        100%{left: 0%;}
     }
 
     .dropdown-content a {
