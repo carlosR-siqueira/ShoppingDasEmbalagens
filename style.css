@@ -297,7 +297,7 @@ a {
 }
 
 .dropdown-content {
-   
+
     display: none;
     border-radius: 10px;
     width: 220%;
@@ -326,7 +326,7 @@ a {
 }
 
 .dropdown:hover .dropdown-content {
-    display: flex ;
+    display: flex;
     flex-direction: column;
 
 }
@@ -1159,8 +1159,8 @@ hr {
 
     .header-list {
         display: none;
-        
-        
+
+
     }
 
     /* .fadeIn{
@@ -1168,7 +1168,7 @@ hr {
 
     } */
 
-    .fadeOut{
+    .fadeOut {
         animation: fadeIn 5s forwards reverse;
 
     }
@@ -1179,9 +1179,9 @@ hr {
     } */
 
 
-   
 
-    
+
+
 
     .open-mobile-menu {
         position: fixed;
@@ -1198,16 +1198,19 @@ hr {
         margin: 0%;
         font-size: 1.4rem;
         animation: fadeIn 300ms;
-        
+
 
 
     }
 
 
-    /* .drop-menu {
+    .descartaveis-subMenu-itens,
+    .domesticos-subMenu-itens,
+    .festa-subMenu-itens,
+    .cozinha-subMenu-itens {
         z-index: 999999;
         position: fixed;
-        display: flex;
+        display: none;
         flex-direction: column;
         align-items: flex-end;
         top: 4.11rem;
@@ -1220,9 +1223,9 @@ hr {
         margin: 0%;
         font-size: 1.4rem;
         animation: fadeIn 300ms;
-        
 
-    } */
+
+    }
 
     .open-mobile-menu li {
 
@@ -1276,7 +1279,7 @@ hr {
 
 
     .dropdown-content {
-        
+
         z-index: 999999;
         position: fixed;
         flex-direction: column;
@@ -1295,8 +1298,13 @@ hr {
     }
 
     @keyframes fadeIn {
-        0% { left: -100%; }
-        100%{left: 0%;}
+        0% {
+            left: -100%;
+        }
+
+        100% {
+            left: 0%;
+        }
     }
 
     .dropdown-content a {
@@ -1357,7 +1365,7 @@ hr {
 
         padding: 0 20px 30px 20px;
     }
-    
+
     .hr-header hr {
         margin: 0%;
         border: 0;
