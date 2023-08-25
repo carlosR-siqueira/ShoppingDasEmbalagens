@@ -47,7 +47,7 @@
 
         <nav class="nav-header">
 
-            <ul class="header-list tooltip-test">
+            <ul class="header-list">
 
 
 
@@ -71,9 +71,22 @@
                         </div>
                         <a class="header-list-itens" href="#produtos">Produtos em Destaque</a>
 
-                        <a class="descartaveis-subMenu dropdown-itens">Descartáveis</a>
+                        <a class="descartaveis-subMenu dropdown-itens">Descartáveis<span class="fa fa-angle-right arrow-right-menu"></span> </a>
 
                         <div class="descartaveis-subMenu-itens subMenu-itens">
+
+                            <div class="item-title-container" style="display: none;">
+                                <div class="voltar-btn-container">
+                                    <button class="voltar-btn"><i class="fa fa-angle-double-left"></i> </button>
+                                </div>
+                                <div class="title-container">
+                                    <p>Descartáveis</p>
+                                </div>
+                            </div>
+                            <div class="hr-header">
+                                <hr>
+                            </div>
+                            
                             <a href="">Alumínio</a>
                             <a href="">Isopor</a>
                             <a href="">Bolos e Tortas</a>
@@ -324,7 +337,7 @@
             <address>
 
                 R. Casa Nova, 9 - Campo Grande<br> CEP:23075-150 Rio de Janeiro - RJ <br><br>
-                <input class="comoChegarBtn" type="button" value="Como Chegar?" onclick="openModal()">
+                <input class="comoChegarBtn" type="button" value="Como Chegar?" onclick="openModalMap()">
             </address>
             <div id="myModal" class="modal-maps">
                 <div class="modal-maps-content">

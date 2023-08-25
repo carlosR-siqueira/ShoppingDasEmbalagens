@@ -5,18 +5,19 @@ const dropBtn = document.querySelector('.drop-btn')
 const dropdownContent = document.querySelector('.dropdown-content')
 const dropdown = document.querySelector('.dropdown')
 const headerListItens = document.querySelectorAll(".header-list-itens")
-const voltarBtn = document.querySelector('.item-title-container')
+const voltarBtn = document.querySelectorAll('.item-title-container')
 const prodEmDestaque = document.querySelector('.prod-em-destaque')
 
 
-// Verifica o tamanho da tela quando a página é carregada
-verificarTamanhoDaTela();
+
+
 
 // Adiciona um evento de redimensionamento para verificar sempre que a tela é redimensionada
 window.addEventListener("resize", verificarTamanhoDaTela);
-
+// Verifica o tamanho da tela quando a página é carregada
+verificarTamanhoDaTela();
 function verificarTamanhoDaTela() {
-    if (window.innerWidth < 921) {
+    if (window.innerWidth <= 921 ) {
         btnMobile.addEventListener('click', openMobileMenu)
 
 
@@ -39,13 +40,25 @@ function verificarTamanhoDaTela() {
 
         }
 
-        voltarBtn.addEventListener('click', itenBtnVoltar)
+        var voltarBtn = document.querySelectorAll('.item-title-container')[0]
 
-        function itenBtnVoltar() {
+        voltarBtn.addEventListener('click', () => {
 
             dropdownContent.style.display = ''
+        })
 
-        }
+        var voltarBtn = document.querySelectorAll('.item-title-container')[1]
+
+        voltarBtn.addEventListener('click', () => {
+
+            descartaveisItens.style.display = ''
+        })
+
+
+
+
+
+
 
 
 
@@ -53,7 +66,7 @@ function verificarTamanhoDaTela() {
 
         function verificarClasse() {
             if (btnMobile.classList.contains('active')) {
-                itenBtnVoltar();
+                dropdownContent.style.display = ''
 
             }
         }
@@ -105,8 +118,10 @@ function verificarTamanhoDaTela() {
 
         document.addEventListener("keydown", (event) => {
             if (event.key === 'Escape') {
+
                 headerList.classList.remove('open-mobile-menu');
                 btnMobile.classList.remove('active')
+
 
             }
 
@@ -251,25 +266,12 @@ function verificarTamanhoDaTela() {
         }
 
 
-        // Função para abrir a janela modal maps
-        function openModal() {
-            document.getElementById("myModal").style.display = "block";
-            initMap();
-        }
-
-        // Função para fechar a janela modal maps
-
-
-        function closeModal() {
-            document.getElementById("myModal").style.display = "none";
-
-
-        }
 
 
 
 
 
+     
 
 
 
@@ -284,7 +286,7 @@ function verificarTamanhoDaTela() {
             }
         });
 
-
+       
 
 
 
@@ -296,7 +298,23 @@ function verificarTamanhoDaTela() {
 
 
     }
+   
+} verificarTamanhoDaTela()
+
+// Função para abrir a janela modal maps
+function openModalMap() {
+    document.getElementById("myModal").style.display = "block";
+    initMap();
+}
+
+// Função para fechar a janela modal maps
+
+
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+
 
 }
 
 
+verificarTamanhoDaTela();
