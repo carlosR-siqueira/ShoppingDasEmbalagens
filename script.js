@@ -12,12 +12,16 @@ const prodEmDestaque = document.querySelector('.prod-em-destaque')
 
 
 
+
 // Adiciona um evento de redimensionamento para verificar sempre que a tela é redimensionada
 window.addEventListener("resize", verificarTamanhoDaTela);
 // Verifica o tamanho da tela quando a página é carregada
 verificarTamanhoDaTela();
 function verificarTamanhoDaTela() {
     if (window.innerWidth <= 921 ) {
+
+        
+
         btnMobile.addEventListener('click', openMobileMenu)
 
 
@@ -53,23 +57,41 @@ function verificarTamanhoDaTela() {
 
             descartaveisItens.style.display = ''
         })
+        var voltarBtn = document.querySelectorAll('.item-title-container')[2]
+
+        voltarBtn.addEventListener('click', () => {
+
+            domesticosItens.style.display = ''
+        })
+
+        var voltarBtn = document.querySelectorAll('.item-title-container')[3]
+
+        voltarBtn.addEventListener('click', () => {
+
+            festaItens.style.display = ''
+        })
+
+        var voltarBtn = document.querySelectorAll('.item-title-container')[4]
+
+        voltarBtn.addEventListener('click', () => {
+
+            limpezaItens.style.display = ''
+        })
+        
 
 
+        btnMobile.addEventListener('click', () => {
 
-
-
-
-
-
-
-        btnMobile.addEventListener('click', verificarClasse);
-
-        function verificarClasse() {
             if (btnMobile.classList.contains('active')) {
                 dropdownContent.style.display = ''
+                descartaveisItens.style.display = ''
+                domesticosItens.style.display = ''
+                festaItens.style.display = ''
+                limpezaItens.style.display = ''
+                
 
             }
-        }
+        })
 
 
         const descartaveisSubMenu = document.querySelector('.descartaveis-subMenu')
@@ -83,8 +105,6 @@ function verificarTamanhoDaTela() {
 
         const limpezaSubMenu = document.querySelector('.cozinha-subMenu')
         const limpezaItens = document.querySelector('.cozinha-subMenu-itens')
-
-
 
 
         descartaveisSubMenu.addEventListener('click', () => {
@@ -144,8 +164,10 @@ function verificarTamanhoDaTela() {
             headerList.classList.remove('open-mobile-menu');
             btnMobile.classList.remove('active')
         }
+        
+    }else {
 
-    } else {
+        
         dropBtn.addEventListener('click', closeUp)
 
         function closeUp() {
@@ -267,14 +289,6 @@ function verificarTamanhoDaTela() {
 
 
 
-
-
-
-
-     
-
-
-
         window.addEventListener("scroll", function () {
             var whatsappIcon = document.querySelector(".whatsapp-icon");
             var distanceFromTop = window.scrollY;
@@ -295,11 +309,11 @@ function verificarTamanhoDaTela() {
 
 
 
-
+        
 
     }
-   
-} verificarTamanhoDaTela()
+    
+} 
 
 // Função para abrir a janela modal maps
 function openModalMap() {
@@ -317,4 +331,3 @@ function closeModal() {
 }
 
 
-verificarTamanhoDaTela();
