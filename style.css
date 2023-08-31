@@ -21,6 +21,7 @@ body {
 
 }
 
+
 ul {
     list-style: none;
 }
@@ -535,8 +536,8 @@ a {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    background-color: #00000066;
 
 
 }
@@ -1018,6 +1019,20 @@ hr {
 
     }
 
+    .overlay {
+        /* content: ''; */
+        position: fixed;
+        right: 0;
+        top: 67px;
+        width: 100%;
+        height: 100%;
+        background-color: #00000065;
+        /* z-index:-99999; */
+
+    }
+
+
+
     .header-list {
         display: none;
 
@@ -1188,7 +1203,7 @@ hr {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        top: 4.11rem;
+        top: 4.1rem;
         left: 0%;
         background: #F1F2F2;
         /* box-shadow: 5px 10px 12px 1px #0000008c; */
@@ -1217,10 +1232,10 @@ hr {
         display: none;
         flex-direction: column;
         align-items: flex-end;
-        top: 4.11rem;
+        top: 4.1rem;
         left: 0%;
         background: #F1F2F2;
-        box-shadow: 5px 10px 12px 1px #0000008c;
+        /* box-shadow: 5px 10px 12px 1px #0000008c; */
         width: 85%;
         padding: 0%;
         height: 100%;
@@ -1257,8 +1272,8 @@ hr {
         width: 100% !important;
         justify-content: space-between;
         align-items: center;
-        margin: 0%;
-
+        margin: 0 !important;
+        padding: 0 10px;
         background-color: whitesmoke;
 
     }
@@ -1294,7 +1309,7 @@ hr {
         position: fixed;
         flex-direction: column;
         align-items: center;
-        top: 4.11rem;
+        top: 4.1rem;
         left: 0%;
         background: #F1F2F2;
         /* box-shadow: 5px 10px 12px 1px #0000008c; */
@@ -1328,6 +1343,7 @@ hr {
         height: 7%;
         padding: 10px;
         font-size: 18px;
+
     }
 
 
@@ -1339,13 +1355,14 @@ hr {
         color: inherit;
 
 
+
     }
 
     .dropdown:hover .dropdown-content {
         display: none;
         flex-direction: none;
 
-        pointer-events: none;
+
 
     }
 
@@ -1393,12 +1410,16 @@ hr {
     }
 
 
+
+
+
     .arrow-right-menu {
         display: block;
     }
 
     .subMenu {
         display: none;
+        pointer-events: fill;
 
 
     }
@@ -1409,6 +1430,7 @@ hr {
     }
 
     .subMenu-itens {
+        align-items: center;
         overflow-y: auto;
         height: 92vh;
         background-color: #f0f0f0;
@@ -1425,7 +1447,7 @@ hr {
         color: #0d6efd;
         font-weight: 400;
         background-color: whitesmoke;
-        margin: 0%;
+        margin: 50%;
 
 
     }

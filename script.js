@@ -7,6 +7,7 @@ const dropdown = document.querySelector('.dropdown')
 const headerListItens = document.querySelectorAll(".header-list-itens")
 const voltarBtn = document.querySelectorAll('.item-title-container')
 const prodEmDestaque = document.querySelector('.prod-em-destaque')
+const backOverlay = document.querySelector('.back-overlay')
 
 
 
@@ -16,11 +17,10 @@ const prodEmDestaque = document.querySelector('.prod-em-destaque')
 // Adiciona um evento de redimensionamento para verificar sempre que a tela é redimensionada
 window.addEventListener("resize", verificarTamanhoDaTela);
 // Verifica o tamanho da tela quando a página é carregada
-verificarTamanhoDaTela();
-function verificarTamanhoDaTela() {
-    if (window.innerWidth <= 921 ) {
 
-        
+function verificarTamanhoDaTela() {
+    if (window.innerWidth <= 921) {
+
 
         btnMobile.addEventListener('click', openMobileMenu)
 
@@ -30,6 +30,7 @@ function verificarTamanhoDaTela() {
 
             btnMobile.classList.toggle('active')
             headerList.classList.toggle('open-mobile-menu')
+            backOverlay.classList.toggle('overlay')
         }
 
         dropBtn.addEventListener('click', openDropMenu)
@@ -43,6 +44,46 @@ function verificarTamanhoDaTela() {
 
 
         }
+
+        const descartaveisItens = document.querySelector('.descartaveis-subMenu-itens')
+        const descartaveisSubMenu = document.querySelector('.descartaveis-subMenu').addEventListener("click", () => {
+            descartaveisItens.style.display = 'flex'
+
+        })
+
+
+        const domesticosItens = document.querySelector('.domesticos-subMenu-itens')
+        const dometicosSubMenu = document.querySelector('.domesticos-subMenu').addEventListener('click', () => {
+            domesticosItens.style.display = 'flex'
+
+        })
+
+        const festaItens = document.querySelector('.festa-subMenu-itens')
+        const festaSubMenu = document.querySelector('.festa-subMenu').addEventListener('click', () => {
+            festaItens.style.display = 'flex'
+
+        })
+
+
+        const limpezaItens = document.querySelector('.cozinha-subMenu-itens')
+        const limpezaSubMenu = document.querySelector('.cozinha-subMenu').addEventListener('click', () => {
+            limpezaItens.style.display = 'flex'
+
+        })
+
+        btnMobile.addEventListener('click', () => {
+
+            if (btnMobile.classList.contains('active')) {
+                
+                dropdownContent.style.display = ''
+                descartaveisItens.style.display = ''
+                domesticosItens.style.display = ''
+                festaItens.style.display = ''
+                limpezaItens.style.display = ''
+
+
+            }
+        })
 
         var voltarBtn = document.querySelectorAll('.item-title-container')[0]
 
@@ -77,53 +118,6 @@ function verificarTamanhoDaTela() {
 
             limpezaItens.style.display = ''
         })
-        
-
-
-        btnMobile.addEventListener('click', () => {
-
-            if (btnMobile.classList.contains('active')) {
-                dropdownContent.style.display = ''
-                descartaveisItens.style.display = ''
-                domesticosItens.style.display = ''
-                festaItens.style.display = ''
-                limpezaItens.style.display = ''
-                
-
-            }
-        })
-
-
-        const descartaveisSubMenu = document.querySelector('.descartaveis-subMenu')
-        const descartaveisItens = document.querySelector('.descartaveis-subMenu-itens')
-
-        const dometicosSubMenu = document.querySelector('.domesticos-subMenu')
-        const domesticosItens = document.querySelector('.domesticos-subMenu-itens')
-
-        const festaSubMenu = document.querySelector('.festa-subMenu')
-        const festaItens = document.querySelector('.festa-subMenu-itens')
-
-        const limpezaSubMenu = document.querySelector('.cozinha-subMenu')
-        const limpezaItens = document.querySelector('.cozinha-subMenu-itens')
-
-
-        descartaveisSubMenu.addEventListener('click', () => {
-            descartaveisItens.style.display = 'flex'
-
-        })
-        dometicosSubMenu.addEventListener('click', () => {
-            domesticosItens.style.display = 'flex'
-
-        })
-        festaSubMenu.addEventListener('click', () => {
-            festaItens.style.display = 'flex'
-
-        })
-        limpezaSubMenu.addEventListener('click', () => {
-            limpezaItens.style.display = 'flex'
-
-        })
-
 
 
         headerListItens.forEach((itens) =>
@@ -132,6 +126,8 @@ function verificarTamanhoDaTela() {
                 btnMobile.classList.remove('active')
 
                 headerList.classList.remove('open-mobile-menu')
+                backOverlay.classList.remove('overlay')
+
             })
         );
 
@@ -141,6 +137,8 @@ function verificarTamanhoDaTela() {
 
                 headerList.classList.remove('open-mobile-menu');
                 btnMobile.classList.remove('active')
+                backOverlay.classList.remove('overlay')
+
 
 
             }
@@ -148,26 +146,24 @@ function verificarTamanhoDaTela() {
 
         });
 
-
-
-        /* headerList.addEventListener('blur', (event) => {
-             if (btnMobile.classList.contains('active')) {
- 
-                 headerList.classList.remove('open-mobile-menu');
-                 btnMobile.classList.remove('active')
-             }
- 
-         });*/
-
-
-        function clickOutClose() {
-            headerList.classList.remove('open-mobile-menu');
-            btnMobile.classList.remove('active')
-        }
-        
-    }else {
+        backOverlay.addEventListener('click', function (e) {
+            if (e.target == this) {
+                
+                headerList.classList.remove('open-mobile-menu');
+                btnMobile.classList.remove('active')
+                backOverlay.classList.remove('overlay')
+            }
+        });
 
         
+
+
+
+
+
+    } else {
+
+
         dropBtn.addEventListener('click', closeUp)
 
         function closeUp() {
@@ -181,6 +177,8 @@ function verificarTamanhoDaTela() {
 
 
         //itens descartáveis
+        verificarTamanhoDaTela()
+
         let descartaveisSubMenu = document.querySelector('.descartaveis-subMenu')
         let subMenuDescartaveisItens = document.querySelector('.descartaveis-subMenu-itens')
 
@@ -300,7 +298,6 @@ function verificarTamanhoDaTela() {
             }
         });
 
-       
 
 
 
@@ -309,11 +306,12 @@ function verificarTamanhoDaTela() {
 
 
 
-        
+
+
 
     }
-    
-} 
+
+}
 
 // Função para abrir a janela modal maps
 function openModalMap() {
@@ -329,5 +327,19 @@ function closeModal() {
 
 
 }
+
+const myModal = document.getElementById("myModal")
+
+myModal.addEventListener('click', function (e) {
+    if (e.target == this) {
+        myModal.style.display = 'none';
+    }
+});
+
+document.addEventListener("keydown", (ev) => {
+    if (ev.key === 'Escape') {
+        myModal.style.display = 'none';
+    }
+});
 
 
