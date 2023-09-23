@@ -17,6 +17,9 @@ const backOverlay = document.querySelector('.back-overlay')
 // Adiciona um evento de redimensionamento para verificar sempre que a tela é redimensionada
 window.addEventListener("resize", verificarTamanhoDaTela);
 // Verifica o tamanho da tela quando a página é carregada
+// verificarTamanhoDaTela()
+
+verificarTamanhoDaTela()
 
 function verificarTamanhoDaTela() {
     if (window.innerWidth <= 921) {
@@ -157,17 +160,18 @@ function verificarTamanhoDaTela() {
 
         
 
+  
 
 
+    }
+     else if(!window.innerWidth <= 921) {
 
-
-    } else {
-
+        
 
         dropBtn.addEventListener('click', closeUp)
 
         function closeUp() {
-
+            
             dropdownContent.style.display = ''
         }
 
@@ -177,7 +181,6 @@ function verificarTamanhoDaTela() {
 
 
         //itens descartáveis
-        verificarTamanhoDaTela()
 
         let descartaveisSubMenu = document.querySelector('.descartaveis-subMenu')
         let subMenuDescartaveisItens = document.querySelector('.descartaveis-subMenu-itens')
@@ -312,6 +315,7 @@ function verificarTamanhoDaTela() {
     }
 
 }
+verificarTamanhoDaTela()
 
 // Função para abrir a janela modal maps
 function openModalMap() {
