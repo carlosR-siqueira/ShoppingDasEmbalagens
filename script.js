@@ -18,304 +18,247 @@ const backOverlay = document.querySelector('.back-overlay')
 window.addEventListener("resize", verificarTamanhoDaTela);
 // Verifica o tamanho da tela quando a página é carregada
 // verificarTamanhoDaTela()
-
 verificarTamanhoDaTela()
+
+
 
 function verificarTamanhoDaTela() {
-    if (window.innerWidth <= 921) {
-
-
-        btnMobile.addEventListener('click', openMobileMenu)
-
-
-
-        function openMobileMenu() {
-
-            btnMobile.classList.toggle('active')
-            headerList.classList.toggle('open-mobile-menu')
-            backOverlay.classList.toggle('overlay')
-        }
-
-        dropBtn.addEventListener('click', openDropMenu)
+    if (window.innerWidth <= 921) {mobileSize()}
+    else if (window.innerWidth > 921) { desktopSize() }
+}
+function mobileSize() {
 
 
 
-        function openDropMenu() {
 
-
-            dropdownContent.style.display = 'flex'
-
-
-        }
-
-        const descartaveisItens = document.querySelector('.descartaveis-subMenu-itens')
-        const descartaveisSubMenu = document.querySelector('.descartaveis-subMenu').addEventListener("click", () => {
-            descartaveisItens.style.display = 'flex'
-
-        })
-
-
-        const domesticosItens = document.querySelector('.domesticos-subMenu-itens')
-        const dometicosSubMenu = document.querySelector('.domesticos-subMenu').addEventListener('click', () => {
-            domesticosItens.style.display = 'flex'
-
-        })
-
-        const festaItens = document.querySelector('.festa-subMenu-itens')
-        const festaSubMenu = document.querySelector('.festa-subMenu').addEventListener('click', () => {
-            festaItens.style.display = 'flex'
-
-        })
-
-
-        const limpezaItens = document.querySelector('.cozinha-subMenu-itens')
-        const limpezaSubMenu = document.querySelector('.cozinha-subMenu').addEventListener('click', () => {
-            limpezaItens.style.display = 'flex'
-
-        })
-
-        btnMobile.addEventListener('click', () => {
-
-            if (btnMobile.classList.contains('active')) {
-                
-                dropdownContent.style.display = ''
-                descartaveisItens.style.display = ''
-                domesticosItens.style.display = ''
-                festaItens.style.display = ''
-                limpezaItens.style.display = ''
-
-
-            }
-        })
-
-        var voltarBtn = document.querySelectorAll('.item-title-container')[0]
-
-        voltarBtn.addEventListener('click', () => {
-
-            dropdownContent.style.display = ''
-        })
-
-        var voltarBtn = document.querySelectorAll('.item-title-container')[1]
-
-        voltarBtn.addEventListener('click', () => {
-
-            descartaveisItens.style.display = ''
-        })
-        var voltarBtn = document.querySelectorAll('.item-title-container')[2]
-
-        voltarBtn.addEventListener('click', () => {
-
-            domesticosItens.style.display = ''
-        })
-
-        var voltarBtn = document.querySelectorAll('.item-title-container')[3]
-
-        voltarBtn.addEventListener('click', () => {
-
-            festaItens.style.display = ''
-        })
-
-        var voltarBtn = document.querySelectorAll('.item-title-container')[4]
-
-        voltarBtn.addEventListener('click', () => {
-
-            limpezaItens.style.display = ''
-        })
-
-
-        headerListItens.forEach((itens) =>
-            itens.addEventListener('click', (event) => {
-
-                btnMobile.classList.remove('active')
-
-                headerList.classList.remove('open-mobile-menu')
-                backOverlay.classList.remove('overlay')
-
-            })
-        );
-
-
-        document.addEventListener("keydown", (event) => {
-            if (event.key === 'Escape') {
-
-                headerList.classList.remove('open-mobile-menu');
-                btnMobile.classList.remove('active')
-                backOverlay.classList.remove('overlay')
+    btnMobile.addEventListener('click', openMobileMenu)
 
 
 
-            }
+    function openMobileMenu() {
+
+        btnMobile.classList.toggle('active')
+        headerList.classList.toggle('open-mobile-menu')
+        backOverlay.classList.toggle('overlay')
+    }
+
+    dropBtn.addEventListener('click', openDropMenu)
 
 
-        });
 
-        backOverlay.addEventListener('click', function (e) {
-            if (e.target == this) {
-                
-                headerList.classList.remove('open-mobile-menu');
-                btnMobile.classList.remove('active')
-                backOverlay.classList.remove('overlay')
-            }
-        });
+    function openDropMenu() {
 
-        
 
-  
+        dropdownContent.style.display = 'flex'
 
 
     }
-     else if(!window.innerWidth <= 921) {
 
-        
 
-        dropBtn.addEventListener('click', closeUp)
 
-        function closeUp() {
-            
+    const descItens = document.querySelector('.descartaveis-subMenu-itens')
+    const descSubMenu = document.querySelector('.descartaveis-subMenu').addEventListener("click", () => {
+        descItens.style.display = 'flex'
+
+    })
+
+
+    const domestItens = document.querySelector('.domesticos-subMenu-itens')
+    const domestSubMenu = document.querySelector('.domesticos-subMenu').addEventListener('click', () => {
+        domestItens.style.display = 'flex'
+
+    })
+
+    const festItens = document.querySelector('.festa-subMenu-itens')
+    const festSubMenu = document.querySelector('.festa-subMenu').addEventListener('click', () => {
+        festItens.style.display = 'flex'
+
+    })
+
+
+    const limpItens = document.querySelector('.cozinha-subMenu-itens')
+    const limpzaSubMenu = document.querySelector('.cozinha-subMenu').addEventListener('click', () => {
+        limpItens.style.display = 'flex'
+
+    })
+
+    btnMobile.addEventListener('click', () => {
+
+        if (btnMobile.classList.contains('active')) {
+
             dropdownContent.style.display = ''
+            descItens.style.display = ''
+            domestItens.style.display = ''
+            festItens.style.display = ''
+            limpItens.style.display = ''
+
+
         }
+    })
+
+
+
+    voltarBtn[0].addEventListener('click', () => {
 
         dropdownContent.style.display = ''
+    })
 
-        //script do header doropdown!
+
+    voltarBtn[1].addEventListener('click', () => {
+
+        descItens.style.display = ''
+    })
+
+    voltarBtn[2].addEventListener('click', () => {
+
+        domestItens.style.display = ''
+    })
 
 
-        //itens descartáveis
+    voltarBtn[3].addEventListener('click', () => {
 
-        let descartaveisSubMenu = document.querySelector('.descartaveis-subMenu')
-        let subMenuDescartaveisItens = document.querySelector('.descartaveis-subMenu-itens')
+        festItens.style.display = ''
+    })
 
-        descartaveisSubMenu.addEventListener('mouseover', descartaveisMouseEnter)
-        subMenuDescartaveisItens.addEventListener('mouseover', descartaveisMouseEnter)
-        descartaveisSubMenu.addEventListener('mouseout', descartaveisMouseOut)
-        subMenuDescartaveisItens.addEventListener('mouseout', descartaveisMouseOut)
 
-        function descartaveisMouseEnter() {
-            subMenuDescartaveisItens.classList.add('subMenu')
-        }
+    voltarBtn[4].addEventListener('click', () => {
 
-        function descartaveisMouseOut() {
-            subMenuDescartaveisItens.classList.remove('subMenu')
-        }
+        limpItens.style.display = ''
+    })
 
-        //itens utensílios domésticos
-        let subMenuDomesticos = document.querySelector('.domesticos-subMenu')
-        let subMenuDomesticosItens = document.querySelector('.domesticos-subMenu-itens')
 
-        subMenuDomesticos.addEventListener('mouseover', domesticosMouseEnter)
-        subMenuDomesticosItens.addEventListener('mouseover', domesticosMouseEnter)
-        subMenuDomesticos.addEventListener('mouseout', domesticosMouseOut)
-        subMenuDomesticosItens.addEventListener('mouseout', domesticosMouseOut)
+    headerListItens.forEach((itens) =>
+        itens.addEventListener('click', (event) => {
 
-        function domesticosMouseEnter() {
-            subMenuDomesticosItens.classList.add('subMenu')
-        }
+            btnMobile.classList.remove('active')
 
-        function domesticosMouseOut() {
-            subMenuDomesticosItens.classList.remove('subMenu')
-        }
+            headerList.classList.remove('open-mobile-menu')
+            backOverlay.classList.remove('overlay')
 
-        // itens cozinha
+        })
+    );
 
-        let subMenuCozinha = document.querySelector('.cozinha-subMenu')
-        let subMenuCozinhaItens = document.querySelector('.cozinha-subMenu-itens')
 
-        subMenuCozinha.addEventListener('mouseover', cozinhaMouseEnter)
-        subMenuCozinhaItens.addEventListener('mouseover', cozinhaMouseEnter)
-        subMenuCozinha.addEventListener('mouseout', cozinhaMouseOut)
-        subMenuCozinhaItens.addEventListener('mouseout', cozinhaMouseOut)
+    document.addEventListener("keydown", (event) => {
+        if (event.key === 'Escape') {
 
-        function cozinhaMouseEnter() {
-            subMenuCozinhaItens.classList.add('subMenu')
-        }
+            headerList.classList.remove('open-mobile-menu');
+            btnMobile.classList.remove('active')
+            backOverlay.classList.remove('overlay')
 
-        function cozinhaMouseOut() {
-            subMenuCozinhaItens.classList.remove('subMenu')
+
 
         }
 
-        // itens Artigos para festa
 
-        let subMenuFesta = document.querySelector('.festa-subMenu')
-        let subMenuFestaItens = document.querySelector('.festa-subMenu-itens')
+    });
 
-        subMenuFesta.addEventListener('mouseover', festaMouseEnter)
-        subMenuFestaItens.addEventListener('mouseover', festaMouseEnter)
-        subMenuFesta.addEventListener('mouseout', festaMouseOut)
-        subMenuFestaItens.addEventListener('mouseout', festaMouseOut)
+    backOverlay.addEventListener('click', function (e) {
+        if (e.target == this) {
 
-        function festaMouseEnter() {
-            subMenuFestaItens.classList.add('subMenu')
+            headerList.classList.remove('open-mobile-menu');
+            btnMobile.classList.remove('active')
+            backOverlay.classList.remove('overlay')
         }
-
-        function festaMouseOut() {
-            subMenuFestaItens.classList.remove('subMenu')
-        }
-
-        //itens utensílios para Limpeza
-
-        let subMenuLimpeza = document.querySelector('.limpeza-subMenu')
-        let subMenuLimpezaItens = document.querySelector('.limpeza-subMenu-itens')
-
-        subMenuLimpeza.addEventListener('mouseover', limpezaMouseEnter)
-        subMenuLimpezaItens.addEventListener('mouseover', limpezaMouseEnter)
-        subMenuLimpeza.addEventListener('mouseout', limpezaMouseOut)
-        subMenuLimpezaItens.addEventListener('mouseout', limpezaMouseOut)
-
-        function limpezaMouseEnter() {
-            subMenuLimpezaItens.classList.add('subMenu')
-        }
-
-        function limpezaMouseOut() {
-            subMenuLimpezaItens.classList.remove('subMenu')
-        }
-
-        // itens utensílios para Higiene
-
-        let subMenuHigiene = document.querySelector('.higiene-subMenu')
-        let subMenuHigieneItens = document.querySelector('.higiene-subMenu-itens')
-
-        subMenuHigiene.addEventListener('mouseover', higieneMouseEnter)
-        subMenuHigieneItens.addEventListener('mouseover', higieneMouseEnter)
-        subMenuHigiene.addEventListener('mouseout', higieneMouseOut)
-        subMenuHigieneItens.addEventListener('mouseout', higieneMouseOut)
-
-        function higieneMouseEnter() {
-            subMenuHigieneItens.classList.add('subMenu')
-        }
-
-        function higieneMouseOut() {
-            subMenuHigieneItens.classList.remove('subMenu')
-        }
-
-
-
-        window.addEventListener("scroll", function () {
-            var whatsappIcon = document.querySelector(".whatsapp-icon");
-            var distanceFromTop = window.scrollY;
-
-            if (distanceFromTop > 200) {
-                whatsappIcon.style.transform = "scale(1)";
-            } else {
-                whatsappIcon.style.transform = "scale(0)";
-            }
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-    }
+    });
 
 }
-verificarTamanhoDaTela()
+
+
+function desktopSize() {
+
+
+    dropBtn.addEventListener('click', closeUp)
+
+    function closeUp() {
+
+        dropdownContent.style.display = ''
+    }
+
+    dropdownContent.style.display = ''
+
+    //script do header doropdown!
+
+
+    //itens descartáveis
+
+    const descItens = document.querySelector('.descartaveis-subMenu-itens')
+    const descSubMenu = document.querySelector('.descartaveis-subMenu').addEventListener("click", () => {
+        descItens.style.display = ''
+
+    })
+
+
+
+    function addSubMenuEventListeners(subMenu, subMenuItens) {
+        function onMouseOver() {
+            subMenuItens.classList.add('subMenu');
+        }
+
+        function onMouseOut() {
+            subMenuItens.classList.remove('subMenu');
+        }
+
+        subMenu.addEventListener('mouseover', onMouseOver);
+        subMenuItens.addEventListener('mouseover', onMouseOver);
+        subMenu.addEventListener('mouseout', onMouseOut);
+        subMenuItens.addEventListener('mouseout', onMouseOut);
+    }
+
+    let descartaveisSubMenu = document.querySelector('.descartaveis-subMenu');
+    let descartaveisSubMenuItens = document.querySelector('.descartaveis-subMenu-itens');
+    addSubMenuEventListeners(descartaveisSubMenu, descartaveisSubMenuItens);
+
+    // Utensílios Domésticos
+
+    const domestItens = document.querySelector('.domesticos-subMenu-itens')
+    const domestSubMenu = document.querySelector('.domesticos-subMenu').addEventListener('click', () => {
+        domestItens.style.display = ''
+
+    })
+
+    let subMenuDomesticos = document.querySelector('.domesticos-subMenu');
+    let subMenuDomesticosItens = document.querySelector('.domesticos-subMenu-itens');
+    addSubMenuEventListeners(subMenuDomesticos, subMenuDomesticosItens);
+
+    // Cozinha
+    let subMenuCozinha = document.querySelector('.cozinha-subMenu');
+    let subMenuCozinhaItens = document.querySelector('.cozinha-subMenu-itens');
+    addSubMenuEventListeners(subMenuCozinha, subMenuCozinhaItens);
+
+    // Artigos para Festa
+
+    const festItens = document.querySelector('.festa-subMenu-itens')
+    const festSubMenu = document.querySelector('.festa-subMenu').addEventListener('click', () => {
+        festItens.style.display = ''
+
+    })
+
+    let subMenuFesta = document.querySelector('.festa-subMenu');
+    let subMenuFestaItens = document.querySelector('.festa-subMenu-itens');
+    addSubMenuEventListeners(subMenuFesta, subMenuFestaItens);
+
+    // Utensílios para Limpeza
+
+    const limpItens = document.querySelector('.cozinha-subMenu-itens')
+    const limpzaSubMenu = document.querySelector('.cozinha-subMenu').addEventListener('click', () => {
+        limpItens.style.display = ''
+
+    })
+
+
+    let subMenuLimpeza = document.querySelector('.limpeza-subMenu');
+    let subMenuLimpezaItens = document.querySelector('.limpeza-subMenu-itens');
+    addSubMenuEventListeners(subMenuLimpeza, subMenuLimpezaItens);
+
+    // Utensílios para Higiene
+    let subMenuHigiene = document.querySelector('.higiene-subMenu');
+    let subMenuHigieneItens = document.querySelector('.higiene-subMenu-itens');
+    addSubMenuEventListeners(subMenuHigiene, subMenuHigieneItens);
+
+}
+
+
 
 // Função para abrir a janela modal maps
 function openModalMap() {
@@ -347,3 +290,14 @@ document.addEventListener("keydown", (ev) => {
 });
 
 
+
+window.addEventListener("scroll", function () {
+    var whatsappIcon = document.querySelector(".whatsapp-icon");
+    var distanceFromTop = window.scrollY;
+
+    if (distanceFromTop > 200) {
+        whatsappIcon.style.transform = "scale(1)";
+    } else {
+        whatsappIcon.style.transform = "scale(0)";
+    }
+});
