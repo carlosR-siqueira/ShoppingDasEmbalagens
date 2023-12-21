@@ -210,6 +210,10 @@ a {
     overflow-y: scroll;
 }
 
+.dropdown-itens:hover .subMenu{
+    display: flex;
+}
+
 .subMenu-itens {
     display: none;
 }
