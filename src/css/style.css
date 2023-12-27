@@ -158,6 +158,8 @@ a {
 
 }
 
+
+
 .dropdown-content {
 
     display: none;
@@ -198,7 +200,9 @@ a {
 }
 
 
-.subMenu {
+
+
+.show {
     display: flex !important;
     flex-direction: column;
     width: 100%;
@@ -247,7 +251,7 @@ a {
     border-radius: 3px;
 }
 
-.cozinha-subMenu {
+.limpeza-subMenu {
     line-height: 30px;
 }
 
@@ -1036,7 +1040,7 @@ hr {
         width: 100%;
         height: 100%;
         background-color: #00000065;
-        /* z-index:-99999; */
+        z-index:99999;
 
     }
 
@@ -1207,19 +1211,21 @@ hr {
     /* open btn menu */
 
 
-    .open-mobile-menu {
+     .dropdown-content-mobile {
         position: fixed;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         top: 4.1rem;
         left: 0%;
+        margin: 0%;
+        z-index: 999;
+        top: 4.1rem;
+        left: 0%;
         background: #F1F2F2;
-        /* box-shadow: 5px 10px 12px 1px #0000008c; */
-        width: 80%;
+        width: 85%;
         padding: 0%;
         height: 100%;
-        margin: 0%;
         font-size: 1.4rem;
         animation: fadeIn 300ms;
         gap: 2px;
@@ -1227,24 +1233,21 @@ hr {
 
 
 
-
-
-    }
+    } 
 
 
     .descartaveis-subMenu-itens,
     .domesticos-subMenu-itens,
     .festa-subMenu-itens,
-    .cozinha-subMenu-itens {
-        z-index: 999999;
+    .limpeza-subMenu-itens {
+        z-index: 9999999999;
         position: fixed;
-        display: none;
         flex-direction: column;
         align-items: flex-end;
         top: 4.1rem;
         left: 0%;
-        background: #F1F2F2;
-        /* box-shadow: 5px 10px 12px 1px #0000008c; */
+        background: #ffffff;
+       
         width: 85%;
         padding: 0%;
         height: 100%;
@@ -1256,7 +1259,9 @@ hr {
 
     }
 
-    .open-mobile-menu li {
+  
+
+    .dropdown-content-mobile li {
 
         display: flex;
         width: 100%;
@@ -1265,11 +1270,11 @@ hr {
         font-size: 18px;
     }
 
-    .header-list li a {
+    /* .header-list li a {
         margin: 0 10px !important;
-    }
+    } */
 
-    .header-list ul {
+    .dropdown-content-mobile ul {
         margin: 0%;
         padding: 0%;
     }
@@ -1278,10 +1283,10 @@ hr {
 
     .header-list li a {
         display: flex;
-        width: 100% !important;
+        width: 99.9%;
         justify-content: space-between;
         align-items: center;
-        margin: 0 !important;
+       
         padding: 0 10px;
         background-color: whitesmoke;
 
@@ -1311,9 +1316,11 @@ hr {
     }
 
 
+    .showMenu{
+        display: block;
+    }
 
-    .dropdown-content {
-
+     .dropdown-content {
         z-index: 999;
         position: fixed;
         flex-direction: column;
@@ -1321,19 +1328,18 @@ hr {
         top: 4.1rem;
         left: 0%;
         background: #F1F2F2;
-        /* box-shadow: 5px 10px 12px 1px #0000008c; */
+      
         width: 85%;
         padding: 0%;
         height: 100%;
-        /* margin: 0%; */
+    
         font-size: 1.4rem;
         animation: fadeIn 300ms;
         gap: 2px;
-        border-radius: 0px;
+        border-radius: 0px
+    } 
 
-
-
-    }
+   
 
     @keyframes fadeIn {
         0% {
@@ -1367,13 +1373,22 @@ hr {
 
     }
 
-    .dropdown:hover .dropdown-content {
-        display: none;
-        flex-direction: none;
+    .dropdown:hover:not(.dropdown) .dropdown-content {
+        display: initial;
+        flex-direction: initial;
+        animation: initial;
 
 
 
     }
+
+   
+
+    .dropdown-itens:hover .subMenu{
+        display: initial;
+    }
+
+    
 
     .item-title-container {
         display: flex !important;
@@ -1438,16 +1453,6 @@ hr {
         color: #000000;
     }
 
-    .subMenu-itens {
-        align-items: center;
-        overflow-y: auto;
-        height: 92vh;
-        background-color: #f0f0f0;
-        /* border-radius: 10px; */
-        margin: 0% !important;
-
-
-    }
 
 
     .subMenu-itens a {
