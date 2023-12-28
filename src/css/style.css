@@ -162,7 +162,7 @@ a {
 
 .dropdown-content {
 
-    display: none;
+    display: none ;
     border-radius: 10px;
     width: 220%;
     /* padding: 10px; */
@@ -190,7 +190,7 @@ a {
 }
 
 .dropdown:hover .dropdown-content {
-    display: flex;
+    display: flex ;
     flex-direction: column;
 
 }
@@ -925,6 +925,7 @@ hr {
 }
 
 @media screen and (max-width: 1050px) {
+    
 
     #close-btn {
 
@@ -1211,25 +1212,25 @@ hr {
     /* open btn menu */
 
 
-     .dropdown-content-mobile {
-        position: fixed;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        top: 4.1rem;
-        left: 0%;
-        margin: 0%;
+     .dropdown-content-mobile{
+       
+        display: flex !important;
         z-index: 999;
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
         top: 4.1rem;
         left: 0%;
         background: #F1F2F2;
+      
         width: 85%;
         padding: 0%;
         height: 100%;
+    
         font-size: 1.4rem;
         animation: fadeIn 300ms;
         gap: 2px;
-        border-radius: 0px;
+        border-radius: 0px
 
 
 
@@ -1316,28 +1317,47 @@ hr {
     }
 
 
+
+/* 
     .showMenu{
-        display: block;
+        display: none!important;
+    } */
+
+   
+     .dropdown-content {
+        
+        display: none !important;
+        
+    } 
+  
+    .showContent{
+        display: flex !important ;
     }
 
-     .dropdown-content {
-        z-index: 999;
-        position: fixed;
+    .content-mobile{
+       
+        
         flex-direction: column;
+        position: fixed;
         align-items: center;
         top: 4.1rem;
-        left: 0%;
-        background: #F1F2F2;
-      
+        z-index: 999;
         width: 85%;
-        padding: 0%;
         height: 100%;
-    
-        font-size: 1.4rem;
         animation: fadeIn 300ms;
+        background: #F1F2F2;
+        font-size: 1.4rem;
         gap: 2px;
-        border-radius: 0px
-    } 
+       
+    }
+
+    .removeContent{
+        display: none !important ;
+    }
+
+
+    
+   
 
    
 
@@ -1373,19 +1393,19 @@ hr {
 
     }
 
-    .dropdown:hover:not(.dropdown) .dropdown-content {
+    /* .dropdown:hover .dropdown-content {
         display: initial;
         flex-direction: initial;
         animation: initial;
 
 
 
-    }
+    } */
 
    
 
     .dropdown-itens:hover .subMenu{
-        display: initial;
+        display: none;
     }
 
     

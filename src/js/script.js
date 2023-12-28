@@ -3,13 +3,15 @@
 const btnMobile = document.querySelector('.btn-mobile-menu');
 const headerMobileMenu = document.querySelector('.header-mobile-menu')
 const headerList = document.querySelector(".header-list");
-const dropBtn = document.querySelector('.drop-btn');
+const dropBtn = document.querySelector('.drop-mobile');
 const dropdownContent = document.querySelector('.dropdown-content');
+const contentMobile = document.querySelector('.content-mobile');
 const dropdown = document.querySelector('.dropdown');
 const headerListItens = document.querySelectorAll(".header-list-itens");
 const voltarBtn = document.querySelectorAll('.item-title-container');
 const prodEmDestaque = document.querySelector('.prod-em-destaque');
 const backOverlay = document.querySelector('.back-overlay');
+const subMenuItens = document.querySelector('subMenu-itens')
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -77,131 +79,122 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-});
+
+    voltarBtn[0].addEventListener('click', function(){
+        dropdownContent.classList.toggle('removeContent')
+        dropdownContent.classList.remove('showContent')
+    })
+
+    voltarBtn.forEach(voltar => {
+        voltar.addEventListener('click', function () {
+            const allSubMenus = [descartaveisSubMenuItems, domesticosSubMenuItems, festaSubMenuItems, limpezaSubMenuItems];
+            allSubMenus.forEach(subMenu => {
+
+                subMenu.classList.remove('show')
+                
+
+
+            });
+
+        });
+    });
 
 
 
-btnMobile.addEventListener('click', openMobileMenu)
+    btnMobile.addEventListener('click', openMobileMenu)
 
 
-function openMobileMenu() {
+    function openMobileMenu() {
 
-    btnMobile.classList.toggle('active')
-    headerList.classList.toggle('dropdown-content-mobile')
-    backOverlay.classList.toggle('overlay')
-}
-
-
-dropBtn.addEventListener('click', function() {
-
-
-    dropdownContent.classList.add('showMenu')
-
-
-
-})
-
-
-
-
-const descItens = document.querySelector('.descartaveis-subMenu-itens')
-
-
-
-const domestItens = document.querySelector('.domesticos-subMenu-itens')
-
-
-const festItens = document.querySelector('.festa-subMenu-itens')
-
-
-
-const limpItens = document.querySelector('.cozinha-subMenu-itens')
-
-
-
-btnMobile.addEventListener('click', () => {
-
-    if (btnMobile.classList.contains('active')) {
-
-        dropdownContent.style.display = ''
+        headerList.classList.toggle('dropdown-content-mobile')
+        btnMobile.classList.toggle('active')
+        backOverlay.classList.toggle('overlay')
 
     }
-})
-
-voltarBtn[0].addEventListener('click', () => {
-
-    dropdownContent.style.display = ''
-})
 
 
-voltarBtn[1].addEventListener('click', () => {
-
-    descItens.style.display = ''
-})
-
-voltarBtn[2].addEventListener('click', () => {
-
-    domestItens.style.display = ''
-})
-
-
-voltarBtn[3].addEventListener('click', () => {
-
-    festItens.style.display = ''
-})
-
-
-voltarBtn[4].addEventListener('click', () => {
-
-    limpItens.style.display = ''
-})
+    dropBtn.addEventListener('click', function () {
 
 
 
-headerListItens.forEach((itens) =>
-    itens.addEventListener('click', (event) => {
+        dropdownContent.classList.remove('removeContent')
 
-        btnMobile.classList.remove('active')
-        
-        dropdownContent.style.display = ''
+        dropdownContent.classList.add('content-mobile')
+        dropdownContent.classList.toggle('showContent')
 
-        headerList.classList.remove('dropdown-content-mobile')
-        backOverlay.classList.remove('overlay')
+
+
+
+
+
+
+
+
 
     })
-);
-
-
-document.addEventListener("keydown", (event) => {
-    if (event.key === 'Escape') {
-
-        headerList.classList.remove('dropdown-content-mobile');
-        btnMobile.classList.remove('active')
-        backOverlay.classList.remove('overlay')
 
 
 
-    }
+    btnMobile.addEventListener('click', () => {
+
+        if (btnMobile.classList.contains('active')) {
+
+            dropdownContent.classList.remove('showContent')
+        }
+    })
+
+
+
+
+
+
+
+
+
+    headerListItens.forEach((itens) =>
+        itens.addEventListener('click', (event) => {
+
+            btnMobile.classList.remove('active')
+
+
+            headerList.classList.remove('dropdown-content-mobile')
+            backOverlay.classList.remove('overlay')
+
+        })
+    );
+
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === 'Escape') {
+
+            headerList.classList.remove('dropdown-content-mobile');
+            btnMobile.classList.remove('active')
+            backOverlay.classList.remove('overlay')
+            dropdownContent.classList.remove('showContent')
+
+
+
+
+        }
+
+
+    });
+
+    backOverlay.addEventListener('click', function (e) {
+        if (e.target == this) {
+
+            headerList.classList.remove('dropdown-content-mobile');
+            btnMobile.classList.remove('active')
+            backOverlay.classList.remove('overlay')
+            dropdownContent.classList.remove('showContent')
+
+        }
+    });
+
+
 
 
 });
-
-backOverlay.addEventListener('click', function (e) {
-    if (e.target == this) {
-
-        headerList.classList.remove('dropdown-content-mobile');
-        btnMobile.classList.remove('active')
-        backOverlay.classList.remove('overlay')
-    }
-});
-
-
-if(!headerMobileMenu.style.display === 'block'){
-
-    btnMobile.classList.add('menuNone')
-    
-
-}
 
 
 
