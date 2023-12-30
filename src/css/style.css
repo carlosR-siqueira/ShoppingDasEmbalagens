@@ -162,13 +162,14 @@ a {
 
 .dropdown-content {
 
-    display: none ;
+    display: none;
     border-radius: 10px;
     width: 220%;
     /* padding: 10px; */
     position: absolute;
     background-color: #f1f1f1f6;
     box-shadow: 0px 8px 16px 0px #00000033;
+    
 
 }
 
@@ -179,6 +180,8 @@ a {
     color: black;
     text-decoration: none;
     text-align: center;
+    border-bottom: #00000027 solid 1px;
+    margin: 2px;
 
 
 }
@@ -190,7 +193,7 @@ a {
 }
 
 .dropdown:hover .dropdown-content {
-    display: flex ;
+    display: flex;
     flex-direction: column;
 
 }
@@ -214,7 +217,7 @@ a {
     overflow-y: scroll;
 }
 
-.dropdown-itens:hover .subMenu{
+.dropdown-itens:hover .subMenu {
     display: flex;
 }
 
@@ -925,7 +928,7 @@ hr {
 }
 
 @media screen and (max-width: 1050px) {
-    
+
 
     #close-btn {
 
@@ -954,7 +957,7 @@ hr {
     .quemSomosImg {
         display: flex;
         justify-content: center;
-             
+
 
     }
 
@@ -1041,7 +1044,7 @@ hr {
         width: 100%;
         height: 100%;
         background-color: #00000065;
-        z-index:99999;
+        z-index: 99999;
 
     }
 
@@ -1212,8 +1215,8 @@ hr {
     /* open btn menu */
 
 
-     .dropdown-content-mobile{
-       
+    .dropdown-content-mobile {
+
         display: flex !important;
         z-index: 999;
         position: fixed;
@@ -1221,20 +1224,15 @@ hr {
         align-items: center;
         top: 4.1rem;
         left: 0%;
-        background: #F1F2F2;
-      
+        background: #ffffff;
         width: 85%;
         padding: 0%;
         height: 100%;
-    
         font-size: 1.4rem;
         animation: fadeIn 300ms;
         gap: 2px;
         border-radius: 0px
-
-
-
-    } 
+    }
 
 
     .descartaveis-subMenu-itens,
@@ -1248,7 +1246,7 @@ hr {
         top: 4.1rem;
         left: 0%;
         background: #ffffff;
-       
+
         width: 85%;
         padding: 0%;
         height: 100%;
@@ -1260,7 +1258,7 @@ hr {
 
     }
 
-  
+
 
     .dropdown-content-mobile li {
 
@@ -1269,6 +1267,8 @@ hr {
         height: 7%;
         text-align: left;
         font-size: 18px;
+        border-bottom: #00000027 solid 1px;
+        margin: 2px;
     }
 
     /* .header-list li a {
@@ -1287,9 +1287,9 @@ hr {
         width: 99.9%;
         justify-content: space-between;
         align-items: center;
-       
+
         padding: 0 10px;
-        background-color: whitesmoke;
+        background-color: #ffffff;
 
     }
 
@@ -1318,48 +1318,64 @@ hr {
 
 
 
-/* 
+    /* 
     .showMenu{
         display: none!important;
     } */
 
-   
-     .dropdown-content {
-        
+
+    .dropdown-content {
+
         display: none !important;
-        
-    } 
-  
-    .showContent{
-        display: flex !important ;
+       
+
     }
 
-    .content-mobile{
-       
-        
+    .showContent {
+        display: flex !important;
         flex-direction: column;
         position: fixed;
         align-items: center;
-        top: 4.1rem;
+        top: 4.2rem;
+        right: 15% ;
         z-index: 999;
         width: 85%;
         height: 100%;
-        animation: fadeIn 300ms;
-        background: #F1F2F2;
+        animation: fadeIn 500ms !important;
+
+        background: #ffffff;
         font-size: 1.4rem;
         gap: 2px;
-       
+    
     }
-
-    .removeContent{
-        display: none !important ;
-    }
-
+    
 
     
-   
 
-   
+    .removeContent {
+        display: none !important;
+        flex-direction: column;
+        position: fixed;
+        align-items: center;
+        top: 4.2rem;
+        right: 15% ;
+        z-index: 999;
+        width: 85%;
+        height: 100%;
+    
+
+        background: #ffffff;
+        font-size: 1.4rem;
+        gap: 2px;
+    
+    }
+
+
+
+
+
+
+
 
     @keyframes fadeIn {
         0% {
@@ -1402,13 +1418,13 @@ hr {
 
     } */
 
-   
 
-    .dropdown-itens:hover .subMenu{
+
+    .dropdown-itens:hover .subMenu {
         display: none;
     }
 
-    
+
 
     .item-title-container {
         display: flex !important;
@@ -1466,6 +1482,7 @@ hr {
         pointer-events: fill;
 
 
+
     }
 
     .subMenu a:hover {
@@ -1478,10 +1495,12 @@ hr {
     .subMenu-itens a {
 
 
-        color: #0d6efd;
+        color: black;
         font-weight: 400;
-        background-color: whitesmoke;
-        margin: 50%;
+        background-color: #ffffff !important;
+        border-bottom: #00000027 solid 1px;
+        margin: 2px;
+        
 
 
     }
@@ -1559,14 +1578,14 @@ hr {
         flex-wrap: wrap;
 
         font-size: 10pt;
-       
+
         width: 100%;
         height: 55vh;
     }
 
-   
 
-    
+
+
 
     .quemSomosImg img {
         /* position: relative; */

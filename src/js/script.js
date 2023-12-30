@@ -5,7 +5,7 @@ const headerMobileMenu = document.querySelector('.header-mobile-menu')
 const headerList = document.querySelector(".header-list");
 const dropBtn = document.querySelector('.drop-mobile');
 const dropdownContent = document.querySelector('.dropdown-content');
-const contentMobile = document.querySelector('.content-mobile');
+const contentMobile = document.querySelector('.content-mobile')
 const dropdown = document.querySelector('.dropdown');
 const headerListItens = document.querySelectorAll(".header-list-itens");
 const voltarBtn = document.querySelectorAll('.item-title-container');
@@ -37,34 +37,40 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+   
+        descartaveisSubMenu.addEventListener('click', function (event) {
+            event.preventDefault();
+            toggleSubMenu(descartaveisSubMenuItems);
+            closeOtherSubMenus(descartaveisSubMenuItems);
+        });
 
-    descartaveisSubMenu.addEventListener('click', function (event) {
-        event.preventDefault();
-        toggleSubMenu(descartaveisSubMenuItems);
-        closeOtherSubMenus(descartaveisSubMenuItems);
-    });
+        domesticosSubMenu.addEventListener('click', function (event) {
+            event.preventDefault();
+            toggleSubMenu(domesticosSubMenuItems);
+            closeOtherSubMenus(domesticosSubMenuItems);
+        });
 
-    domesticosSubMenu.addEventListener('click', function (event) {
-        event.preventDefault();
-        toggleSubMenu(domesticosSubMenuItems);
-        closeOtherSubMenus(domesticosSubMenuItems);
-    });
+        festaSubMenu.addEventListener('click', function (event) {
+            event.preventDefault();
+            toggleSubMenu(festaSubMenuItems);
+            closeOtherSubMenus(festaSubMenuItems);
+        });
 
-    festaSubMenu.addEventListener('click', function (event) {
-        event.preventDefault();
-        toggleSubMenu(festaSubMenuItems);
-        closeOtherSubMenus(festaSubMenuItems);
-    });
+        limpezaSubMenu.addEventListener('click', function (event) {
+            event.preventDefault();
+            toggleSubMenu(limpezaSubMenuItems);
+            closeOtherSubMenus(limpezaSubMenuItems);
+        });
 
-    limpezaSubMenu.addEventListener('click', function (event) {
-        event.preventDefault();
-        toggleSubMenu(limpezaSubMenuItems);
-        closeOtherSubMenus(limpezaSubMenuItems);
-    });
+
+       
+
+
+
 
     const allSubMenus = [descartaveisSubMenuItems, domesticosSubMenuItems, festaSubMenuItems, limpezaSubMenuItems];
     allSubMenus.forEach(subMenu => {
-        subMenu.addEventListener('mouseleave', function () {
+        subMenu.addEventListener('click', function () {
             if (subMenu.classList.contains('show')) {
                 subMenu.classList.remove('show');
             }
@@ -72,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Adicionando um listener para fechar os submenus ao clicar fora deles
-    document.addEventListener('click', function (event) {
+    document.addEventListener('mouseout', function (event) {
         allSubMenus.forEach(subMenu => {
             if (!event.target.closest('.dropdown') && subMenu.classList.contains('show')) {
                 subMenu.classList.remove('show');
@@ -80,18 +86,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    voltarBtn[0].addEventListener('click', function(){
+    voltarBtn[0].addEventListener('click', function () {
+
+
         dropdownContent.classList.toggle('removeContent')
+
+
         dropdownContent.classList.remove('showContent')
+
+
+
+
+
     })
 
     voltarBtn.forEach(voltar => {
         voltar.addEventListener('click', function () {
+
+
             const allSubMenus = [descartaveisSubMenuItems, domesticosSubMenuItems, festaSubMenuItems, limpezaSubMenuItems];
             allSubMenus.forEach(subMenu => {
 
                 subMenu.classList.remove('show')
-                
+
 
 
             });
@@ -114,20 +131,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     dropBtn.addEventListener('click', function () {
-
-
-
         dropdownContent.classList.remove('removeContent')
-
-        dropdownContent.classList.add('content-mobile')
+        dropdownContent.style.animation = 'fadeOut 500ms'
         dropdownContent.classList.toggle('showContent')
-
-
-
-
-
-
-
 
 
 
@@ -140,6 +146,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (btnMobile.classList.contains('active')) {
 
             dropdownContent.classList.remove('showContent')
+
+
+
+
         }
     })
 
@@ -171,6 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
             btnMobile.classList.remove('active')
             backOverlay.classList.remove('overlay')
             dropdownContent.classList.remove('showContent')
+
 
 
 
