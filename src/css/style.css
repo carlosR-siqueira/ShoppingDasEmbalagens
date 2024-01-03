@@ -106,7 +106,7 @@ a {
 .header-list li {
     color: #304296;
     font-weight: 600;
-    transition: all 0.3s;
+    transition: all 300ms;
     position: relative;
     line-height: 50px;
     height: 50px;
@@ -163,13 +163,13 @@ a {
 .dropdown-content {
 
     display: none;
-    border-radius: 10px;
+    border-radius: 3px;
     width: 220%;
     /* padding: 10px; */
     position: absolute;
     background-color: #f1f1f1f6;
     box-shadow: 0px 8px 16px 0px #00000033;
-    
+
 
 }
 
@@ -223,6 +223,8 @@ a {
 
 .subMenu-itens {
     display: none;
+
+
 }
 
 .subMenu a {
@@ -236,7 +238,7 @@ a {
     color: #ececec;
 }
 
-.subMenu::-webkit-scrollbar {
+.subMenu-itens::-webkit-scrollbar {
     border-radius: 2pc;
     width: 10px;
     background-color: #2788f7;
@@ -244,7 +246,7 @@ a {
 
 
 
-.subMenu::-webkit-scrollbar-thumb {
+.subMenu-itens::-webkit-scrollbar-thumb {
     background-color: #ecececcb;
     width: 2px;
     border-radius: 2pc;
@@ -1050,11 +1052,7 @@ hr {
 
 
 
-    .header-list {
-        display: none;
 
-
-    }
 
     /* .fadeIn{
         animation: fadeIn 100ms;
@@ -1215,23 +1213,27 @@ hr {
     /* open btn menu */
 
 
-    .dropdown-content-mobile {
-
-        display: flex !important;
+    .header-list {
+        display: flex;
         z-index: 999;
         position: fixed;
         flex-direction: column;
         align-items: center;
         top: 4.1rem;
-        left: 0%;
+        right: 100%;
         background: #ffffff;
         width: 85%;
         padding: 0%;
         height: 100%;
         font-size: 1.4rem;
-        animation: fadeIn 300ms;
+        transition: 10ms;
         gap: 2px;
         border-radius: 0px
+    }
+
+    .dropdown-content-mobile {
+        right: 14%;
+
     }
 
 
@@ -1246,13 +1248,11 @@ hr {
         top: 4.1rem;
         left: 0%;
         background: #ffffff;
-
         width: 85%;
         padding: 0%;
         height: 100%;
         margin: 0%;
         font-size: 1.4rem;
-
         animation: fadeIn 300ms;
 
 
@@ -1266,14 +1266,18 @@ hr {
         width: 100%;
         height: 7%;
         text-align: left;
-        font-size: 18px;
+        font-size: 15px;
         border-bottom: #00000027 solid 1px;
-        margin: 2px;
+        margin: 5px;
+        border-radius: 2pc;
+        padding-left: 10px;
+
+
     }
 
-    /* .header-list li a {
-        margin: 0 10px !important;
-    } */
+    .header-list li {
+        transition: all 300ms;
+    }
 
     .dropdown-content-mobile ul {
         margin: 0%;
@@ -1287,6 +1291,7 @@ hr {
         width: 99.9%;
         justify-content: space-between;
         align-items: center;
+        border-radius: 2pc;
 
         padding: 0 10px;
         background-color: #ffffff;
@@ -1326,49 +1331,32 @@ hr {
 
     .dropdown-content {
 
-        display: none !important;
-       
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        align-items: center;
+        top: 4.1rem;
+        right: 100%;
+        z-index: 999;
+        width: 85%;
+        height: 100%;
+        transition: 300ms all;
+        background: #ffffff;
+        gap: 2px;
+        border-radius: 0%;
 
     }
 
     .showContent {
-        display: flex !important;
-        flex-direction: column;
-        position: fixed;
-        align-items: center;
-        top: 4.2rem;
-        right: 15% ;
-        z-index: 999;
-        width: 85%;
-        height: 100%;
-        animation: fadeIn 500ms !important;
 
-        background: #ffffff;
-        font-size: 1.4rem;
-        gap: 2px;
-    
+        right: 15%;
+
+
     }
-    
 
-    
 
-    .removeContent {
-        display: none !important;
-        flex-direction: column;
-        position: fixed;
-        align-items: center;
-        top: 4.2rem;
-        right: 15% ;
-        z-index: 999;
-        width: 85%;
-        height: 100%;
-    
 
-        background: #ffffff;
-        font-size: 1.4rem;
-        gap: 2px;
-    
-    }
+
 
 
 
@@ -1393,7 +1381,8 @@ hr {
         width: 100%;
         height: 7%;
         padding: 10px;
-        font-size: 18px;
+        
+        font-size: 15px;
 
     }
 
@@ -1480,6 +1469,7 @@ hr {
     .subMenu {
         display: none;
         pointer-events: fill;
+        
 
 
 
@@ -1494,16 +1484,18 @@ hr {
 
     .subMenu-itens a {
 
-
         color: black;
         font-weight: 400;
         background-color: #ffffff !important;
         border-bottom: #00000027 solid 1px;
         margin: 2px;
-        
+        padding-left: 15px !important;
+
 
 
     }
+
+   
 
     .subMenu-itens a:nth-last-child(1) {
         margin-bottom: 50px !important;

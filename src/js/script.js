@@ -11,7 +11,7 @@ const headerListItens = document.querySelectorAll(".header-list-itens");
 const voltarBtn = document.querySelectorAll('.item-title-container');
 const prodEmDestaque = document.querySelector('.prod-em-destaque');
 const backOverlay = document.querySelector('.back-overlay');
-const subMenuItens = document.querySelector('subMenu-itens')
+const subMenuItens = document.querySelectorAll('subMenu-itens')
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -37,33 +37,33 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-   
-        descartaveisSubMenu.addEventListener('click', function (event) {
-            event.preventDefault();
-            toggleSubMenu(descartaveisSubMenuItems);
-            closeOtherSubMenus(descartaveisSubMenuItems);
-        });
 
-        domesticosSubMenu.addEventListener('click', function (event) {
-            event.preventDefault();
-            toggleSubMenu(domesticosSubMenuItems);
-            closeOtherSubMenus(domesticosSubMenuItems);
-        });
+    descartaveisSubMenu.addEventListener('click', function (event) {
+        event.preventDefault();
+        toggleSubMenu(descartaveisSubMenuItems);
+        closeOtherSubMenus(descartaveisSubMenuItems);
+    });
 
-        festaSubMenu.addEventListener('click', function (event) {
-            event.preventDefault();
-            toggleSubMenu(festaSubMenuItems);
-            closeOtherSubMenus(festaSubMenuItems);
-        });
+    domesticosSubMenu.addEventListener('click', function (event) {
+        event.preventDefault();
+        toggleSubMenu(domesticosSubMenuItems);
+        closeOtherSubMenus(domesticosSubMenuItems);
+    });
 
-        limpezaSubMenu.addEventListener('click', function (event) {
-            event.preventDefault();
-            toggleSubMenu(limpezaSubMenuItems);
-            closeOtherSubMenus(limpezaSubMenuItems);
-        });
+    festaSubMenu.addEventListener('click', function (event) {
+        event.preventDefault();
+        toggleSubMenu(festaSubMenuItems);
+        closeOtherSubMenus(festaSubMenuItems);
+    });
+
+    limpezaSubMenu.addEventListener('click', function (event) {
+        event.preventDefault();
+        toggleSubMenu(limpezaSubMenuItems);
+        closeOtherSubMenus(limpezaSubMenuItems);
+    });
 
 
-       
+
 
 
 
@@ -88,15 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     voltarBtn[0].addEventListener('click', function () {
 
-
-        dropdownContent.classList.toggle('removeContent')
-
-
         dropdownContent.classList.remove('showContent')
-
-
-
-
 
     })
 
@@ -108,8 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
             allSubMenus.forEach(subMenu => {
 
                 subMenu.classList.remove('show')
-
-
 
             });
 
@@ -131,8 +121,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     dropBtn.addEventListener('click', function () {
-        dropdownContent.classList.remove('removeContent')
-        dropdownContent.style.animation = 'fadeOut 500ms'
+
+
         dropdownContent.classList.toggle('showContent')
 
 
@@ -143,14 +133,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     btnMobile.addEventListener('click', () => {
 
-        if (btnMobile.classList.contains('active')) {
+        if (!btnMobile.classList.contains('active')) {
+
+
+            const allSubMenus = [descartaveisSubMenuItems, domesticosSubMenuItems, festaSubMenuItems, limpezaSubMenuItems];
+            allSubMenus.forEach(subMenu => {
+                subMenu.classList.remove('show')
+
+            });
+          
+            
 
             dropdownContent.classList.remove('showContent')
+            subMenuItens.classList.remove('show')
 
 
-
-
-        }
+        } 
     })
 
 
@@ -165,8 +163,6 @@ document.addEventListener('DOMContentLoaded', function () {
         itens.addEventListener('click', (event) => {
 
             btnMobile.classList.remove('active')
-
-
             headerList.classList.remove('dropdown-content-mobile')
             backOverlay.classList.remove('overlay')
 
@@ -182,7 +178,14 @@ document.addEventListener('DOMContentLoaded', function () {
             backOverlay.classList.remove('overlay')
             dropdownContent.classList.remove('showContent')
 
+            const allSubMenus = [descartaveisSubMenuItems, domesticosSubMenuItems, festaSubMenuItems, limpezaSubMenuItems];
+            allSubMenus.forEach(subMenu => {
 
+                subMenu.classList.remove('show')
+
+
+
+            });
 
 
 
