@@ -1,0 +1,322 @@
+body {
+    font-family: Arial, sans-serif;
+
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* row-gap: 20px; */
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+
+.produto-item {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+
+
+.container,
+.containerFest,
+.containerDomest,
+.containerLimpeza,
+.containerDesc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 20px 0;
+
+}
+
+.container {
+    width: 75%;
+
+}
+
+
+
+.card,
+.cards {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    width: 18rem;
+    min-width: 12rem;
+    box-shadow: 3px 3px 3px #0000003f;
+    border-radius: 10px;
+}
+
+
+.card:hover,
+.cards:hover {
+    margin-bottom: 0 !important;
+    border: solid 1px #275ef7;
+    transition: all 300ms ease-in-out
+}
+
+.card img,
+.cards img {
+    width: 75%;
+    margin-top: 10px;
+}
+
+.card h2 {
+    margin-top: auto;
+}
+
+.badge {
+    align-self: flex-end;
+    cursor: pointer;
+
+
+}
+
+.badge-container {
+    display: flex;
+    gap: 10px;
+}
+
+.btn{
+
+    
+    align-self: center;
+    margin-top: auto;
+
+}
+
+/* Estilo para a janela modal */
+.modal,
+.modal-edit,
+.modalDescAdd,
+.modalDomestAdd,
+.modalFestAdd,
+.modalLimpezaAdd {
+    display: none;
+    /* Oculta a janela modal por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fundo escurecido para destacar a janela modal */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content,
+.modal-content-desc,
+.modal-content-domest,
+.modal-content-fest,
+.modal-content-limpeza {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+
+.modal-buttons {
+    margin-top: 20px;
+}
+
+/* Estilize o botão de confirmação e cancelamento se necessário */
+.modal-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-buttons button.cancel {
+    background-color: #ccc;
+}
+
+/* Estilize o overlay ao redor da janela modal quando estiver ativa */
+.active {
+    display: flex;
+
+}
+
+#openModalBtn,
+.descOpenBtn,
+.open-modal,
+.open-modal-domest {
+    padding: 10px;
+    text-align: center;
+    
+    /* min-width: 150px; */
+    margin: auto;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.close-modal-btn,
+.close-desc-btn,
+.close-domest-btn {
+
+    align-self: flex-end;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.modal-cadastro {
+    display: none;
+    /* Oculta a janela modal por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fundo escurecido para destacar a janela modal */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content-cadastro,
+.modal-content-edit,
+.modal-content-desc,
+.modal-content-domest,
+.modal-content-fest,
+.modal-content-limpeza {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 60%;
+    min-width: 550px;
+    /* margin: auto; */
+
+}
+
+
+
+.containerUpDb,
+.containerEdit {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+}
+
+.form button {
+    padding: 5px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    margin: 0 0 10px 0;
+
+}
+
+.imgBtn {
+    margin: 0 0 20px 0;
+    background-color: #4cacaf !important;
+
+}
+
+.excluir-imagem {
+    margin: 20px 0 10px 0 !important;
+    font-size: 10pt;
+    background-color: #d10606 !important;
+    opacity: 0.7;
+}
+
+.excluir-imagem:hover {
+    
+    
+    opacity: 1;
+
+    transition: all 100ms ease-in-out;
+
+}
+
+.block-excluir-imagem{
+    opacity: 0.7 !important ;
+    cursor:no-drop !important;
+    
+}
+
+
+.selectCategory {
+    width: 100%;
+    height: 50px;
+    margin: 0 0 10px 0;
+    border-radius: 7px;
+
+}
+
+
+#uploadForm,
+#uploadFormEdt,
+#uploadFormDesc,
+#uploadFormDomest,
+#uploadFormFest,
+#uploadFormLimpeza {
+    display: flex;
+    align-items: baseline;
+
+
+}
+
+#uploadForm button,
+#uploadFormEdt button,
+.btnEnviar,
+#uploadFormDesc button, 
+#uploadFormFest button,
+#uploadFormLimpeza button,
+#uploadFormDomest button   {
+    height: fit-content;
+    width: 150px;
+    padding: 5px;
+    background-color: #007bff !important;
+}
+
+.sendImgTitle {
+    text-align: left;
+}
