@@ -165,6 +165,8 @@ document.addEventListener('DOMContentLoaded', function () {
             btnMobile.classList.remove('active')
             headerList.classList.remove('dropdown-content-mobile')
             backOverlay.classList.remove('overlay')
+            dropdownContent.classList.remove('showContent')
+
 
         })
     );
