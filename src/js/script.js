@@ -152,13 +152,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
 
-
-
-
-
-
-
-
     headerListItens.forEach((itens) =>
         itens.addEventListener('click', (event) => {
 

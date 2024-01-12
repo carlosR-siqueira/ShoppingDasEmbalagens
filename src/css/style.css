@@ -423,7 +423,7 @@ a {
     width: 100%;
     padding: 100px;
     margin-top: 100px;
-    background-image: url('/images/quemSomosBg.svg');
+    background-image: url('../images/quemSomosBg.svg');
     background-size: cover;
 }
 
@@ -951,7 +951,7 @@ hr {
     .quemSomosContainer {
         padding: 40px 90px;
         flex-direction: column-reverse;
-        background-image: url('/images/quemSomosBgVert.svg');
+        background-image: url('../images/quemSomosBgVert.svg');
 
         background-size: cover;
 

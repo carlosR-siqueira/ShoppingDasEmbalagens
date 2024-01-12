@@ -22,7 +22,7 @@ fetch(descartaveisDB, {
             if (data.hasOwnProperty(key)) {
                 const produto = data[key];
 
-                prodCard = `<div class="card" category="${produto.categoria}"><div name="button" class="badge-container"></div><img src="${produto.imagemUrl}"><h2>${produto.nome}</h2><p>${produto.descricao}</p></div>`
+                prodCard = `<div class="card" category="${produto.categoria}" subCategory="${produto.subCategoria}"><div name="button" class="badge-container"></div><img src="${produto.imagemUrl}"><h2>${produto.nome}</h2><p>${produto.descricao}</p></div>`
 
 
                 document.querySelector('.containerDesc').insertAdjacentHTML('beforeend', prodCard);
