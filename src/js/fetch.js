@@ -28,6 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then((data) => {
 
+            
+
+            document.querySelector('.containerDesc').innerHTML = '';
 
             containerDesc = document.querySelector('.containerDesc').innerHTML = `<h2 class="titulo-destaque-produtos ">${categoria}</h2>`
 
@@ -42,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.querySelector('.containerDesc').insertAdjacentHTML('beforeend', prodCard);
                 }
             }
+
         })
         .catch((err) => {
             console.error(err);
