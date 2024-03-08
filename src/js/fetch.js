@@ -30,11 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             
 
-            document.querySelector('.containerDesc').innerHTML = '';
-
-            containerDesc = document.querySelector('.containerDesc').innerHTML = `<h2 class="titulo-destaque-produtos ">${categoria}</h2>`
-
-
+            
+            document.querySelector('.prodTitle').innerHTML = `<h2 class="titulo-destaque-produtos ">${categoria}</h2>`
+            
+            document.querySelector('.containerItens').innerHTML = '';
+            
             for (const key in data) {
                 if (data.hasOwnProperty(key)) {
                     const produto = data[key];
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-                    document.querySelector('.containerDesc').insertAdjacentHTML('beforeend', prodCard);
+                    document.querySelector('.containerItens').insertAdjacentHTML('beforeend', prodCard);
                 }
             }
 

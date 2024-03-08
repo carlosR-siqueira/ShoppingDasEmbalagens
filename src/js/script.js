@@ -141,14 +141,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 subMenu.classList.remove('show')
 
             });
-          
-            
+
+
 
             dropdownContent.classList.remove('showContent')
             subMenuItens.classList.remove('show')
 
 
-        } 
+        }
     })
 
 
@@ -201,9 +201,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
+    document.querySelector('.search').addEventListener('click', () => {
+        document.querySelector('.search-bar').classList.add("search-bar-show")
+        document.querySelector('.fa-search').classList.add("searchEffect")
+    })
+
+    document.querySelector('.search-bar').addEventListener('blur', () => {
+        document.querySelector('.search-bar').classList.remove("search-bar-show")
+        document.querySelector('.fa-search').classList.remove("searchEffect")
+
+    })
+
 
 
 });
+
 
 
 
