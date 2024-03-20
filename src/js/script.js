@@ -3,6 +3,7 @@
 const btnMobile = document.querySelector('.btn-mobile-menu');
 const headerMobileMenu = document.querySelector('.header-mobile-menu')
 const headerList = document.querySelector(".header-list");
+const searchBar = document.querySelector(".searchBarContainer");
 const dropBtn = document.querySelector('.drop-mobile');
 const dropdownContent = document.querySelector('.dropdown-content');
 const contentMobile = document.querySelector('.content-mobile')
@@ -112,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     function openMobileMenu() {
-
         headerList.classList.toggle('dropdown-content-mobile')
         btnMobile.classList.toggle('active')
         backOverlay.classList.toggle('overlay')

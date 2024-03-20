@@ -266,60 +266,41 @@ a {
 
 /* botão de pesquisa */
 
-.search-container{
-    padding: 0 25px ;
-}
-
-
-.search-bar {
-    margin: 0;
-    position: absolute;
-    top: -110%;
-    right: 1%;
-    height: 45px;
-    width: 25%;
-    padding: 0 20px;
-    font-size: 1rem;
-    border: 1px solid #D0CFCE;
-    border-radius: 2pc 5px 2pc 2pc;
-    box-shadow: 3px 5px 5px #000000;
-    outline: none;
-    transition: 300ms ease-in;
-}
-
-
-
-
-
-.fa-search {
-    
-    position:absolute;
-    right: -97%;
-    top: 30%;
-    height: 100%;
-    width: 100%;
-    margin: 0 12px 0 0;
+.searchBarContainer {
+    margin: auto;
+    height: 30px;
+    border-radius: 2pc;
+    padding: 15px;
+    display: flex;
     align-items: center;
-    font-size: 1.7rem;
-    transition: 300ms ease-in;
-
-
-}
-
-
-.search-bar-show {
-    top: 110%;
+    /* justify-content: baseline; */
+    transition: 0.8s;
 
 }
 
-.searchEffect{
-    
-    z-index: 999999999;
-    top:125%;
-    /* right: 1%; */
+.searchBarContainer input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 0px;
+    font-weight: 500;
+    font-size: 10pt;
+    transition: 0.8s;
+}
+
+.searchBarContainer:hover input {
+    width: 150px;
+}
+
+.searchBarContainer:hover {
+    box-shadow: inset 0 0 2px 0 #0d6efd;
+}
+
+.searchBarContainer .fas {
+    color: #0d6efd;
+    font-size: 16pt;
 
 
-    
 }
 
 /* fim do botão de pesquisa */
@@ -1037,6 +1018,8 @@ hr {
 
     }
 
+    
+
     .quemSomosContainer {
         padding: 40px 90px;
         flex-direction: column-reverse;
@@ -1330,6 +1313,8 @@ hr {
     .dropdown-content-mobile {
         right: 14%;
 
+
+
     }
 
 
@@ -1453,18 +1438,7 @@ hr {
 
         right: 15%;
 
-
     }
-
-
-
-
-
-
-
-
-
-
 
 
     @keyframes fadeIn {
@@ -1602,6 +1576,45 @@ hr {
     .subMenu-itens a:nth-last-child(1) {
         margin-bottom: 50px !important;
     }
+
+    /* botão de pesquisa */
+
+    .searchBarContainer {
+        display: flex;
+        border-radius: 2pc;
+        padding: 20px;
+        border: solid 1px #0000002c;
+        width: 55%;
+        transition: none;
+        position: fixed;
+        top: 47%;
+        
+    }
+
+    .searchBarContainer input {
+        background: transparent;
+        border: none;
+        outline: none;
+        width: 100%;
+        font-weight: 500;
+        font-size: 15pt;
+
+
+    }
+
+    .searchBarContainer:hover input {
+        width: 100%;
+
+    }
+
+    .searchBarContainer .fas {
+        color: #0d6efd;
+        font-size: 20pt;
+
+
+    }
+
+    /* fim do botão de pesquisa */
 
 
 
