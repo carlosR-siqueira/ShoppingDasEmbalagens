@@ -391,7 +391,8 @@ a {
 
 .card img,
 .cards img {
-    width: 75%;
+    width: 150px;
+    height: 150px;
     margin-top: 10px;
 }
 
@@ -404,15 +405,21 @@ a {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 
 }
 
 
 
 .btn {
-    background-color: #277af7;
-    /* width: 100px; */
-    align-self: center;
+  
+    align-self:center;
+    width: 100%;
+    border-radius: 2pc;
+    box-shadow: 2px 3px 3px #000000a1;
+
+    
+ 
 }
 
 .containerItens {

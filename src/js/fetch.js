@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
             for (const key in data) {
                 if (data.hasOwnProperty(key)) {
                     const produto = data[key];
-                    prodCard = `<div class="card" category="${produto.categoria}" subCategory="${produto.subCategoria}"><div name="button" class="badge-container"></div><img src="${produto.imagemUrl}"><h2>${produto.nome}</h2><p>${produto.descricao}</p></div>`
+                    prodCard = `<article class="card" category="${produto.categoria} data-id="${key}" subCategory="${produto.subCategoria}"><img class="card-img-top" src="${produto.imagemUrl}"><div class="card-body"><div class="card-text-container"><h5 class="card-title">${produto.nome}</h5><p class="card-text">${produto.descricao}</p></div><a href="item.html" class="btn btn-primary">Ver Produto</a></div></article>`
 
 
 
