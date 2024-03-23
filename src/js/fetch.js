@@ -38,7 +38,7 @@ function fetchProdutos(categoria) {
                                     <div class="card-body">
                                         <div class="card-text-container">
                                             <h5 class="card-title">${produto.nome}</h5>
-                                            <p class="card-text">${produto.descricao}</p>
+                                            
                                         </div>
                                         <a href="item.html?categoria=${categoria}&produtoId=${key}" class="btn btn-primary">Ver Produto</a>
                                     </div>

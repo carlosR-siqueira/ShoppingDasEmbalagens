@@ -1,16 +1,17 @@
-body {
-    background-color: whitesmoke;
+main {
+    background-color: #edededed;
 
 }
 
 .detalhes-produto {
     display: flex;
-    gap: 20px;
+    /* gap: 20px; */
     padding: 20px;
-    border-radius: 2pc;
+    border-radius: 5px;
     box-shadow: 2px 2px 5px #0000003f;
     margin: 30px;
     background-color: white;
+    
 }
 
 .imgContainer {
@@ -18,10 +19,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1.6;
 }
 
 .imgContainer img {
-    width: 50%;
+    width: 70%;
 
 
 }
@@ -29,15 +31,33 @@ body {
 .descricao-produto-container {
     display: flex;
     flex-direction: column;
-    padding: 0 0 0 25px;
+    padding: 25px;
     width: 100%;
-    border-left: solid 1px #000000;
+    border: solid 1px #00000028;
+    border-radius: 6px;
+    flex: 1;
+    
 
+}
+
+.descricao-produto-container ul li{
+    list-style:disc;
+    opacity: 0.8;
+    font-weight: 400;
 
 }
 
 .descricao-produto-container h2 {
     text-align: center;
+    font-size: 22px;
+    
+    font-weight: 400;
+}
+
+.descricao-produto-container h3{
+    font-size: 20px;
+    font-weight: 400;
+
 }
 
 .voltarBtnContainer {
@@ -49,4 +69,19 @@ body {
 
 .voltarBtn {
     width: 30%;
+}
+
+@media screen and (max-width: 921px) {
+
+    
+    .detalhes-produto {
+        display: flex;
+        flex-direction: column;
+       /* width: 85%; */
+    }
+
+    .imgContainer img{
+        width: 100%;
+    }
+
 }
