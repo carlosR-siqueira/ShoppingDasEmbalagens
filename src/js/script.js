@@ -116,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
         headerList.classList.toggle('dropdown-content-mobile')
         btnMobile.classList.toggle('active')
         backOverlay.classList.toggle('overlay')
+        searchBar.classList.toggle('searchBarShow')
 
     }
 
