@@ -394,6 +394,7 @@ a {
 .card-img-top {
     width: 85%;
     margin-top: 10px;
+    object-fit: contain;
 
 }
 
