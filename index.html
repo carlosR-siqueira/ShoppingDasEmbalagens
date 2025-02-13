@@ -93,7 +93,7 @@
                             <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico">Plástico</a>
                             <a href="produtos.html?categoria=Descartáveis&subcategoria=Papel">Papel</a>
                             <a href="produtos.html?categoria=Descartáveis&subcategoria=Papelão">Papelão</a>
-                           
+
 
 
                         </div>
@@ -169,13 +169,15 @@
                 <li class="header-list-itens"><a href="#contato">Contatos</a></li>
 
 
-                
+
                 <form class="searchBarContainer">
-                    <input class="inputText" type="text" placeholder="Pesquisar">
-                    <a href="">
+                    <input id="searchInput" class="inputText" type="text" placeholder="Pesquisar">
+                    <a href="javascript:void(0);" id="searchIcon">
                         <i class="fas fa-search"></i>
                     </a>
                 </form>
+                
+
             </ul>
 
 
@@ -521,7 +523,8 @@
             <div class="hr">
                 <hr>
             </div>
-            <p>Direitos reservados &copy; 2023 Shopping Das Embalagens - CNPJ: 03.855.354/0001-06 <br> Desenvolvido
+            <p>Direitos reservados &copy; <span class="currentYear"></span> Shopping Das Embalagens - CNPJ:
+                03.855.354/0001-06 <br> Desenvolvido
                 por:
                 <a class="carlos-dev" target="_blank" href="https://github.com/carlosR-siqueira"> Carlos
                     Siqueira.
@@ -558,6 +561,8 @@
 
     <script src="./src/js/script.js"></script>
     <!-- <script src="./src/js/fetch.js"></script> -->
+
+    
 
 
 

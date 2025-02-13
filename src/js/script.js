@@ -202,7 +202,180 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    
+
+
+    // função para atualizar o ano do rodapé
+
+    var currentYear = new Date().getFullYear();
+    document.querySelector('.currentYear').textContent = currentYear;
+
+
+    //função para manipular o search
+
+
+
+    const searchContainer = document.querySelector(".searchBarContainer");
+    const searchInput = document.getElementById("searchInput");
+    const searchIcon = document.getElementById("searchIcon");
+    const container = document.querySelector(".containerItens");
+    const titleContainer = document.querySelector(".prodTitle");
+
+    function buscarProdutos() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        if (searchTerm) {
+            window.location.href = `search.html?search=${encodeURIComponent(searchTerm)}`;
+        }
+    }
+
+    // Evento de clique na lupa para abrir o input e buscar
+    searchIcon.addEventListener("click", function (event) {
+        event.preventDefault();
+        searchContainer.classList.add("active");
+        searchInput.focus();
+
+        // Se já houver texto digitado, faz a pesquisa
+        if (searchInput.value.trim() !== "") {
+            buscarProdutos();
+        }
+    });
+
+    // Fecha a barra de pesquisa ao clicar fora dela
+    document.addEventListener("click", function (event) {
+        if (!searchContainer.contains(event.target)) {
+            searchContainer.classList.remove("active");
+        }
+    });
+
+    // Captura a pesquisa ao pressionar "Enter"
+    searchInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            buscarProdutos();
+        }
+    });
+
+
+
+
+
+    // Função para remover acentos e normalizar texto
+    function removerAcentos(texto) {
+        return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    }
+
+    // Obtém o parâmetro "search" da URL
+    const params = new URLSearchParams(window.location.search);
+    const searchTerm = params.get('search');
+
+    console.log("Termo pesquisado:", searchTerm); // Verifica se o termo está correto
+
+
+
+    // Exibe um título com o termo pesquisado
+    titleContainer.innerHTML = `<h2 class="titulo-destaque-produtos">Resultados para: "${searchTerm}"</h2>`;
+
+    function fetchProdutosFiltrados(searchTerm) {
+        const urlBase = `https://shopping-das-embalagens-default-rtdb.firebaseio.com/products.json`;
+
+        container.innerHTML = "<p>Buscando produtos...</p>";  // Mensagem de carregamento
+
+        fetch(urlBase)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Erro na requisição: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Dados recebidos do Firebase:", data);
+
+                let produtosEncontrados = [];
+
+                if (!data || typeof data !== "object") {
+                    console.error("Estrutura de dados inesperada:", data);
+                    container.innerHTML = "<p>Erro: estrutura de dados inesperada.</p>";
+                    return;
+                }
+
+                const searchTermNormalized = removerAcentos(searchTerm);
+
+                // Percorre todas as categorias dentro de "products"
+                for (const categoria in data) {
+                    const subcategorias = data[categoria];
+
+                    if (!subcategorias || typeof subcategorias !== "object") {
+                        continue;
+                    }
+
+                    const categoriaNormalized = removerAcentos(categoria); // Normaliza a categoria
+
+                    // Percorre todas as subcategorias
+                    for (const subcategoria in subcategorias) {
+                        const produtos = subcategorias[subcategoria];
+
+                        if (!produtos || typeof produtos !== "object") {
+                            continue;
+                        }
+
+                        const subcategoriaNormalized = removerAcentos(subcategoria); // Normaliza a subcategoria
+
+                        // Percorre todos os produtos dentro da subcategoria
+                        for (const produtoId in produtos) {
+                            const produto = produtos[produtoId];
+
+                            if (!produto || typeof produto !== "object") {
+                                continue;
+                            }
+
+                            const descricaoNormalized = removerAcentos(produto.description || "");
+                            const nomeNormalized = removerAcentos(produto.name || "");
+
+                            // Verifica se o termo pesquisado está no nome, descrição, categoria ou subcategoria
+                            if (
+                                nomeNormalized.includes(searchTermNormalized) ||
+                                descricaoNormalized.includes(searchTermNormalized) ||
+                                categoriaNormalized.includes(searchTermNormalized) ||
+                                subcategoriaNormalized.includes(searchTermNormalized)
+                            ) {
+                                produtosEncontrados.push({
+                                    ...produto,
+                                    category: categoria,
+                                    subcategory: subcategoria,
+                                    produtoId
+                                });
+                            }
+                        }
+                    }
+                }
+
+                console.log("Produtos encontrados:", produtosEncontrados); // Debug
+
+                // Atualiza a interface com os produtos encontrados
+                container.innerHTML = produtosEncontrados.length > 0
+                    ? produtosEncontrados.map(prod => `
+                    <article class="card" data-id="${prod.produtoId}">
+                        <img class="card-img-top" src="${prod.imageUrl}" alt="${prod.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${prod.name}</h5>
+                            <a href="item.html?categoria=${prod.category}&subcategoria=${prod.subcategory}&produtoId=${prod.produtoId}" class="btn btn-primary">Ver Produto</a>
+                        </div>
+                    </article>
+                `).join("")
+                    : "<p>Nenhum produto encontrado.</p>";  // Caso não encontre nada
+
+            })
+            .catch(error => {
+                console.error("Erro ao buscar produtos:", error);
+                container.innerHTML = "<p>Erro ao buscar produtos. Tente novamente.</p>";
+            });
+    }
+
+    // Se o termo de pesquisa foi fornecido, chama a função
+    if (searchTerm) {
+        fetchProdutosFiltrados(searchTerm);
+    } else {
+        container.innerHTML = "<p>Termo de pesquisa não fornecido.</p>";
+    }
 
 
 

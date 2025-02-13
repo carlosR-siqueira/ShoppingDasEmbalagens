@@ -99,3 +99,9 @@ function voltarParaCategoria(categoria, subcategoria) {
     document.querySelector(".voltarBtnContainer").innerHTML = voltarBtn;
 }
 
+
+
+
+
+
+
