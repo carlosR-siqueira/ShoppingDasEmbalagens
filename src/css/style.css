@@ -454,6 +454,29 @@ a {
 
 
 
+.paginacao {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-paginacao {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-paginacao.ativo {
+    background-color: #0056b3;
+    font-weight: bold;
+}
+
+
+
+
 .facaContatoContainer {
 
     display: flex;
