@@ -87,11 +87,17 @@ function exibirDetalhesProduto(produto) {
     if (produto.imageUrl2) imagens.push(produto.imageUrl2);
     if (produto.imageUrl3) imagens.push(produto.imageUrl3);
 
-    let carrosselHtml = "";
+    let miniaturasHtml = `
+        <div class="thumbnails">
+            ${imagens.map((img, index) => `
+                <img src="${img}" class="thumbnail ${index === 0 ? 'active' : ''}" onclick="mudarImagem(${index})">
+            `).join("")}
+        </div>
+    `;
 
-    // Sempre permitir o modal ao clicar na imagem, independentemente de quantas imagens existam
-    carrosselHtml = `
-        <div class="carousel" onmousedown="startDrag(event)" ontouchstart="startDrag(event)">
+    let carrosselHtml = `
+    <div class="mobile-caption">${1} / ${imagens.length}</div> <!-- Legenda para mobile -->
+        <div class="carousel">
             <div class="carousel-images">
                 ${imagens.map((img, index) => `
                     <img src="${img}" class="carousel-img ${index === 0 ? 'active' : ''}" onclick="abrirModal(${index})">
@@ -100,9 +106,9 @@ function exibirDetalhesProduto(produto) {
         </div>
     `;
 
-    // Se houver mais de uma imagem, adiciona as bolinhas de navegação
+    let indicadoresHtml = "";
     if (imagens.length > 1) {
-        carrosselHtml += `
+        indicadoresHtml = `
             <div class="carousel-indicators">
                 ${imagens.map((_, index) => `
                     <span class="dot ${index === 0 ? 'active' : ''}" onclick="mudarImagem(${index})"></span>
@@ -113,7 +119,11 @@ function exibirDetalhesProduto(produto) {
 
     const detalhesProduto = `
         <div class="detalhes-produto">
-            <div class="imgContainer">${carrosselHtml}</div>
+            ${miniaturasHtml}  <!-- Miniaturas à esquerda -->
+            <div class="imgContainer">
+                ${carrosselHtml}
+                ${indicadoresHtml}
+            </div>
             <div class="descricao-produto-container">
                 <h2>${produto.name}</h2>
                 <p>${produto.description}</p>
@@ -125,6 +135,8 @@ function exibirDetalhesProduto(produto) {
 }
 
 
+
+
 let imagemAtual = 0;
 let startX = 0;
 let isDragging = false;
@@ -132,25 +144,36 @@ let isDragging = false;
 function mudarImagem(index) {
     const imagens = document.querySelectorAll(".carousel-img");
     const dots = document.querySelectorAll(".dot");
+    const thumbnails = document.querySelectorAll(".thumbnail");
 
     imagens[imagemAtual].classList.remove("active");
-    dots[imagemAtual].classList.remove("active");
+    dots[imagemAtual]?.classList.remove("active");
+    thumbnails[imagemAtual].classList.remove("active");
 
     imagemAtual = index;
 
     imagens[imagemAtual].classList.add("active");
-    dots[imagemAtual].classList.add("active");
+    dots[imagemAtual]?.classList.add("active");
+    thumbnails[imagemAtual].classList.add("active");
 }
+
+ // Atualizar a legenda na versão mobile
+ if (mobileCaption) {
+    mobileCaption.textContent = `${imagemAtual + 1} / ${imagens.length}`;
+}
+
 
 // Função para abrir o modal
 function abrirModal(index) {
     imagemAtual = index;
     const imagens = document.querySelectorAll(".carousel-img");
+    const totalImagens = imagens.length;
 
-    // Criar o conteúdo do modal
+    // Criar o conteúdo do modal com a legenda no topo
     const modalHtml = `
         <div class="modal-content">
             <span class="close" onclick="fecharModal()">&times;</span>
+            <div class="modal-caption">${imagemAtual + 1} / ${totalImagens}</div> <!-- Legenda aqui -->
             <img src="${imagens[imagemAtual].src}" class="modal-img">
             <div class="modal-navigation">
                 <span onclick="mudarImagemModal(-1)">&#10094;</span>
@@ -176,7 +199,7 @@ function fecharModal() {
     }
 }
 
-// Função para navegar pelas imagens no modal
+// Função para navegar pelas imagens no modal e atualizar a legenda
 function mudarImagemModal(direcao) {
     const imagens = document.querySelectorAll(".carousel-img");
     const totalImagens = imagens.length;
@@ -186,9 +209,9 @@ function mudarImagemModal(direcao) {
     const modalImg = document.querySelector(".modal-img");
     modalImg.src = imagens[imagemAtual].src; // Atualizar imagem do modal
 
-    // Atualizar os indicadores de navegação (opcional)
-    const dots = document.querySelectorAll(".dot");
-    dots[imagemAtual].classList.add("active");
+    // Atualizar a legenda do modal
+    const modalCaption = document.querySelector(".modal-caption");
+    modalCaption.textContent = `${imagemAtual + 1} / ${totalImagens}`;
 }
 
 
