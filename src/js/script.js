@@ -160,6 +160,8 @@ document.addEventListener('DOMContentLoaded', function () {
             headerList.classList.remove('dropdown-content-mobile')
             backOverlay.classList.remove('overlay')
             dropdownContent.classList.remove('showContent')
+            subMenuItens.classList.remove('show')
+
 
 
         })
@@ -197,6 +199,8 @@ document.addEventListener('DOMContentLoaded', function () {
             btnMobile.classList.remove('active')
             backOverlay.classList.remove('overlay')
             dropdownContent.classList.remove('showContent')
+            searchBar.classList.toggle('searchBarShow')
+
 
         }
     });
