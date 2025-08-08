@@ -419,6 +419,84 @@ document.addEventListener("keydown", (ev) => {
 
 
 
+// Função para carregar produtos em destaque do banco de dados
+function loadFeaturedProducts() {
+    const urlBase = `https://shopping-das-embalagens-default-rtdb.firebaseio.com/products.json`;
+    
+    fetch(urlBase)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao buscar produtos em destaque');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const featuredProducts = [];
+            
+            // Percorrer todas as categorias e subcategorias para encontrar produtos em destaque
+            for (const categoria in data) {
+                if (data.hasOwnProperty(categoria)) {
+                    for (const subcategoria in data[categoria]) {
+                        if (data[categoria].hasOwnProperty(subcategoria)) {
+                            for (const produtoId in data[categoria][subcategoria]) {
+                                const produto = data[categoria][subcategoria][produtoId];
+                                if (produto.featured === true) {
+                                    featuredProducts.push({
+                                        ...produto,
+                                        categoria: categoria,
+                                        subcategoria: subcategoria,
+                                        id: produtoId
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Renderizar os produtos em destaque
+            renderFeaturedProducts(featuredProducts);
+        })
+        .catch(error => {
+            console.error('Erro ao carregar produtos em destaque:', error);
+            // Em caso de erro, manter os produtos mockados como fallback
+        });
+}
+
+// Função para renderizar os produtos em destaque
+function renderFeaturedProducts(products) {
+    const container = document.querySelector('.card-produtos');
+    if (!container) return;
+    
+    // Limpar container
+    container.innerHTML = '';
+    
+    // Renderizar cada produto
+    products.forEach(produto => {
+        const cardHTML = `
+            <article class="card">
+                <img class="card-img-top" src="${produto.imageUrl}" alt="${produto.name}" loading="lazy">
+                <div class="card-body">
+                    <div class="card-text-container">
+                        <h5 class="card-title">${produto.name}</h5>
+                        
+                    </div>
+                    <a href="item.html?categoria=${produto.categoria}&subcategoria=${produto.subcategoria}&produtoId=${produto.id}" class="btn btn-primary">Ver Produto</a>
+                </div>
+            </article>
+        `;
+        container.insertAdjacentHTML('beforeend', cardHTML);
+    });
+}
+
+// Carregar produtos em destaque quando a página carregar
+document.addEventListener('DOMContentLoaded', function() {
+    // Verificar se estamos na página principal (index.html)
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/')) {
+        loadFeaturedProducts();
+    }
+});
+
 window.addEventListener("scroll", function () {
     var whatsappIcon = document.querySelector(".whatsapp-icon");
     var distanceFromTop = window.scrollY;

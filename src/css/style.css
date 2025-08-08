@@ -295,6 +295,8 @@ a {
 
 .searchBarContainer.active input {
     width: 150px;
+    border: none;
+    outline: none;
 }
 
 .searchBarContainer.active {
@@ -302,7 +304,7 @@ a {
 }
 
 .searchBarContainer .fas {
-    color: #0d6efd;
+    /* color: #0d6efd; */
     font-size: 16pt;
 }
 
@@ -368,6 +370,7 @@ a {
     padding: 20px 0 150px 0;
     background-color: #edededed;
 
+
 }
 
 
@@ -387,6 +390,7 @@ a {
     box-shadow: 3px 3px 3px #0000003f;
     border-radius: 10px;
     margin-bottom: 20px;
+
 }
 
 .card-img-top {
@@ -421,18 +425,12 @@ a {
 
 }
 
-
-
-
 .btn {
 
     align-self: center;
     width: 100%;
     border-radius: 6px;
     box-shadow: 2px 3px 3px #000000a1;
-
-
-
 }
 
 .containerItens {
@@ -490,7 +488,7 @@ a {
 .facaContatoContainer p {
     flex: 1 0 140px;
     text-align: center;
-    
+
 
 }
 
@@ -498,15 +496,40 @@ a {
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
-    color: #ececec;
-    background-color: #40D366;
-    padding: 10px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    padding: 12px 24px;
     text-align: center;
-    font-size: 19pt;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px #000000;
+    font-size: 18pt;
+    font-weight: 600;
+    border-radius: 12px;
+    border: 2px solid #25D366;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     flex: 0.5 0 50px;
     width: 400px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline-success:hover {
+    background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+    border-color: #128C7E;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+.btn-outline-success:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(37, 211, 102, 0.3);
+}
+
+.btn-outline-success:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.3), 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 
 
@@ -576,6 +599,8 @@ a {
     display: flex;
     width: 100%;
     background-color: #ededed;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -586,6 +611,8 @@ a {
     border-radius: 5px;
     margin: 25px 0;
     text-shadow: #000000 1px 1px 2px;
+    width: 450px;
+    flex-shrink: 0;
 
 
 
@@ -606,12 +633,12 @@ a {
 .quemSomosTopicos p {
     text-transform: lowercase;
     text-shadow: #313131 1px 1px 2px;
-    
+
 
 
 }
 
-.quemSomosTopicos  article:nth-child(2) p {
+.quemSomosTopicos article:nth-child(2) p {
     text-shadow: #000 1px 1px 2px;
 
 }
@@ -675,7 +702,7 @@ a {
     text-decoration: underline;
     text-shadow: #000000 1px 1px 2px;
 
-    
+
 }
 
 .comoChegarBtn:hover {
@@ -825,8 +852,8 @@ footer {
 
     color: #ffffff;
     font-family: 'DM Sans', sans-serif;
-    font-weight: initial;
-    font-size: 18px;
+    font-weight: 700;
+    font-size: 19px;
     width: 100%;
     float: left;
     margin-bottom: 15px;
@@ -913,16 +940,17 @@ footer {
 .Copyright-container {
     background-color: #121213;
     font-family: 'DM Sans', sans-serif;
-    color: #ffffffc4;
+    color: #ffffff;
     font-size: 12px;
-    font-weight: normal;
+    font-weight: 500;
     padding: 20px;
     text-align: center;
 
 }
 
 .carlos-dev {
-    color: inherit;
+    color: #ffffff;
+    font-weight: 500;
 }
 
 /* horizontal line */
@@ -1000,7 +1028,8 @@ hr {
 
     font-family: 'DM Sans', sans-serif;
     font-size: 11pt;
-    color: #ffffffb9;
+    color: #fffffff3 !important;
+    /* font-weight: 600; */
 }
 
 .right-p ul li {
@@ -1463,11 +1492,6 @@ hr {
         font-size: 1.25rem;
     }
 
-
-
-
-
-
     .header-list li::before {
         width: 0%;
         height: 0%;
@@ -1709,7 +1733,7 @@ hr {
     .titulo-destaque-produtos {
         font-size: 20px;
         margin: 60px 0 10px 0;
-        
+
 
     }
 
@@ -1729,6 +1753,8 @@ hr {
 
     .btn-outline-success {
         width: 300px;
+        font-size: 16pt;
+        padding: 10px 20px;
     }
 
     .quemSomosContainer {
@@ -1793,6 +1819,14 @@ hr {
 
     .quemSomosTopicos {
         flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .quemSomosTopicos article {
+        width: 100%;
+        max-width: 350px;
+        margin: 10px 0;
     }
 
     .localizacao {

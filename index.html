@@ -5,6 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Shopping das Embalagens - A melhor opção de descartáveis na Zona Oeste do Rio de Janeiro. Copos, talheres, sacolas, quentinhas e muito mais. Entrega rápida e preços competitivos.">
+    <meta name="keywords" content="descartáveis, embalagens, copos descartáveis, talheres descartáveis, sacolas plásticas, quentinhas isopor, shopping embalagens, rio de janeiro">
+    <meta name="author" content="Shopping das Embalagens">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shoppingdasembalagens.com.br/">
+    <meta property="og:title" content="Shopping das Embalagens - Descartáveis na Zona Oeste">
+    <meta property="og:description" content="A melhor opção de descartáveis na Zona Oeste do Rio de Janeiro. Copos, talheres, sacolas e muito mais.">
+    <meta property="og:image" content="./src/images/LOGO_COR_HORIZ.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://shoppingdasembalagens.com.br/">
+    <meta property="twitter:title" content="Shopping das Embalagens - Descartáveis na Zona Oeste">
+    <meta property="twitter:description" content="A melhor opção de descartáveis na Zona Oeste do Rio de Janeiro.">
+    <meta property="twitter:image" content="./src/images/LOGO_COR_HORIZ.png">
+    
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -16,10 +37,12 @@
   
 
     <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/accessibility.css">
     <title>Shopping Das Embalagens</title>
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link sr-only">Pular para o conteúdo principal</a>
     <div id="inicio"></div>
 
 
@@ -27,9 +50,9 @@
 
 
         <a href="#inicio" class="logo-link">
-            <img src="./src/images/LOGO_COR_HORIZ.png" alt="Shopping das Embalagens" class="logo-img" />
+            <img src="./src/images/LOGO_COR_HORIZ.png" alt="Shopping das Embalagens" class="logo-img" loading="lazy" />
             <div class="logoReduzContainer">
-                <img src="./src/images/LOGO_REDUZ_COR.png" alt="S.E" class="logo-img-reduz">
+                <img src="./src/images/LOGO_REDUZ_COR.png" alt="S.E" class="logo-img-reduz" loading="lazy">
                 <h6 class="mobile-title">Shopping das Embalagens</h6>
             </div>
         </a>
@@ -192,11 +215,11 @@
 
     </header>
     <div class="back-overlay"></div>
-    <main class="main">
+    <main class="main" id="main-content">
 
 
         <section class="banner-container">
-            <img class="banner-img" src="./src/images/ShopEmbBanner.png" alt="shopping das embalagens banner">
+            <img class="banner-img" src="./src/images/ShopEmbBanner.png" alt="shopping das embalagens banner" loading="lazy">
         </section>
 
         <!-- <section id="slider-container" class="carousel slide" data-bs-ride="carousel">
@@ -230,93 +253,93 @@
         </div>
 
         <section class="card-produtos">
-            <article class="card">
-                <img class="card-img-top" id="quentinha-img" src="./src/images/quentinhaImg.png">
+            <!-- <article class="card">
+                <img class="card-img-top" id="quentinha-img" src="./src/images/quentinhaImg.png" alt="Quentinhas de Isopor" loading="lazy">
                 <div class="card-body">
                     <div class="card-text-container">
 
                         <h5 class="card-title">Quentinhas de Isopor</h5>
                         <p class="card-text">Quentinhas de isopor de 500ml, 750ml e 1100ml</p>
                     </div>
-                    <a href="#" class="btn btn-primary">Ver Tudo</a>
+                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Isopor" class="btn btn-primary">Ver Tudo</a>
                 </div>
             </article>
             <article class="card">
-                <img class="card-img-top" src="./src/images/coposDescartaveis.png">
+                <img class="card-img-top" src="./src/images/coposDescartaveis.png" alt="Copos Descartáveis" loading="lazy">
                 <div class="card-body">
                     <div class="card-text-container">
                         <h5 class="card-title">Copos Descartáveis</h5>
                         <p class="card-text">Copos descartáveis PS e PP a partir de 50ml.</p>
                     </div>
-                    <a href="#" class="btn btn-primary">Ver Tudo</a>
+                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico" class="btn btn-primary">Ver Tudo</a>
                 </div>
             </article>
 
             <article class="card">
-                <img class="card-img-top" src="./src/images/talherImg.png">
+                <img class="card-img-top" src="./src/images/talherImg.png" alt="Talheres Descartáveis" loading="lazy">
                 <div class="card-body">
                     <div class="card-text-container">
 
                         <h5 class="card-title">Talheres Descartáveis</h5>
                         <p class="card-text">Linha de talheres para refeições e para sobremesas</p>
                     </div>
-                    <a href="#" class="btn btn-primary">Ver Tudo</a>
+                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico" class="btn btn-primary">Ver Tudo</a>
                 </div>
             </article>
             <article class="card">
-                <img class="card-img-top" src="./src/images/sacolasImg.png">
+                <img class="card-img-top" src="./src/images/sacolasImg.png" alt="Sacola Plástica" loading="lazy">
                 <div class="card-body">
                     <div class="card-text-container">
 
                         <h5 class="card-title">Sacola Plástica</h5>
                         <p class="card-text">Sacolas Leves, Reforçadas e Biodegradáveis</p>
                     </div>
-                    <a href="#" class="btn btn-primary">Ver Tudo</a>
+                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico" class="btn btn-primary">Ver Tudo</a>
                 </div>
             </article>
             <article class="card">
-                <img class="card-img-top" src="./src/images/bobinaPicotadaImg.png">
+                <img class="card-img-top" src="./src/images/bobinaPicotadaImg.png" alt="Bobina Picotada" loading="lazy">
                 <div class="card-body">
                     <div class="card-text-container">
                         <h5 class="card-title">Bobina Picotada</h5>
                         <p class="card-text">Bobinas de saco picotado com tamanhos a partir de 20X30.</p>
                     </div>
-                    <a href="#" class="btn btn-primary">Ver Tudo</a>
+                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico" class="btn btn-primary">Ver Tudo</a>
                 </div>
             </article>
             <article class="card">
-                <img class="card-img-top" src="./src/images/sacoCristalImg.png">
+                <img class="card-img-top" src="./src/images/sacoCristalImg.png" alt="Saco Cristal" loading="lazy">
                 <div class="card-body">
                     <div class="card-text-container">
 
                         <h5 class="card-title">Saco cristal</h5>
                         <p class="card-text">Saco Plástico Cristal Virgem com Medidas a Partir de 10x20.</p>
                     </div>
-                    <a href="#" class="btn btn-primary">Ver Tudo</a>
+                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico" class="btn btn-primary">Ver Tudo</a>
                 </div>
             </article>
             <article class="card">
-                <img class="card-img-top" src="./src/images/sacoLixoImg.png">
+                <img class="card-img-top" src="./src/images/sacoLixoImg.png" alt="Saco de Lixo" loading="lazy">
                 <div class="card-body">
                     <div class="card-text-container">
 
                         <h5 class="card-title">Saco de Lixo</h5>
                         <p class="card-text">Sacos De Lixo em Diversos Tamanhos, Leves e Reforçados.</p>
                     </div>
-                    <a href="#" class="btn btn-primary">Ver Tudo</a>
+                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico" class="btn btn-primary">Ver Tudo</a>
                 </div>
             </article>
             <article class="card">
-                <img class="card-img-top" src="./src/images/filmePvcImg.png">
+                <img class="card-img-top" src="./src/images/filmePvcImg.png" alt="Filme PVC" loading="lazy">
                 <div class="card-body">
                     <div class="card-text-container">
 
                         <h5 class="card-title">Filme PVC</h5>
                         <p class="card-text">Bobinas de Filme PVC Com Tamanhos A Partir de 15 Metros.</p>
                     </div>
-                    <a href="#" class="btn btn-primary">Ver Tudo</a>
+                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico" class="btn btn-primary">Ver Tudo</a>
                 </div>
-            </article>
+            </article> -->
         </section>
 
 
@@ -326,7 +349,7 @@
                 <p>Entre em contato via WhatsApp para Orçamentos e Pedidos. </p>
             </div>
             <div id="linha-vertical"></div>
-            <a href="https://wa.me/5521975956593" target="_blank"><button type="button"
+            <a href="https://wa.me/5521975956593" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp para orçamento"><button type="button"
                     class="btn-outline-success">WhatsApp<i class="bi bi-whatsapp"></i></button></a>
 
 
@@ -338,32 +361,18 @@
 
 
             <div class="quemSomosImg">
-                <img class="img-thumbnail" src="./src/images/quemSomosImg.jpg" alt="Shopping das Embalagens Imagem">
+                <img class="img-thumbnail" src="./src/images/quemSomosImg.jpg" alt="Shopping das Embalagens Imagem" loading="lazy">
             </div>
 
             <div class="quemSomosContent">
 
                 <h2>Quem somos?</h2>
                 <div class="quemSomosTxt">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit diam ultricies curabitur
-                        nunc, magna primis
-                        habitasse vestibulum risus hac egestas pulvinar sem eros, a tristique ut sapien mus vivamus
-                        sollicitudin bibendum luctus ullamcorper. Facilisi ad cras curae est suspendisse taciti odio
-                        maecenas sagittis viverra, purus penatibus dictumst habitant dapibus inceptos euismod eros
-                        dis
-                        ligula, porta sed conubia lectus parturient fusce orci cubilia nullam. Sollicitudin at
-                        ultrices
-                        tristique ultricies dignissim sociosqu cursus, pretium congue quisque torquent libero
-                        malesuada,
-                        accumsan hendrerit class vitae erat mollis. Aliquet mollis ut elementum at eleifend magnis
-                        dapibus
-                        vel commodo eu pulvinar imperdiet, non odio eros tellus scelerisque feugiat hendrerit
-                        consequat
-                        arcu
-                        libero a. Aptent quis neque lectus class quam feugiat, iaculis parturient porttitor ac et
-                        suscipit
-                        ultricies, himenaeos ut eros cubilia malesuada.
-                    </p>
+                    <p>O Shopping das Embalagens é uma empresa especializada na comercialização de produtos descartáveis e embalagens, localizada em Campo Grande, Zona Oeste do Rio de Janeiro. Com anos de experiência no mercado, oferecemos uma ampla variedade de produtos de qualidade para atender às necessidades de restaurantes, lanchonetes, eventos, empresas e consumidores em geral.</p>
+                    
+                    <p>Nossa missão é fornecer produtos descartáveis de alta qualidade com preços competitivos, garantindo a satisfação total de nossos clientes. Trabalhamos com as melhores marcas do mercado e mantemos um estoque sempre atualizado para atender às demandas de nossos clientes com agilidade e eficiência.</p>
+                    
+                    <p>Atendemos toda a região metropolitana do Rio de Janeiro com entrega rápida e segura. Nossa equipe está sempre pronta para oferecer o melhor atendimento e orientação na escolha dos produtos mais adequados para cada necessidade.</p>
                 </div>
             </div>
 
@@ -371,22 +380,19 @@
         </section>
         <section class="quemSomosTopicos">
             <article>
-                <img class="topicosIcones" id="missao" src="./src/images/missaoIcon.png">
+                <img class="topicosIcones" id="missao" src="./src/images/missaoIcon.png" alt="Ícone Missão" loading="lazy">
                 <h2>Missão</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit fusce hac egestas euismod risus, dictumst
-                    dapibus erat luctus urna vel volutpat augue suspendisse curabitur.</p>
+                <p>Fornecer soluções completas em embalagens e descartáveis de qualidade, atendendo com excelência as necessidades de nossos clientes na Zona Oeste do Rio de Janeiro.</p>
             </article>
             <article>
-                <img class="topicosIcones" id="visao" src="./src/images/visaoIcon.png">
+                <img class="topicosIcones" id="visao" src="./src/images/visaoIcon.png" alt="Ícone Visão" loading="lazy">
                 <h2>visão</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit fusce hac egestas euismod risus, dictumst
-                    dapibus erat luctus urna vel volutpat augue suspendisse curabitur.</p>
+                <p>Ser a referência em embalagens e descartáveis na Zona Oeste, reconhecida pela qualidade dos produtos, atendimento diferenciado e compromisso com a satisfação total do cliente.</p>
             </article>
             <article>
-                <img id="valores" class="topicosIcones" src="./src/images/valoresIcon.png" alt="">
+                <img id="valores" class="topicosIcones" src="./src/images/valoresIcon.png" alt="Ícone Valores" loading="lazy">
                 <h2>Valores</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit fusce hac egestas euismod risus, dictumst
-                    dapibus erat luctus urna vel volutpat augue suspendisse curabitur.</p>
+                <p>Qualidade, confiança e transparência em todos os nossos produtos e serviços, sempre priorizando a satisfação do cliente e o desenvolvimento sustentável do nosso negócio.</p>
             </article>
         </section>
 
@@ -426,15 +432,15 @@
 
             <div class="left">
 
-                <img src="./src/images/LOGO_BRANCO_HORIZ.png" alt="Logo" width="220px">
+                <img src="./src/images/LOGO_BRANCO_HORIZ.png" alt="Logo" width="220px" loading="lazy">
                 <p class="right-p">A melhor opção de descartáveis na Zona Oeste! </p><br>
 
                 <h4 class="title-footer">Contato</h4>
 
-                <p class="right-p"> <a href="tel:552124119976"><i class="fa fa-phone"></i></a> (21) 2411-9976</p>
-                <p class="right-p"> <a href="https://wa.me/5521975956593" target="_blank"><i
+                <p class="right-p"> <a href="tel:552124119976" aria-label="Ligar para (21) 2411-9976"><i class="fa fa-phone"></i></a> (21) 2411-9976</p>
+                <p class="right-p"> <a href="https://wa.me/5521975956593" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp"><i
                             class="fab fa-whatsapp"></i></a> (21) 975956593</p>
-                <p class="right-p"><a href="mailto:embalagenscasanova@hotmail.com" target="_blank"><i
+                <p class="right-p"><a href="mailto:embalagenscasanova@hotmail.com" aria-label="Enviar email"><i
                             class="fa fa-envelope"></i></a> embalagenscasanova@hotmail.com</p><br>
 
 
@@ -443,9 +449,9 @@
                 <h4 class="title-footer">Redes Sociais</h4>
 
                 <div class="footer-icons">
-                    <a href="https://web.facebook.com/shoppingdasembalagens92/?_rdc=1&_rdr" target="_blank"><i
+                    <a href="https://web.facebook.com/shoppingdasembalagens92/?_rdc=1&_rdr" target="_blank" rel="noopener noreferrer" aria-label="Abrir Facebook"><i
                             class="fa fa-facebook"></i></a>
-                    <a href="https://instagram.com/shoppingdasembalagenscg?igshid=MzRlODBiNWFlZA==" target="_blank"><i
+                    <a href="https://instagram.com/shoppingdasembalagenscg?igshid=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram"><i
                             class="fa fa-instagram"></i></a>
                 </div>
 
@@ -462,18 +468,18 @@
                     <div class="payment-container">
 
                         <ul class="payment">
-                            <li><img src="./src/images/icons pg/visa.png" alt="Visa"></li>
-                            <li><img src="./src/images/icons pg/mastercard.png" alt="Mastercard"></li>
-                            <li><img src="./src/images/icons pg/AmExpress.png" alt="American Express"></li>
-                            <li><img src="./src/images/icons pg/elo.png" alt="ELO"></li>
+                            <li><img src="./src/images/icons pg/visa.png" alt="Visa" loading="lazy"></li>
+                            <li><img src="./src/images/icons pg/mastercard.png" alt="Mastercard" loading="lazy"></li>
+                            <li><img src="./src/images/icons pg/AmExpress.png" alt="American Express" loading="lazy"></li>
+                            <li><img src="./src/images/icons pg/elo.png" alt="ELO" loading="lazy"></li>
                         </ul>
                     </div>
                     <div class="payment-container">
                         <ul class="payment">
-                            <li><img src="./src/images/icons pg/dinnersclub.png" alt="DinersClub"></li>
-                            <li><img src="./src/images/icons pg/hipercard.png" alt="Hipercard"></li>
-                            <li><img src="./src/images/icons pg/picpay.png" alt="PicPay"></li>
-                            <li><img src="./src/images/icons pg/pix.png" alt="PIX"></li>
+                            <li><img src="./src/images/icons pg/dinnersclub.png" alt="DinersClub" loading="lazy"></li>
+                            <li><img src="./src/images/icons pg/hipercard.png" alt="Hipercard" loading="lazy"></li>
+                            <li><img src="./src/images/icons pg/picpay.png" alt="PicPay" loading="lazy"></li>
+                            <li><img src="./src/images/icons pg/pix.png" alt="PIX" loading="lazy"></li>
                         </ul>
                         <!-- <div class="semJuros">
                             <img src="./src/images/icons pg/2x-sem-juros.png" alt="2x-sem-juros">
@@ -508,9 +514,9 @@
 
 
                 <address class="address">
-                    <span id="address-title">
+                    <h4 class="title-footer">
                         Endereço:
-                    </span> <br>
+                    </h4>
                     <p class="right-p"> R. Casa Nova, 9 - Campo Grande<br> CEP:23075-150 Rio de Janeiro - RJ</p>
                     <!-- <div class="map-responsive-footer">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.8110510229967!2d-43.570329285034745!3d-22.883437285023696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9be3db7dd25da3%3A0xd846d0ffc7025c69!2sShopping%20das%20Embalagens!5e0!3m2!1spt-BR!2sbr!4v1689812975615!5m2!1spt-BR!2sbr" width="300" height="300" style="border:0; border-radius: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -563,6 +569,7 @@
 
 
     <script src="./src/js/script.js"></script>
+
     <!-- <script src="./src/js/fetch.js"></script> -->
 
     

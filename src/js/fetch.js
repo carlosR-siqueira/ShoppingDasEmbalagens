@@ -3,19 +3,33 @@ document.addEventListener("DOMContentLoaded", function () {
     const categoria = urlParams.get('categoria');  // Exemplo: "Descartáveis"
     const subcategoria = urlParams.get('subcategoria'); // Exemplo: "Plástico"
     const produtoId = urlParams.get('produtoId');
+    const pageParam = urlParams.get('page'); // Página atual da paginação
 
     if (produtoId) {
         fetchDetalhesProduto(categoria, subcategoria, produtoId);
     } else {
-        fetchProdutos(categoria, subcategoria);
+        // Se há parâmetro de página na URL, usar ele; senão usar página 1
+        const initialPage = pageParam ? parseInt(pageParam) : 1;
+        fetchProdutos(categoria, subcategoria, initialPage);
     }
 });
 
-function fetchProdutos(categoria, subcategoria) {
+// Variáveis globais para paginação
+let allProducts = [];
+let currentPage = 1;
+const productsPerPage = 8;
+let currentCategoria = '';
+let currentSubcategoria = '';
+
+function fetchProdutos(categoria, subcategoria, initialPage = 1) {
     if (!categoria || !subcategoria) {
         console.error("Categoria ou Subcategoria não definida!");
         return;
     }
+
+    // Armazenar categoria e subcategoria atuais
+    currentCategoria = categoria;
+    currentSubcategoria = subcategoria;
 
     // Atualizar o título da página com o nome da subcategoria
     document.querySelector('.prodTitle.destaque-produtos-titulo-container').innerHTML = `<h2 class="titulo-destaque-produtos">${subcategoria}</h2>`;
@@ -30,25 +44,174 @@ function fetchProdutos(categoria, subcategoria) {
             return response.json();
         })
         .then(data => {
-            const container = document.querySelector('.containerItens');
-            container.innerHTML = ''; // Limpa os produtos anteriores
-
+            // Converter dados para array
+            allProducts = [];
             for (const key in data) {
                 if (data.hasOwnProperty(key)) {
-                    const produto = data[key];
-                    const prodCard = `
-                        <article class="card" data-id="${key}">
-                            <img class="card-img-top" src="${produto.imageUrl}">
-                            <div class="card-body">
-                                <h5 class="card-title">${produto.name}</h5>
-                                <a href="item.html?categoria=${categoria}&subcategoria=${subcategoria}&produtoId=${key}" class="btn btn-primary">Ver Produto</a>
-                            </div>
-                        </article>`;
-                    container.insertAdjacentHTML('beforeend', prodCard);
+                    allProducts.push({
+                        id: key,
+                        ...data[key]
+                    });
                 }
             }
+
+            // Definir página inicial (validar se está dentro do range válido)
+            const totalPages = Math.ceil(allProducts.length / productsPerPage);
+            currentPage = Math.min(Math.max(initialPage, 1), totalPages || 1);
+            
+            // Renderizar produtos e paginação
+            renderProducts();
+            setupPagination();
         })
         .catch(error => console.error("Erro ao carregar produtos:", error));
+}
+
+function renderProducts() {
+    const container = document.querySelector('.containerItens');
+    container.innerHTML = ''; // Limpa os produtos anteriores
+
+    // Calcular índices para a página atual
+    const startIndex = (currentPage - 1) * productsPerPage;
+    const endIndex = startIndex + productsPerPage;
+    const productsToShow = allProducts.slice(startIndex, endIndex);
+
+    // Renderizar produtos da página atual
+    productsToShow.forEach(produto => {
+        const prodCard = `
+            <article class="card" data-id="${produto.id}">
+                <img class="card-img-top" src="${produto.imageUrl}" alt="${produto.name}" loading="lazy">
+                <div class="card-body">
+                    <h5 class="card-title">${produto.name}</h5>
+                    <a href="item.html?categoria=${currentCategoria}&subcategoria=${currentSubcategoria}&produtoId=${produto.id}" class="btn btn-primary">Ver Produto</a>
+                </div>
+            </article>`;
+        container.insertAdjacentHTML('beforeend', prodCard);
+    });
+
+    // Atualizar informações de paginação
+    updatePaginationInfo();
+}
+
+function setupPagination() {
+    const totalPages = Math.ceil(allProducts.length / productsPerPage);
+    const paginationContainer = document.querySelector('.pagination-container');
+    const paginationList = document.getElementById('pagination-list');
+    
+    // Mostrar container de paginação se houver mais de 8 produtos
+    if (allProducts.length > productsPerPage) {
+        paginationContainer.style.display = 'block';
+    } else {
+        paginationContainer.style.display = 'none';
+        return;
+    }
+
+    // Obter botões Previous e Next
+    const prevButton = document.getElementById('prev-page');
+    const nextButton = document.getElementById('next-page');
+
+    // Remover números de página anteriores (manter apenas Previous e Next)
+    const existingPageNumbers = paginationList.querySelectorAll('.page-item:not(#prev-page):not(#next-page)');
+    existingPageNumbers.forEach(item => item.remove());
+
+    // Criar números de página e inserir antes do botão Next
+    for (let i = 1; i <= totalPages; i++) {
+        const pageItem = document.createElement('li');
+        pageItem.className = `page-item ${i === currentPage ? 'active' : ''}`;
+        
+        const pageLink = document.createElement('a');
+        pageLink.className = 'page-link';
+        pageLink.href = '#';
+        pageLink.textContent = i;
+        pageLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToPage(i);
+        });
+
+        pageItem.appendChild(pageLink);
+        paginationList.insertBefore(pageItem, nextButton);
+    }
+
+    // Configurar botões anterior/próximo
+    prevButton.classList.toggle('disabled', currentPage === 1);
+    nextButton.classList.toggle('disabled', currentPage === totalPages);
+
+    // Atualizar atributos de acessibilidade
+    const prevLink = prevButton.querySelector('a');
+    const nextLink = nextButton.querySelector('a');
+
+    if (currentPage === 1) {
+        prevLink.setAttribute('tabindex', '-1');
+        prevLink.setAttribute('aria-disabled', 'true');
+    } else {
+        prevLink.removeAttribute('tabindex');
+        prevLink.removeAttribute('aria-disabled');
+    }
+
+    if (currentPage === totalPages) {
+        nextLink.setAttribute('tabindex', '-1');
+        nextLink.setAttribute('aria-disabled', 'true');
+    } else {
+        nextLink.removeAttribute('tabindex');
+        nextLink.removeAttribute('aria-disabled');
+    }
+
+    prevLink.onclick = (e) => {
+        e.preventDefault();
+        if (currentPage > 1) goToPage(currentPage - 1);
+    };
+
+    nextLink.onclick = (e) => {
+        e.preventDefault();
+        if (currentPage < totalPages) goToPage(currentPage + 1);
+    };
+}
+
+function goToPage(page) {
+    currentPage = page;
+    renderProducts();
+    setupPagination();
+    
+    // Atualizar URL com a página atual
+    updateURLWithPage(page);
+    
+    // Scroll para o título da seção de produtos (mais visível)
+    const titleElement = document.querySelector('.prodTitle.destaque-produtos-titulo-container');
+    if (titleElement) {
+        titleElement.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+    } else {
+        // Fallback para o container de produtos
+        document.querySelector('.containerItens').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+    }
+}
+
+function updateURLWithPage(page) {
+    const url = new URL(window.location);
+    
+    if (page === 1) {
+        // Se for página 1, remover o parâmetro 'page' da URL
+        url.searchParams.delete('page');
+    } else {
+        // Caso contrário, definir o parâmetro 'page'
+        url.searchParams.set('page', page);
+    }
+    
+    // Atualizar URL sem recarregar a página
+    window.history.replaceState({}, '', url);
+}
+
+function updatePaginationInfo() {
+    const startIndex = (currentPage - 1) * productsPerPage + 1;
+    const endIndex = Math.min(currentPage * productsPerPage, allProducts.length);
+    
+    document.getElementById('showing-start').textContent = startIndex;
+    document.getElementById('showing-end').textContent = endIndex;
+    document.getElementById('total-products').textContent = allProducts.length;
 }
 
 
