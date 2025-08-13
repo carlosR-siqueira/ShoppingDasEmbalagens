@@ -82,7 +82,18 @@ function renderProducts() {
                 <img class="card-img-top" src="${produto.imageUrl}" alt="${produto.name}" loading="lazy">
                 <div class="card-body">
                     <h5 class="card-title">${produto.name}</h5>
-                    <a href="item.html?categoria=${currentCategoria}&subcategoria=${currentSubcategoria}&produtoId=${produto.id}" class="btn btn-primary">Ver Produto</a>
+                    <div class="card-buttons">
+                        <a href="item.html?categoria=${currentCategoria}&subcategoria=${currentSubcategoria}&produtoId=${produto.id}" class="btn btn-primary">Ver Produto</a>
+                        <button class="add-to-quote-btn" data-product-id="${produto.id}" onclick="addToQuoteList({
+                            id: '${produto.id}',
+                            name: '${produto.name}',
+                            category: '${currentCategoria}',
+                            subcategory: '${currentSubcategoria}',
+                            imageUrl: '${produto.imageUrl}'
+                        })">
+                            <i class="fas fa-plus"></i> Adicionar à Lista
+                        </button>
+                    </div>
                 </div>
             </article>`;
         container.insertAdjacentHTML('beforeend', prodCard);
@@ -90,6 +101,11 @@ function renderProducts() {
 
     // Atualizar informações de paginação
     updatePaginationInfo();
+    
+    // Atualizar botões "Adicionar à Lista" se o sistema de orçamento estiver disponível
+    if (typeof quoteSystem !== 'undefined') {
+        quoteSystem.updateAddButtons();
+    }
 }
 
 function setupPagination() {
@@ -275,6 +291,12 @@ function exibirDetalhesProduto(produto) {
         `;
     }
 
+    // Obter categoria e subcategoria da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoria = urlParams.get('categoria');
+    const subcategoria = urlParams.get('subcategoria');
+    const produtoId = urlParams.get('produtoId');
+
     const detalhesProduto = `
         <div class="detalhes-produto">
             ${miniaturasHtml}  <!-- Miniaturas à esquerda -->
@@ -285,11 +307,29 @@ function exibirDetalhesProduto(produto) {
             <div class="descricao-produto-container">
                 <h2>${produto.name}</h2>
                 <p>${produto.description}</p>
+                <div class="produto-actions">
+                    <button class="add-to-quote-btn" data-product-id="${produtoId}" onclick="addToQuoteList({
+                        id: '${produtoId}',
+                        name: '${produto.name}',
+                        category: '${categoria}',
+                        subcategory: '${subcategoria}',
+                        imageUrl: '${produto.imageUrl}'
+                    })">
+                        <i class="fas fa-plus"></i> Adicionar à Lista de Orçamento
+                    </button>
+                </div>
             </div>
         </div>
     `;
 
     document.querySelector('.detalhes-produto-container').innerHTML = detalhesProduto;
+    
+    // Atualizar botão "Adicionar à Lista" se o sistema de orçamento estiver disponível
+    if (typeof quoteSystem !== 'undefined') {
+        setTimeout(() => {
+            quoteSystem.updateAddButtons();
+        }, 100);
+    }
 }
 
 
