@@ -428,7 +428,7 @@ a {
 .btn {
 
     align-self: center;
-    width: 100%;
+    width: 30%;
     border-radius: 6px;
     box-shadow: 2px 3px 3px #000000a1;
 }
@@ -2267,6 +2267,7 @@ hr {
 
     .quote-modal{
         top: 65px;
+        z-index: 9999999999;
     }
 
     .quote-cart-btn {
