@@ -396,6 +396,8 @@ body {
 .modern-alert.warning {
     background: linear-gradient(135deg, var(--warning), #fd7e14);
     border-left: 4px solid #856404;
+    
+
 }
 
 .modern-alert.error {
@@ -472,8 +474,12 @@ body {
     .modern-alert {
         right: 10px;
         left: 10px;
+        top: 12% !important;
         max-width: none;
+
     }
+
+  
 }
 
 /* ===== ANIMAÇÕES MODERNAS ===== */
