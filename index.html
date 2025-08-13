@@ -252,94 +252,8 @@
             <h2 class="titulo-destaque-produtos">Produtos em Destaque</h2>
         </div>
 
-        <section class="card-produtos">
-            <!-- <article class="card">
-                <img class="card-img-top" id="quentinha-img" src="./src/images/quentinhaImg.png" alt="Quentinhas de Isopor" loading="lazy">
-                <div class="card-body">
-                    <div class="card-text-container">
-
-                        <h5 class="card-title">Quentinhas de Isopor</h5>
-                        <p class="card-text">Quentinhas de isopor de 500ml, 750ml e 1100ml</p>
-                    </div>
-                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Isopor" class="btn btn-primary">Ver Tudo</a>
-                </div>
-            </article>
-            <article class="card">
-                <img class="card-img-top" src="./src/images/coposDescartaveis.png" alt="Copos Descartáveis" loading="lazy">
-                <div class="card-body">
-                    <div class="card-text-container">
-                        <h5 class="card-title">Copos Descartáveis</h5>
-                        <p class="card-text">Copos descartáveis PS e PP a partir de 50ml.</p>
-                    </div>
-                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico" class="btn btn-primary">Ver Tudo</a>
-                </div>
-            </article>
-
-            <article class="card">
-                <img class="card-img-top" src="./src/images/talherImg.png" alt="Talheres Descartáveis" loading="lazy">
-                <div class="card-body">
-                    <div class="card-text-container">
-
-                        <h5 class="card-title">Talheres Descartáveis</h5>
-                        <p class="card-text">Linha de talheres para refeições e para sobremesas</p>
-                    </div>
-                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico" class="btn btn-primary">Ver Tudo</a>
-                </div>
-            </article>
-            <article class="card">
-                <img class="card-img-top" src="./src/images/sacolasImg.png" alt="Sacola Plástica" loading="lazy">
-                <div class="card-body">
-                    <div class="card-text-container">
-
-                        <h5 class="card-title">Sacola Plástica</h5>
-                        <p class="card-text">Sacolas Leves, Reforçadas e Biodegradáveis</p>
-                    </div>
-                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico" class="btn btn-primary">Ver Tudo</a>
-                </div>
-            </article>
-            <article class="card">
-                <img class="card-img-top" src="./src/images/bobinaPicotadaImg.png" alt="Bobina Picotada" loading="lazy">
-                <div class="card-body">
-                    <div class="card-text-container">
-                        <h5 class="card-title">Bobina Picotada</h5>
-                        <p class="card-text">Bobinas de saco picotado com tamanhos a partir de 20X30.</p>
-                    </div>
-                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico" class="btn btn-primary">Ver Tudo</a>
-                </div>
-            </article>
-            <article class="card">
-                <img class="card-img-top" src="./src/images/sacoCristalImg.png" alt="Saco Cristal" loading="lazy">
-                <div class="card-body">
-                    <div class="card-text-container">
-
-                        <h5 class="card-title">Saco cristal</h5>
-                        <p class="card-text">Saco Plástico Cristal Virgem com Medidas a Partir de 10x20.</p>
-                    </div>
-                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico" class="btn btn-primary">Ver Tudo</a>
-                </div>
-            </article>
-            <article class="card">
-                <img class="card-img-top" src="./src/images/sacoLixoImg.png" alt="Saco de Lixo" loading="lazy">
-                <div class="card-body">
-                    <div class="card-text-container">
-
-                        <h5 class="card-title">Saco de Lixo</h5>
-                        <p class="card-text">Sacos De Lixo em Diversos Tamanhos, Leves e Reforçados.</p>
-                    </div>
-                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico" class="btn btn-primary">Ver Tudo</a>
-                </div>
-            </article>
-            <article class="card">
-                <img class="card-img-top" src="./src/images/filmePvcImg.png" alt="Filme PVC" loading="lazy">
-                <div class="card-body">
-                    <div class="card-text-container">
-
-                        <h5 class="card-title">Filme PVC</h5>
-                        <p class="card-text">Bobinas de Filme PVC Com Tamanhos A Partir de 15 Metros.</p>
-                    </div>
-                    <a href="produtos.html?categoria=Descartáveis&subcategoria=Plástico" class="btn btn-primary">Ver Tudo</a>
-                </div>
-            </article> -->
+        <section class="card-produtos" id="featured-products">
+            <!-- Os produtos em destaque serão carregados dinamicamente aqui -->
         </section>
 
 
@@ -571,6 +485,171 @@
     <script src="./src/js/script.js"></script>
 
     <!-- <script src="./src/js/fetch.js"></script> -->
+
+    <!-- Script para carregar produtos em destaque -->
+    <script>
+        // Dados dos produtos (simulando o banco de dados)
+        const productsData = {
+            "products": {
+                "Descartáveis": {
+                    "Isopor": {
+                        "-OX6HfssIXby1OGUKzaQ": {
+                            "category": "Descartáveis",
+                            "description": "<p>Quentinhas de isopor de 500ml, 750ml e 1100ml</p>",
+                            "featured": true,
+                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/isopor/quentinhas-de-isopor-imageUrl-1754616464588",
+                            "imageUrl2": "",
+                            "imageUrl3": "",
+                            "name": "Quentinhas de Isopor",
+                            "subcategory": "Isopor"
+                        }
+                    },
+                    "Plástico": {
+                        "-OWNnQpLPEazpaV2rCdh": {
+                            "category": "Descartáveis",
+                            "description": "<ul><li><p><strong>EMB PET TORTA</strong></p></li><li><p><strong>BASE BRANCA</strong></p></li><li><p><strong>TAMPA MÉDIA</strong></p></li><li><p><strong>227x81MM</strong></p></li><li><p><strong>CX C/100 BASES E 100 TAMPAS.</strong></p></li></ul>",
+                            "featured": false,
+                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/-s32-brm--imageUrl-1753836529978",
+                            "imageUrl2": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/-s32-brm--imageUrl2-1753836531023",
+                            "imageUrl3": "",
+                            "name": " S32 BRM ",
+                            "subcategory": "Plástico"
+                        },
+                        "-OWNnWTIaVjf_FgrPDMp": {
+                            "category": "Descartáveis",
+                            "description": "<ul><li><p><strong>EMB PET TORTA PEQUENA</strong></p></li><li><p><strong>BASE BRANCA</strong></p></li><li><p><strong>TAMPA MÉDIA</strong></p></li><li><p><strong>268x99MM</strong></p></li><li><p><strong>CX C/50 BASES E 50 TAMPAS.</strong></p></li></ul>",
+                            "featured": false,
+                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/-s50-brm--imageUrl-1753836553068",
+                            "imageUrl2": "",
+                            "imageUrl3": "",
+                            "name": " S50 BRM ",
+                            "subcategory": "Plástico"
+                        },
+                        "-OWNnbFXImWDvq3vgy5X": {
+                            "category": "Descartáveis",
+                            "description": "<ul><li><p><strong>EMBALAGEM PET RETANGULAR PEQUENA</strong></p></li><li><p><strong>ALTA</strong></p></li><li><p><strong>190x120x63 MM</strong></p></li><li><p><strong>CX C/100 ARTICULADAS.</strong></p></li></ul>",
+                            "featured": true,
+                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/-s10-c--imageUrl-1753836575744",
+                            "imageUrl2": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/-s10-c--imageUrl2-1753836576789",
+                            "imageUrl3": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/-s10-c--imageUrl3-1753836577833",
+                            "name": " S10 C ",
+                            "subcategory": "Plástico"
+                        },
+                        "-OX6HsbW5tjomx6kUtNC": {
+                            "category": "Descartáveis",
+                            "description": "<p><strong>Copos descartáveis PS e PP a partir de 50ml.</strong></p>",
+                            "featured": true,
+                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/copos-descartaveis-imageUrl-1754616527268",
+                            "imageUrl2": "",
+                            "imageUrl3": "",
+                            "name": "Copos Descartáveis",
+                            "subcategory": "Plástico"
+                        },
+                        "-OX6I0kW45nBUUG67NJA": {
+                            "category": "Descartáveis",
+                            "description": "<p><strong>Linha de talheres para refeições e para sobremesas</strong></p>",
+                            "featured": true,
+                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/talheres-descartaveis-imageUrl-1754616566163",
+                            "imageUrl2": "",
+                            "imageUrl3": "",
+                            "name": "Talheres Descartáveis",
+                            "subcategory": "Plástico"
+                        },
+                        "-OX6IMR9bmUpsC2Y2_bi": {
+                            "category": "Descartáveis",
+                            "description": "<p><strong>Bobinas de saco picotado com tamanhos a partir de 20X30.</strong></p>",
+                            "featured": true,
+                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/bobina-picotada-imageUrl-1754616651296",
+                            "imageUrl2": "",
+                            "imageUrl3": "",
+                            "name": "Bobina Picotada",
+                            "subcategory": "Plástico"
+                        },
+                        "-OX6IUKdBTfpFo2VXDFX": {
+                            "category": "Descartáveis",
+                            "description": "<p><strong>Saco Plástico Cristal Virgem com Medidas a Partir de 10x20.</strong></p>",
+                            "featured": true,
+                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/saco-cristal-imageUrl-1754616687544",
+                            "imageUrl2": "",
+                            "imageUrl3": "",
+                            "name": "Saco cristal",
+                            "subcategory": "Plástico"
+                        },
+                        "-OX6IjDuQA4JojC8GgkS": {
+                            "category": "Descartáveis",
+                            "description": "<p><strong>Sacos De Lixo em Diversos Tamanhos, Leves e Reforçados.</strong></p>",
+                            "featured": true,
+                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/saco-de-lixo-imageUrl-1754616749708",
+                            "imageUrl2": "",
+                            "imageUrl3": "",
+                            "name": "Saco de Lixo",
+                            "subcategory": "Plástico"
+                        },
+                        "-OX6IqjW8WPj_3Svbmg8": {
+                            "category": "Descartáveis",
+                            "description": "<p><strong>Bobinas de Filme PVC Com Tamanhos A Partir de 15 Metros.</strong></p>",
+                            "featured": true,
+                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/filme-pvc-imageUrl-1754616782879",
+                            "imageUrl2": "",
+                            "imageUrl3": "",
+                            "name": "Filme PVC",
+                            "subcategory": "Plástico"
+                        }
+                    }
+                }
+            }
+        };
+
+        // Função para carregar produtos em destaque
+        function loadFeaturedProducts() {
+            const featuredProductsContainer = document.getElementById('featured-products');
+            const featuredProducts = [];
+
+            // Coletar todos os produtos com featured: true
+            Object.keys(productsData.products).forEach(category => {
+                Object.keys(productsData.products[category]).forEach(subcategory => {
+                    Object.keys(productsData.products[category][subcategory]).forEach(productId => {
+                        const product = productsData.products[category][subcategory][productId];
+                        if (product.featured) {
+                            featuredProducts.push({
+                                ...product,
+                                id: productId
+                            });
+                        }
+                    });
+                });
+            });
+
+            // Limitar a 8 produtos em destaque
+            const limitedFeaturedProducts = featuredProducts.slice(0, 8);
+
+            // Renderizar os produtos
+            featuredProductsContainer.innerHTML = limitedFeaturedProducts.map(product => {
+                // Extrair texto simples da descrição HTML
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = product.description;
+                const plainText = tempDiv.textContent || tempDiv.innerText || '';
+
+                return `
+                    <article class="card">
+                        <img class="card-img-top" src="${product.imageUrl}" alt="${product.name}" loading="lazy">
+                        <div class="card-body">
+                            <div class="card-text-container">
+                                <h5 class="card-title">${product.name}</h5>
+                                <p class="card-text">${plainText}</p>
+                            </div>
+                            <a href="produtos.html?categoria=${encodeURIComponent(product.category)}&subcategoria=${encodeURIComponent(product.subcategory)}" class="btn btn-primary">Ver Tudo</a>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        // Carregar produtos em destaque quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFeaturedProducts();
+        });
+    </script>
 
     
 

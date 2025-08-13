@@ -109,58 +109,53 @@ function setupPagination() {
     const prevButton = document.getElementById('prev-page');
     const nextButton = document.getElementById('next-page');
 
-    // Remover números de página anteriores (manter apenas Previous e Next)
-    const existingPageNumbers = paginationList.querySelectorAll('.page-item:not(#prev-page):not(#next-page)');
-    existingPageNumbers.forEach(item => item.remove());
+    // Limpar lista de páginas
+    paginationList.innerHTML = '';
 
-    // Criar números de página e inserir antes do botão Next
+    // Criar números de página
     for (let i = 1; i <= totalPages; i++) {
         const pageItem = document.createElement('li');
-        pageItem.className = `page-item ${i === currentPage ? 'active' : ''}`;
         
         const pageLink = document.createElement('a');
-        pageLink.className = 'page-link';
+        pageLink.className = `pagination-link ${i === currentPage ? 'is-current' : ''}`;
         pageLink.href = '#';
         pageLink.textContent = i;
+        pageLink.setAttribute('aria-label', `Página ${i}`);
+        if (i === currentPage) {
+            pageLink.setAttribute('aria-current', 'page');
+        }
         pageLink.addEventListener('click', (e) => {
             e.preventDefault();
             goToPage(i);
         });
 
         pageItem.appendChild(pageLink);
-        paginationList.insertBefore(pageItem, nextButton);
+        paginationList.appendChild(pageItem);
     }
 
     // Configurar botões anterior/próximo
-    prevButton.classList.toggle('disabled', currentPage === 1);
-    nextButton.classList.toggle('disabled', currentPage === totalPages);
-
-    // Atualizar atributos de acessibilidade
-    const prevLink = prevButton.querySelector('a');
-    const nextLink = nextButton.querySelector('a');
-
     if (currentPage === 1) {
-        prevLink.setAttribute('tabindex', '-1');
-        prevLink.setAttribute('aria-disabled', 'true');
+        prevButton.classList.add('is-disabled');
+        prevButton.setAttribute('disabled', 'disabled');
     } else {
-        prevLink.removeAttribute('tabindex');
-        prevLink.removeAttribute('aria-disabled');
+        prevButton.classList.remove('is-disabled');
+        prevButton.removeAttribute('disabled');
     }
 
     if (currentPage === totalPages) {
-        nextLink.setAttribute('tabindex', '-1');
-        nextLink.setAttribute('aria-disabled', 'true');
+        nextButton.classList.add('is-disabled');
+        nextButton.setAttribute('disabled', 'disabled');
     } else {
-        nextLink.removeAttribute('tabindex');
-        nextLink.removeAttribute('aria-disabled');
+        nextButton.classList.remove('is-disabled');
+        nextButton.removeAttribute('disabled');
     }
 
-    prevLink.onclick = (e) => {
+    prevButton.onclick = (e) => {
         e.preventDefault();
         if (currentPage > 1) goToPage(currentPage - 1);
     };
 
-    nextLink.onclick = (e) => {
+    nextButton.onclick = (e) => {
         e.preventDefault();
         if (currentPage < totalPages) goToPage(currentPage + 1);
     };
