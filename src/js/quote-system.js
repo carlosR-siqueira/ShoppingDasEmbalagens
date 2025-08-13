@@ -160,12 +160,18 @@ class QuoteSystem {
     clearQuote() {
         if (this.quoteItems.length === 0) return;
         
-        if (confirm('Tem certeza que deseja limpar toda a lista de orçamento?')) {
-            this.quoteItems = [];
-            this.saveQuoteToStorage();
-            this.updateQuoteCount();
-            this.renderQuoteModal();
-        }
+        showConfirm('Tem certeza que deseja limpar toda a lista de orçamento?', 
+            () => {
+                this.quoteItems = [];
+                this.saveQuoteToStorage();
+                this.updateQuoteCount();
+                this.renderQuoteModal();
+                showSuccess('Lista de orçamento limpa com sucesso!');
+            },
+            () => {
+                // Usuário cancelou
+            }
+        );
     }
 
     // Verificar se produto está na lista
@@ -233,49 +239,19 @@ class QuoteSystem {
 
     // Mostrar notificação de produto adicionado
     showAddedNotification(productName) {
-        // Criar notificação temporária
-        const notification = document.createElement('div');
-        notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 1000001;
-            animation: slideInRight 0.3s ease;
-            max-width: 300px;
-        `;
-        notification.innerHTML = `
-            <i class="fas fa-check"></i>
-            <strong>${productName}</strong> adicionado à lista de orçamento!
-        `;
-        
-        document.body.appendChild(notification);
-        
-        // Remover após 3 segundos
-        setTimeout(() => {
-            notification.style.animation = 'slideOutRight 0.3s ease';
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
-                }
-            }, 300);
-        }, 3000);
+        showSuccess(`${productName} adicionado à lista de orçamento!`, 3000);
     }
 
     // Enviar para WhatsApp
     sendToWhatsApp() {
         if (this.quoteItems.length === 0) {
-            alert('Adicione produtos à lista antes de enviar o orçamento.');
+            showWarning('Adicione produtos à lista antes de enviar o orçamento.');
             return;
         }
 
         const customerName = document.getElementById('customer-name').value.trim();
         if (!customerName) {
-            alert('Por favor, digite seu nome antes de enviar o orçamento.');
+            showWarning('Por favor, digite seu nome antes de enviar o orçamento.');
             document.getElementById('customer-name').focus();
             return;
         }
