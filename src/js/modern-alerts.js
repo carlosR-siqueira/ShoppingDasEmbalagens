@@ -77,19 +77,24 @@ class ModernAlerts {
         const styles = {
             success: {
                 background: 'linear-gradient(135deg, #28a745, #20c997)',
-                borderLeft: '4px solid #155724'
+                borderLeft: '4px solid #155724',
+                zIndex: '999999999999'
             },
             warning: {
                 background: 'linear-gradient(135deg, #ffc107, #fd7e14)',
-                borderLeft: '4px solid #856404'
+                borderLeft: '4px solid #856404',
+
+                zIndex: '999999999999'
             },
             error: {
                 background: 'linear-gradient(135deg, #ff4757, #dc3545)',
-                borderLeft: '4px solid #721c24'
+                borderLeft: '4px solid #721c24',
+                zIndex: '999999999999'
             },
             info: {
                 background: 'linear-gradient(135deg, #17a2b8, #0dcaf0)',
-                borderLeft: '4px solid #0c5460'
+                borderLeft: '4px solid #0c5460',
+                zIndex: '999999999999'
             }
         };
 
@@ -161,6 +166,8 @@ class ModernAlerts {
             align-items: center;
             justify-content: center;
             animation: fadeIn 0.3s ease;
+            z-index: 99999999999;
+
         `;
 
         const content = document.createElement('div');
