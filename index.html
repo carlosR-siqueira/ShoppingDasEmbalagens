@@ -485,6 +485,7 @@
     <script src="./src/js/script.js"></script>
 
     <!-- <script src="./src/js/fetch.js"></script> -->
+    <script src="./src/js/quote-system.js"></script>
 
     <!-- Script para carregar produtos em destaque -->
     <script>
@@ -638,7 +639,18 @@
                                 <h5 class="card-title">${product.name}</h5>
                                 <p class="card-text">${plainText}</p>
                             </div>
-                            <a href="produtos.html?categoria=${encodeURIComponent(product.category)}&subcategoria=${encodeURIComponent(product.subcategory)}" class="btn btn-primary">Ver Tudo</a>
+                            <div class="card-buttons">
+                                <a href="produtos.html?categoria=${encodeURIComponent(product.category)}&subcategoria=${encodeURIComponent(product.subcategory)}" class="btn btn-primary">Ver Tudo</a>
+                                <button class="add-to-quote-btn" data-product-id="${product.id}" onclick="addToQuoteList({
+                                    id: '${product.id}',
+                                    name: '${product.name}',
+                                    category: '${product.category}',
+                                    subcategory: '${product.subcategory}',
+                                    imageUrl: '${product.imageUrl}'
+                                })">
+                                    <i class="fas fa-plus"></i> Adicionar à Lista
+                                </button>
+                            </div>
                         </div>
                     </article>
                 `;
@@ -648,6 +660,13 @@
         // Carregar produtos em destaque quando a página carregar
         document.addEventListener('DOMContentLoaded', function() {
             loadFeaturedProducts();
+            
+            // Atualizar botões "Adicionar à Lista" se o sistema de orçamento estiver disponível
+            setTimeout(() => {
+                if (typeof quoteSystem !== 'undefined') {
+                    quoteSystem.updateAddButtons();
+                }
+            }, 1000);
         });
     </script>
 
