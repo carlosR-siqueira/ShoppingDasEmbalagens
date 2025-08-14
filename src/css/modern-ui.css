@@ -11,6 +11,7 @@
     /* Cores neutras */
     --white: #ffffff;
     --light-gray: #f8f9fa;
+    --light-gray-hover: #ebebeba2;
     --gray: #e0e0e0;
     --dark-gray: #666666;
     --text-dark: #333333;
@@ -139,6 +140,7 @@ body {
 }
 
 .card {
+    display: flex;
     align-items: center;
     text-align: center;
     padding: var(--spacing-lg);
@@ -152,6 +154,8 @@ body {
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
+    gap: 10%;
+    
 }
 
 .card::before {
@@ -214,6 +218,7 @@ body {
     flex-direction: column;
     gap: var(--spacing-lg);
     width: 100%;
+    
 }
 
 /* ===== BOTÕES MODERNOS ===== */
