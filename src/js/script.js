@@ -358,14 +358,30 @@ document.addEventListener('DOMContentLoaded', function () {
                 container.innerHTML = produtosEncontrados.length > 0
                     ? produtosEncontrados.map(prod => `
                     <article class="card" data-id="${prod.produtoId}">
-                        <img class="card-img-top" src="${prod.imageUrl}" alt="${prod.name}">
+                        <img class="card-img-top" src="${prod.imageUrl}" alt="${prod.name}" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">${prod.name}</h5>
-                            <a href="item.html?categoria=${prod.category}&subcategoria=${prod.subcategory}&produtoId=${prod.produtoId}" class="btn btn-primary">Ver Produto</a>
+                            <div class="card-buttons">
+                                <a href="item.html?categoria=${prod.category}&subcategoria=${prod.subcategory}&produtoId=${prod.produtoId}" class="btn btn-primary">Ver Produto</a>
+                                <button class="add-to-quote-btn" data-product-id="${prod.produtoId}" onclick="addToQuoteList({
+                                    id: '${prod.produtoId}',
+                                    name: '${prod.name}',
+                                    category: '${prod.category}',
+                                    subcategory: '${prod.subcategory}',
+                                    imageUrl: '${prod.imageUrl}'
+                                })">
+                                    <i class="fas fa-plus"></i> Adicionar à Lista
+                                </button>
+                            </div>
                         </div>
                     </article>
                 `).join("")
                     : "<p>Nenhum produto encontrado.</p>";  // Caso não encontre nada
+
+                // Atualizar botões "Adicionar à Lista" se o sistema de orçamento estiver disponível
+                if (typeof quoteSystem !== 'undefined') {
+                    quoteSystem.updateAddButtons();
+                }
 
             })
             .catch(error => {

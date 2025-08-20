@@ -363,14 +363,38 @@ a {
 
 
 .card-produtos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
     justify-content: center;
     padding: 20px 0 150px 0;
     background-color: #edededed;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+    grid-template-rows: auto auto;
+}
 
+/* Responsividade para manter 4 cards por linha */
+@media (max-width: 1200px) {
+    .card-produtos {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 20px 20px 150px 20px;
+    }
+}
 
+@media (max-width: 768px) {
+    .card-produtos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-produtos {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+    }
 }
 
 
@@ -385,8 +409,8 @@ a {
     align-items: center;
     text-align: center;
     padding: 10px;
-    width: 18rem;
-    min-width: 12rem;
+    width: 100%;
+    max-width: 280px;
     box-shadow: 3px 3px 3px #0000003f;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -982,8 +1006,7 @@ hr {
 
 }
 
-.footer-container .footer-icons a,
-.right-p a {
+.footer-container .footer-icons a {
 
     display: inline-block;
     width: 35px;
@@ -997,13 +1020,13 @@ hr {
     text-align: center;
     line-height: 35px;
     margin-bottom: 5px;
-    transition: 0.3s;
+    transition: 0.1s;
+    border: none;
 
 
 }
 
-.footer-container .footer-icons a:hover,
-.right-p a:hover {
+.footer-container .footer-icons a:hover{
     background-color: #1d3883;
 }
 
@@ -1021,7 +1044,6 @@ hr {
 
 
 
-
 }
 
 .right-p {
@@ -1030,6 +1052,46 @@ hr {
     font-size: 11pt;
     color: #fffffff3 !important;
     /* font-weight: 600; */
+}
+
+/* Estilos específicos para links de contato completos (ícone + texto) */
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #fffffff3 !important;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11pt;
+    transition: 0.3s;
+    
+}
+
+.contact-link:hover {
+    color: #ffffff85 !important;
+}
+
+.contact-link:focus{
+    outline: none;
+    border: none;
+}
+
+.contact-link i {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-color: #33383b;
+    border-radius: 50px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.contact-link:hover i {
+    background-color: #1d3883;
 }
 
 .right-p ul li {
