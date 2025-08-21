@@ -283,11 +283,11 @@
 
                 <h2>Quem somos?</h2>
                 <div class="quemSomosTxt">
-                    <p>O Shopping das Embalagens é uma empresa especializada na comercialização de produtos descartáveis e embalagens, localizada em Campo Grande, Zona Oeste do Rio de Janeiro. Com anos de experiência no mercado, oferecemos uma ampla variedade de produtos de qualidade para atender às necessidades de restaurantes, lanchonetes, eventos, empresas e consumidores em geral.</p>
-                    
-                    <p>Nossa missão é fornecer produtos descartáveis de alta qualidade com preços competitivos, garantindo a satisfação total de nossos clientes. Trabalhamos com as melhores marcas do mercado e mantemos um estoque sempre atualizado para atender às demandas de nossos clientes com agilidade e eficiência.</p>
-                    
-                    <p>Atendemos toda a região metropolitana do Rio de Janeiro com entrega rápida e segura. Nossa equipe está sempre pronta para oferecer o melhor atendimento e orientação na escolha dos produtos mais adequados para cada necessidade.</p>
+                    <p>Há mais de três décadas, nossa empresa atua com dedicação e excelência no mercado de embalagens descartáveis, artigos para festa e utilidades para o lar. Localizados em Campo Grande, no Rio de Janeiro, conquistamos a confiança de clientes e fornecedores por meio de um atendimento próximo, preços competitivos e produtos que acompanham as tendências do setor.
+
+                        Desde o início, nossa missão é oferecer praticidade e variedade, reunindo em um único espaço tudo o que você precisa para o dia a dia, para festas inesquecíveis e para o sucesso do seu negócio. Nosso compromisso vai além da venda: buscamos sempre inovar, garantir a qualidade e proporcionar uma experiência de compra agradável e segura.
+                        
+                        Ao longo de mais de 30 anos, crescemos junto com nossos clientes, celebrando histórias, conquistas e momentos especiais. E seguimos prontos para continuar oferecendo o melhor hoje e sempre.</p>
                 </div>
             </div>
 
@@ -352,11 +352,9 @@
 
                 <h4 class="title-footer">Contato</h4>
 
-                <p class="right-p"> <a href="tel:552124119976" aria-label="Ligar para (21) 2411-9976"><i class="fa fa-phone"></i></a> (21) 2411-9976</p>
-                <p class="right-p"> <a href="https://wa.me/5521975956593" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp"><i
-                            class="fab fa-whatsapp"></i></a> (21) 975956593</p>
-                <p class="right-p"><a href="mailto:embalagenscasanova@hotmail.com" aria-label="Enviar email"><i
-                            class="fa fa-envelope"></i></a> embalagenscasanova@hotmail.com</p><br>
+                <p class="right-p"><a href="tel:552124119976" class="contact-link" aria-label="Ligar para (21) 2411-9976"><i class="fa fa-phone"></i>(21) 2411-9976</a></p>
+                <p class="right-p"><a href="https://wa.me/5521975956593" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Abrir WhatsApp"><i class="fab fa-whatsapp"></i>(21) 975956593</a></p>
+                <p class="right-p"><a href="mailto:embalagenscasanova@hotmail.com" class="contact-link" aria-label="Enviar email"><i class="fa fa-envelope"></i>embalagenscasanova@hotmail.com</a></p><br>
 
 
 
@@ -447,6 +445,14 @@
             <div class="hr">
                 <hr>
             </div>
+            <!-- Links Legais -->
+            <div class="legal-links">
+                <a href="politica-privacidade.html" class="legal-link">Política de Privacidade</a>
+                <span class="legal-separator">|</span>
+                <a href="termos-de-uso.html" class="legal-link">Termos de Uso</a>
+            </div>
+            
+            
             <p>Direitos reservados &copy; <span class="currentYear"></span> Shopping Das Embalagens - CNPJ:
                 03.855.354/0001-06 <br> Desenvolvido
                 por:
@@ -484,180 +490,69 @@
 
 
     <script src="./src/js/script.js"></script>
-
-    <!-- <script src="./src/js/fetch.js"></script> -->
     <script src="./src/js/quote-system.js"></script>
     <script src="./src/js/modern-alerts.js"></script>
+    <script src="./src/js/cookies.js"></script>
 
     <!-- Script para carregar produtos em destaque -->
     <script>
-        // Dados dos produtos (simulando o banco de dados)
-        const productsData = {
-            "products": {
-                "Descartáveis": {
-                    "Isopor": {
-                        "-OX6HfssIXby1OGUKzaQ": {
-                            "category": "Descartáveis",
-                            "description": "<p>Quentinhas de isopor de 500ml, 750ml e 1100ml</p>",
-                            "featured": true,
-                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/isopor/quentinhas-de-isopor-imageUrl-1754616464588",
-                            "imageUrl2": "",
-                            "imageUrl3": "",
-                            "name": "Quentinhas de Isopor",
-                            "subcategory": "Isopor"
-                        }
-                    },
-                    "Plástico": {
-                        "-OWNnQpLPEazpaV2rCdh": {
-                            "category": "Descartáveis",
-                            "description": "<ul><li><p><strong>EMB PET TORTA</strong></p></li><li><p><strong>BASE BRANCA</strong></p></li><li><p><strong>TAMPA MÉDIA</strong></p></li><li><p><strong>227x81MM</strong></p></li><li><p><strong>CX C/100 BASES E 100 TAMPAS.</strong></p></li></ul>",
-                            "featured": false,
-                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/-s32-brm--imageUrl-1753836529978",
-                            "imageUrl2": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/-s32-brm--imageUrl2-1753836531023",
-                            "imageUrl3": "",
-                            "name": " S32 BRM ",
-                            "subcategory": "Plástico"
-                        },
-                        "-OWNnWTIaVjf_FgrPDMp": {
-                            "category": "Descartáveis",
-                            "description": "<ul><li><p><strong>EMB PET TORTA PEQUENA</strong></p></li><li><p><strong>BASE BRANCA</strong></p></li><li><p><strong>TAMPA MÉDIA</strong></p></li><li><p><strong>268x99MM</strong></p></li><li><p><strong>CX C/50 BASES E 50 TAMPAS.</strong></p></li></ul>",
-                            "featured": false,
-                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/-s50-brm--imageUrl-1753836553068",
-                            "imageUrl2": "",
-                            "imageUrl3": "",
-                            "name": " S50 BRM ",
-                            "subcategory": "Plástico"
-                        },
-                        "-OWNnbFXImWDvq3vgy5X": {
-                            "category": "Descartáveis",
-                            "description": "<ul><li><p><strong>EMBALAGEM PET RETANGULAR PEQUENA</strong></p></li><li><p><strong>ALTA</strong></p></li><li><p><strong>190x120x63 MM</strong></p></li><li><p><strong>CX C/100 ARTICULADAS.</strong></p></li></ul>",
-                            "featured": true,
-                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/-s10-c--imageUrl-1753836575744",
-                            "imageUrl2": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/-s10-c--imageUrl2-1753836576789",
-                            "imageUrl3": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/-s10-c--imageUrl3-1753836577833",
-                            "name": " S10 C ",
-                            "subcategory": "Plástico"
-                        },
-                        "-OX6HsbW5tjomx6kUtNC": {
-                            "category": "Descartáveis",
-                            "description": "<p><strong>Copos descartáveis PS e PP a partir de 50ml.</strong></p>",
-                            "featured": true,
-                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/copos-descartaveis-imageUrl-1754616527268",
-                            "imageUrl2": "",
-                            "imageUrl3": "",
-                            "name": "Copos Descartáveis",
-                            "subcategory": "Plástico"
-                        },
-                        "-OX6I0kW45nBUUG67NJA": {
-                            "category": "Descartáveis",
-                            "description": "<p><strong>Linha de talheres para refeições e para sobremesas</strong></p>",
-                            "featured": true,
-                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/talheres-descartaveis-imageUrl-1754616566163",
-                            "imageUrl2": "",
-                            "imageUrl3": "",
-                            "name": "Talheres Descartáveis",
-                            "subcategory": "Plástico"
-                        },
-                        "-OX6IMR9bmUpsC2Y2_bi": {
-                            "category": "Descartáveis",
-                            "description": "<p><strong>Bobinas de saco picotado com tamanhos a partir de 20X30.</strong></p>",
-                            "featured": true,
-                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/bobina-picotada-imageUrl-1754616651296",
-                            "imageUrl2": "",
-                            "imageUrl3": "",
-                            "name": "Bobina Picotada",
-                            "subcategory": "Plástico"
-                        },
-                        "-OX6IUKdBTfpFo2VXDFX": {
-                            "category": "Descartáveis",
-                            "description": "<p><strong>Saco Plástico Cristal Virgem com Medidas a Partir de 10x20.</strong></p>",
-                            "featured": true,
-                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/saco-cristal-imageUrl-1754616687544",
-                            "imageUrl2": "",
-                            "imageUrl3": "",
-                            "name": "Saco cristal",
-                            "subcategory": "Plástico"
-                        },
-                        "-OX6IjDuQA4JojC8GgkS": {
-                            "category": "Descartáveis",
-                            "description": "<p><strong>Sacos De Lixo em Diversos Tamanhos, Leves e Reforçados.</strong></p>",
-                            "featured": true,
-                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/saco-de-lixo-imageUrl-1754616749708",
-                            "imageUrl2": "",
-                            "imageUrl3": "",
-                            "name": "Saco de Lixo",
-                            "subcategory": "Plástico"
-                        },
-                        "-OX6IqjW8WPj_3Svbmg8": {
-                            "category": "Descartáveis",
-                            "description": "<p><strong>Bobinas de Filme PVC Com Tamanhos A Partir de 15 Metros.</strong></p>",
-                            "featured": true,
-                            "imageUrl": "https://lztikonwgxhfbfqhvqbj.supabase.co/storage/v1/object/public/cadastro%20de%20produto%20-%20shopping%20das%20embalagens/produtos/descartaveis/plastico/filme-pvc-imageUrl-1754616782879",
-                            "imageUrl2": "",
-                            "imageUrl3": "",
-                            "name": "Filme PVC",
-                            "subcategory": "Plástico"
-                        }
-                    }
-                }
-            }
-        };
+      
 
-        // Função para carregar produtos em destaque
-        function loadFeaturedProducts() {
-            const featuredProductsContainer = document.getElementById('featured-products');
-            const featuredProducts = [];
+        // // Função para carregar produtos em destaque
+        // function loadFeaturedProducts() {
+        //     const featuredProductsContainer = document.getElementById('featured-products');
+        //     const featuredProducts = [];
 
-            // Coletar todos os produtos com featured: true
-            Object.keys(productsData.products).forEach(category => {
-                Object.keys(productsData.products[category]).forEach(subcategory => {
-                    Object.keys(productsData.products[category][subcategory]).forEach(productId => {
-                        const product = productsData.products[category][subcategory][productId];
-                        if (product.featured) {
-                            featuredProducts.push({
-                                ...product,
-                                id: productId
-                            });
-                        }
-                    });
-                });
-            });
+        //     // Coletar todos os produtos com featured: true
+        //     Object.keys(productsData.products).forEach(category => {
+        //         Object.keys(productsData.products[category]).forEach(subcategory => {
+        //             Object.keys(productsData.products[category][subcategory]).forEach(productId => {
+        //                 const product = productsData.products[category][subcategory][productId];
+        //                 if (product.featured) {
+        //                     featuredProducts.push({
+        //                         ...product,
+        //                         id: productId
+        //                     });
+        //                 }
+        //             });
+        //         });
+        //     });
 
-            // Limitar a 8 produtos em destaque
-            const limitedFeaturedProducts = featuredProducts.slice(0, 8);
+        //     // Limitar a 8 produtos em destaque
+        //     const limitedFeaturedProducts = featuredProducts.slice(0, 8);
 
-            // Renderizar os produtos
-            featuredProductsContainer.innerHTML = limitedFeaturedProducts.map(product => {
-                // Extrair texto simples da descrição HTML
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = product.description;
-                const plainText = tempDiv.textContent || tempDiv.innerText || '';
+        //     // Renderizar os produtos
+        //     featuredProductsContainer.innerHTML = limitedFeaturedProducts.map(product => {
+        //         // Extrair texto simples da descrição HTML
+        //         const tempDiv = document.createElement('div');
+        //         tempDiv.innerHTML = product.description;
+        //         const plainText = tempDiv.textContent || tempDiv.innerText || '';
 
-                return `
-                    <article class="card">
-                        <img class="card-img-top" src="${product.imageUrl}" alt="${product.name}" loading="lazy">
-                        <div class="card-body">
-                            <div class="card-text-container">
-                                <h5 class="card-title">${product.name}</h5>
-                                <p class="card-text">${plainText}</p>
-                            </div>
-                            <div class="card-buttons">
-                                <a href="produtos.html?categoria=${encodeURIComponent(product.category)}&subcategoria=${encodeURIComponent(product.subcategory)}" class="btn btn-primary">Ver Tudo</a>
-                                <button class="add-to-quote-btn" data-product-id="${product.id}" onclick="addToQuoteList({
-                                    id: '${product.id}',
-                                    name: '${product.name}',
-                                    category: '${product.category}',
-                                    subcategory: '${product.subcategory}',
-                                    imageUrl: '${product.imageUrl}'
-                                })">
-                                    <i class="fas fa-plus"></i> Adicionar à Lista
-                                </button>
-                            </div>
-                        </div>
-                    </article>
-                `;
-            }).join('');
-        }
+        //         return `
+        //             <article class="card">
+        //                 <img class="card-img-top" src="${product.imageUrl}" alt="${product.name}" loading="lazy">
+        //                 <div class="card-body">
+        //                     <div class="card-text-container">
+        //                         <h5 class="card-title">${product.name}</h5>
+        //                         <p class="card-text">${plainText}</p>
+        //                     </div>
+        //                     <div class="card-buttons">
+        //                         <a href="produtos.html?categoria=${encodeURIComponent(product.category)}&subcategoria=${encodeURIComponent(product.subcategory)}" class="btn btn-primary">Ver Tudo</a>
+        //                         <button class="add-to-quote-btn" data-product-id="${product.id}" onclick="addToQuoteList({
+        //                             id: '${product.id}',
+        //                             name: '${product.name}',
+        //                             category: '${product.category}',
+        //                             subcategory: '${product.subcategory}',
+        //                             imageUrl: '${product.imageUrl}'
+        //                         })">
+        //                             <i class="fas fa-plus"></i> Adicionar à Lista
+        //                         </button>
+        //                     </div>
+        //                 </div>
+        //             </article>
+        //         `;
+        //     }).join('');
+        // }
 
         // Carregar produtos em destaque quando a página carregar
         document.addEventListener('DOMContentLoaded', function() {

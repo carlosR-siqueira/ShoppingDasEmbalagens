@@ -34,7 +34,11 @@ function fetchProdutos(categoria, subcategoria, initialPage = 1) {
     // Atualizar o título da página com o nome da subcategoria
     document.querySelector('.prodTitle.destaque-produtos-titulo-container').innerHTML = `<h2 class="titulo-destaque-produtos">${subcategoria}</h2>`;
 
-    const url = `https://shopping-das-embalagens-default-rtdb.firebaseio.com/products/${categoria}/${subcategoria}.json`;
+    // URL direta do Firebase
+    const baseUrl = 'https://shopping-das-embalagens-default-rtdb.firebaseio.com';
+    const url = `${baseUrl}/products/${categoria}/${subcategoria}.json`;
+    
+    console.log(`🔄 Carregando produtos de ${categoria} > ${subcategoria}`);
 
     fetch(url)
         .then(response => {
@@ -232,7 +236,9 @@ function fetchDetalhesProduto(categoria, subcategoria, produtoId) {
         return;
     }
 
-    const url = `https://shopping-das-embalagens-default-rtdb.firebaseio.com/products/${categoria}/${subcategoria}/${produtoId}.json`;
+    // URL direta do Firebase (mesma usada na função fetchProdutos)
+    const baseUrl = 'https://shopping-das-embalagens-default-rtdb.firebaseio.com';
+    const url = `${baseUrl}/products/${categoria}/${subcategoria}/${produtoId}.json`;
 
     fetch(url)
         .then(response => {
