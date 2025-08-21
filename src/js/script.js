@@ -358,30 +358,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 container.innerHTML = produtosEncontrados.length > 0
                     ? produtosEncontrados.map(prod => `
                     <article class="card" data-id="${prod.produtoId}">
-                        <img class="card-img-top" src="${prod.imageUrl}" alt="${prod.name}" loading="lazy">
+                        <img class="card-img-top" src="${prod.imageUrl}" alt="${prod.name}">
                         <div class="card-body">
                             <h5 class="card-title">${prod.name}</h5>
-                            <div class="card-buttons">
-                                <a href="item.html?categoria=${prod.category}&subcategoria=${prod.subcategory}&produtoId=${prod.produtoId}" class="btn btn-primary">Ver Produto</a>
-                                <button class="add-to-quote-btn" data-product-id="${prod.produtoId}" onclick="addToQuoteList({
-                                    id: '${prod.produtoId}',
-                                    name: '${prod.name}',
-                                    category: '${prod.category}',
-                                    subcategory: '${prod.subcategory}',
-                                    imageUrl: '${prod.imageUrl}'
-                                })">
-                                    <i class="fas fa-plus"></i> Adicionar à Lista
-                                </button>
-                            </div>
+                            <a href="item.html?categoria=${prod.category}&subcategoria=${prod.subcategory}&produtoId=${prod.produtoId}" class="btn btn-primary">Ver Produto</a>
                         </div>
                     </article>
                 `).join("")
                     : "<p>Nenhum produto encontrado.</p>";  // Caso não encontre nada
-
-                // Atualizar botões "Adicionar à Lista" se o sistema de orçamento estiver disponível
-                if (typeof quoteSystem !== 'undefined') {
-                    quoteSystem.updateAddButtons();
-                }
 
             })
             .catch(error => {
@@ -439,14 +423,17 @@ document.addEventListener("keydown", (ev) => {
 function loadFeaturedProducts() {
     const urlBase = `https://shopping-das-embalagens-default-rtdb.firebaseio.com/products.json`;
     
+    console.log('🔄 Carregando produtos em destaque do banco de dados...');
+    
     fetch(urlBase)
         .then(response => {
             if (!response.ok) {
-                throw new Error('Erro ao buscar produtos em destaque');
+                throw new Error(`Erro HTTP: ${response.status}`);
             }
             return response.json();
         })
         .then(data => {
+            console.log('📦 Dados recebidos do Firebase:', data);
             const featuredProducts = [];
             
             // Percorrer todas as categorias e subcategorias para encontrar produtos em destaque
@@ -470,12 +457,27 @@ function loadFeaturedProducts() {
                 }
             }
             
+            console.log(`✅ Encontrados ${featuredProducts.length} produtos em destaque`);
+            
+            // Limitar a 6 produtos em destaque para não sobrecarregar a página
+            const limitedProducts = featuredProducts.slice(0, 8);
+            
             // Renderizar os produtos em destaque
-            renderFeaturedProducts(featuredProducts);
+            renderFeaturedProducts(limitedProducts);
         })
         .catch(error => {
-            console.error('Erro ao carregar produtos em destaque:', error);
-            // Em caso de erro, manter os produtos mockados como fallback
+            console.error('❌ Erro ao carregar produtos em destaque:', error);
+            
+            // Exibir mensagem de erro para o usuário
+            const container = document.querySelector('.card-produtos');
+            if (container) {
+                container.innerHTML = `
+                    <div class="error-message" style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: #666;">
+                        <p>⚠️ Não foi possível carregar os produtos em destaque no momento.</p>
+                        <p>Tente recarregar a página ou entre em contato conosco.</p>
+                    </div>
+                `;
+            }
         });
 }
 
@@ -487,22 +489,52 @@ function renderFeaturedProducts(products) {
     // Limpar container
     container.innerHTML = '';
     
+    if (products.length === 0) {
+        container.innerHTML = `
+            <div class="no-featured" style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
+                <p>Nenhum produto em destaque no momento.</p>
+                <a href="produtos.html" class="btn btn-primary">Ver Todos os Produtos</a>
+            </div>
+        `;
+        return;
+    }
+    
     // Renderizar cada produto
     products.forEach(produto => {
+      
         const cardHTML = `
             <article class="card">
-                <img class="card-img-top" src="${produto.imageUrl}" alt="${produto.name}" loading="lazy">
+                <div class="card-img-container">
+                    <img class="card-img-top" src="${produto.imageUrl}" alt="${produto.name}" loading="lazy" ;">
+                    ${produto.featured ? '<span class="featured-badge">Destaque</span>' : ''}
+                </div>
                 <div class="card-body">
                     <div class="card-text-container">
                         <h5 class="card-title">${produto.name}</h5>
-                        
+    
                     </div>
-                    <a href="item.html?categoria=${produto.categoria}&subcategoria=${produto.subcategoria}&produtoId=${produto.id}" class="btn btn-primary">Ver Produto</a>
+                    <div class="card-buttons">
+                        <a href="item.html?categoria=${encodeURIComponent(produto.categoria)}&subcategoria=${encodeURIComponent(produto.subcategoria)}&produtoId=${produto.id}" class="btn btn-primary">Ver Produto</a>
+                        <button class="add-to-quote-btn" data-product-id="${produto.id}" onclick="addToQuoteList({
+                            id: '${produto.id}',
+                            name: '${produto.name}',
+                            category: '${produto.categoria}',
+                            subcategory: '${produto.subcategoria}',
+                            imageUrl: '${produto.imageUrl}'
+                        })">
+                            <i class="fas fa-plus"></i> Adicionar à Lista
+                        </button>
+                    </div>
                 </div>
             </article>
         `;
         container.insertAdjacentHTML('beforeend', cardHTML);
     });
+    
+    // Atualizar botões "Adicionar à Lista" se o sistema de orçamento estiver disponível
+    if (typeof quoteSystem !== 'undefined') {
+        quoteSystem.updateAddButtons();
+    }
 }
 
 // Carregar produtos em destaque quando a página carregar
