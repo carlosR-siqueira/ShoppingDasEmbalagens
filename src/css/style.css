@@ -1949,50 +1949,85 @@ hr {
 
     .header-list {
         display: flex;
-        z-index: 999;
+        z-index: 9999;
         position: fixed;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         top: 4.1rem;
-        /* right: 100%; */
+        right: -100%;
         background: #ffffff;
         width: 85%;
-        padding: 0%;
-        height: 100%;
+        padding: 15px 0;
+        height: calc(100vh - 4.1rem);
         font-size: 1.4rem;
-        /* transition: 100ms; */
-        gap: 2px;
-        border-radius: 0px
+        transition: right 0.3s ease-in-out;
+        gap: 0;
+        border-radius: 0;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+    }
+    
+    .header-list.dropdown-content-mobile {
+        right: 0;
     }
 
     .dropdown-content-mobile {
-        right: 14%;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
     }
 
 
 
 
-    .descartaveis-subMenu-itens,
-    .domesticos-subMenu-itens,
-    .festa-subMenu-itens,
-    .limpeza-subMenu-itens {
-        display: flex;
-        z-index: 9999999999;
-        position: fixed;
-        flex-direction: column;
-        align-items: flex-end;
-        top: 4.1rem;
-        right: 100%;
-        background: #ffffff;
-        width: 85%;
-        padding: 0%;
+    .subMenu-itens {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 100%;
-        margin: 0%;
-        font-size: 1.4rem;
-        transition: 300ms all;
-
-
-
+        background: #ffffff;
+        z-index: 1000;
+        padding: 15px 0;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+    }
+    
+    .subMenu-itens.mobile-submenu {
+        display: flex;
+        flex-direction: column;
+        transform: translateX(0);
+    }
+    
+    .subMenu-itens.show {
+        display: flex;
+        flex-direction: column;
+        transform: translateX(0);
+    }
+    
+    .subMenu-itens .voltar-btn-container {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #e9ecef;
+        margin-bottom: 10px;
+    }
+    
+    .subMenu-itens .voltar-btn {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin-right: 10px;
+        color: #304296;
+    }
+    
+    .subMenu-itens .title-container {
+        font-weight: bold;
+        color: #304296;
     }
 
     .show {
@@ -2230,13 +2265,18 @@ hr {
 
     .searchBarContainer {
         display: flex;
+        align-items: center;
         border-radius: 2pc;
-        padding: 20px;
+        padding: 10px 20px;
         border: solid 1px #0000002c;
         width: 7%;
-        transition: none;
+        transition: all 0.3s ease;
         position: fixed;
         top: 50%;
+        right: 20px;
+        background-color: #fff;
+        z-index: 1000;
+        overflow: hidden;
     }
 
     @keyframes searchBarAnimation {
@@ -2252,6 +2292,47 @@ hr {
     .searchBarShow {
         width: 50%;
         animation: searchBarAnimation 400ms;
+        padding: 10px 20px;
+    }
+    
+    /* Estilo para a barra de pesquisa em telas menores */
+    @media screen and (max-width: 768px) {
+        .searchBarContainer {
+            top: auto;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            justify-content: center;
+            padding: 0;
+        }
+        
+        .searchBarShow {
+            width: 280px;
+            border-radius: 30px;
+            padding: 10px 20px;
+            height: auto;
+        }
+        
+        .searchBarContainer input {
+            display: none;
+            width: 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .searchBarShow input {
+            display: block;
+            width: 100%;
+            opacity: 1;
+            margin-left: 10px;
+        }
+        
+        .searchBarContainer .fas {
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
     }
 
     .searchBarContainer input {
