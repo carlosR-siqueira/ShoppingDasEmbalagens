@@ -1,110 +1,57 @@
-// Search functionality
+// Search functionality - SIMPLIFIED VERSION
 document.addEventListener('DOMContentLoaded', function() {
-    setupSearchFunctionality();
-});
-
-// Also try to setup after delays to ensure compatibility with dynamic menu
-setTimeout(setupSearchFunctionality, 600);
-setTimeout(setupSearchFunctionality, 1000);
-
-function setupSearchFunctionality() {
+    // Simple setup - just like other pages
     const searchInput = document.getElementById('searchInput');
     const searchIcon = document.getElementById('searchIcon');
     const searchForm = document.querySelector('.searchBarContainer');
     
-    if (!searchInput || !searchIcon) {
-        console.log('🔍 Search elements not found, will retry...');
-        return;
-    }
-    
-    console.log('🔍 Setting up search functionality...');
-    
-    // Check if already setup to avoid duplicates
-    if (searchInput.hasAttribute('data-search-setup')) {
-        console.log('🔍 Search already setup, skipping...');
-        return;
-    }
-    
-    // Mark as setup
-    searchInput.setAttribute('data-search-setup', 'true');
-    searchIcon.setAttribute('data-search-setup', 'true');
-    
-    // Prevent form submission completely
-    if (searchForm) {
-        searchForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            performSearch();
-            return false;
-        });
-    }
-    
-    // Search on Enter key
-    searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            performSearch();
-            return false;
-        }
-    });
-    
-    searchInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            return false;
-        }
-    });
-    
-    // Search on icon click - multiple event types to be sure
-    ['click', 'mousedown', 'mouseup'].forEach(eventType => {
-        searchIcon.addEventListener(eventType, function(e) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            if (eventType === 'click') {
-                performSearch();
-            }
-            return false;
-        });
-    });
-    
-    console.log('Search functionality setup completed');
-    
-    function performSearch() {
-        const currentSearchInput = document.getElementById('searchInput');
-        if (!currentSearchInput) return;
+    if (searchInput && searchIcon) {
+        console.log('🔍 Setting up simple search functionality');
         
-        const searchTerm = currentSearchInput.value.trim();
-        if (searchTerm.length > 0) {
-            // Check if we're already on search.html
-            if (window.location.pathname.includes('search.html')) {
-                // Update URL and reload search results
-                const newUrl = `search.html?search=${encodeURIComponent(searchTerm)}`;
-                window.history.pushState({}, '', newUrl);
-                
-                // Trigger search results update
-                const resultsContainer = document.getElementById('searchResults');
-                if (resultsContainer) {
-                    resultsContainer.innerHTML = `
-                        <div class="loading" style="text-align: center; padding: 3rem;">
-                            <p>🔄 Buscando produtos...</p>
-                        </div>
-                    `;
-                    
-                    // Perform search and display results
-                    searchProducts(searchTerm).then(results => {
-                        displaySearchResults(results, resultsContainer);
-                    });
-                    
-                    // Update page title
-                    document.title = `Busca: ${searchTerm} - Shopping das Embalagens`;
-                }
-            } else {
-                // Redirect to search page with query parameter
-                window.location.href = `search.html?search=${encodeURIComponent(searchTerm)}`;
-            }
+        // Simple form prevention
+        if (searchForm) {
+            searchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                performSearch();
+                return false;
+            });
         }
+        
+        // Simple Enter key
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performSearch();
+                return false;
+            }
+        });
+        
+        // Simple icon click
+        searchIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            performSearch();
+            return false;
+        });
+        
+        console.log('🔍 Simple search setup completed');
+    }
+});
+
+function performSearch() {
+    const currentSearchInput = document.getElementById('searchInput');
+    if (!currentSearchInput) {
+        console.log('🔍 Search input not found');
+        return;
+    }
+    
+    const searchTerm = currentSearchInput.value.trim();
+    console.log(`🔍 Performing search for: "${searchTerm}"`);
+    
+    if (searchTerm.length > 0) {
+        console.log('🔍 Redirecting to search page...');
+        window.location.href = `search.html?search=${encodeURIComponent(searchTerm)}`;
+    } else {
+        console.log('🔍 Empty search term');
     }
 }
 
@@ -204,7 +151,7 @@ function displaySearchResults(results, container) {
 }
 
 // Initialize search on search page - versão assíncrona
-if (window.location.pathname.includes('search.html')) {
+if (window.location.pathname.includes()) {
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get('search');
     
