@@ -16,6 +16,14 @@ const subMenuItens = document.querySelectorAll('subMenu-itens')
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Wait for dynamic menu to be loaded before setting up functionality
+    setTimeout(() => {
+        setupMenuFunctionality();
+    }, 200);
+});
+
+function setupMenuFunctionality() {
+    // Get dynamic menu elements (will be null if menu is not yet loaded)
     const descartaveisSubMenu = document.querySelector('.descartaveis-subMenu');
     const domesticosSubMenu = document.querySelector('.domesticos-subMenu');
     const festaSubMenu = document.querySelector('.festa-subMenu');
@@ -25,6 +33,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const domesticosSubMenuItems = document.querySelector('.domesticos-subMenu-itens');
     const festaSubMenuItems = document.querySelector('.festa-subMenu-itens');
     const limpezaSubMenuItems = document.querySelector('.limpeza-subMenu-itens');
+
+    // Only setup if elements exist (dynamic menu loaded)
+    if (!descartaveisSubMenu || !domesticosSubMenu || !festaSubMenu || !limpezaSubMenu) {
+        console.log('Dynamic menu not yet loaded, skipping static menu setup');
+        return;
+    }
 
     function toggleSubMenu(subMenu) {
         subMenu.classList.toggle('show');
@@ -80,11 +94,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Adicionando um listener para fechar os submenus ao clicar fora deles
     document.addEventListener('mouseout', function (event) {
-        allSubMenus.forEach(subMenu => {
-            if (!event.target.closest('.dropdown') && subMenu.classList.contains('show')) {
-                subMenu.classList.remove('show');
-            }
-        });
+        // Use dynamic submenus if available, otherwise fallback to static ones
+        const dynamicSubMenus = window.dynamicSubMenus;
+        if (dynamicSubMenus) {
+            dynamicSubMenus.forEach(subMenu => {
+                if (!event.target.closest('.dropdown') && subMenu.classList.contains('show')) {
+                    subMenu.classList.remove('show');
+                }
+            });
+        } else {
+            // Fallback for static menus (if any still exist)
+            const staticSubMenus = [descartaveisSubMenuItems, domesticosSubMenuItems, festaSubMenuItems, limpezaSubMenuItems];
+            staticSubMenus.forEach(subMenu => {
+                if (subMenu && !event.target.closest('.dropdown') && subMenu.classList.contains('show')) {
+                    subMenu.classList.remove('show');
+                }
+            });
+        }
     });
 
     voltarBtn[0].addEventListener('click', function () {
@@ -96,20 +122,28 @@ document.addEventListener('DOMContentLoaded', function () {
     voltarBtn.forEach(voltar => {
         voltar.addEventListener('click', function () {
 
-
-            const allSubMenus = [descartaveisSubMenuItems, domesticosSubMenuItems, festaSubMenuItems, limpezaSubMenuItems];
-            allSubMenus.forEach(subMenu => {
-
-                subMenu.classList.remove('show')
-
-            });
+            // Use dynamic submenus if available, otherwise fallback to static ones
+            const dynamicSubMenus = window.dynamicSubMenus;
+            if (dynamicSubMenus) {
+                dynamicSubMenus.forEach(subMenu => {
+                    subMenu.classList.remove('show');
+                });
+            } else {
+                // Fallback for static menus (if any still exist)
+                const staticSubMenus = [descartaveisSubMenuItems, domesticosSubMenuItems, festaSubMenuItems, limpezaSubMenuItems];
+                staticSubMenus.forEach(subMenu => {
+                    if (subMenu) {
+                        subMenu.classList.remove('show');
+                    }
+                });
+            }
 
         });
     });
+}
 
-
-
-    btnMobile.addEventListener('click', openMobileMenu)
+// Mobile menu functionality (outside of setupMenuFunctionality)
+btnMobile.addEventListener('click', openMobileMenu)
 
 
     function openMobileMenu() {
@@ -136,18 +170,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!btnMobile.classList.contains('active')) {
 
-
-            const allSubMenus = [descartaveisSubMenuItems, domesticosSubMenuItems, festaSubMenuItems, limpezaSubMenuItems];
-            allSubMenus.forEach(subMenu => {
-                subMenu.classList.remove('show')
-
-            });
-
-
+            // Use dynamic submenus if available, otherwise fallback to static ones
+            const dynamicSubMenus = window.dynamicSubMenus;
+            if (dynamicSubMenus) {
+                dynamicSubMenus.forEach(subMenu => {
+                    subMenu.classList.remove('show');
+                });
+            } else {
+                // Fallback for static menus (if any still exist)
+                const staticSubMenus = [descartaveisSubMenuItems, domesticosSubMenuItems, festaSubMenuItems, limpezaSubMenuItems];
+                staticSubMenus.forEach(subMenu => {
+                    if (subMenu) {
+                        subMenu.classList.remove('show');
+                    }
+                });
+            }
 
             dropdownContent.classList.remove('showContent')
-            subMenuItens.classList.remove('show')
-
+            if (subMenuItens) {
+                subMenuItens.classList.remove('show')
+            }
 
         }
     })
@@ -168,42 +210,40 @@ document.addEventListener('DOMContentLoaded', function () {
     );
 
 
-    document.addEventListener("keydown", (event) => {
-        if (event.key === 'Escape') {
+document.addEventListener("keydown", (event) => {
+    if (event.key === 'Escape') {
+        headerList.classList.remove('dropdown-content-mobile');
+        btnMobile.classList.remove('active')
+        backOverlay.classList.remove('overlay')
+        dropdownContent.classList.remove('showContent')
 
-            headerList.classList.remove('dropdown-content-mobile');
-            btnMobile.classList.remove('active')
-            backOverlay.classList.remove('overlay')
-            dropdownContent.classList.remove('showContent')
-
-            const allSubMenus = [descartaveisSubMenuItems, domesticosSubMenuItems, festaSubMenuItems, limpezaSubMenuItems];
-            allSubMenus.forEach(subMenu => {
-
-                subMenu.classList.remove('show')
-
-
-
+        // Use dynamic submenus if available, otherwise fallback to static ones
+        const dynamicSubMenus = window.dynamicSubMenus;
+        if (dynamicSubMenus) {
+            dynamicSubMenus.forEach(subMenu => {
+                subMenu.classList.remove('show');
             });
-
-
-
         }
+    }
+});
 
+backOverlay.addEventListener('click', function (e) {
+    if (e.target == this) {
+        headerList.classList.remove('dropdown-content-mobile');
+        btnMobile.classList.remove('active')
+        backOverlay.classList.remove('overlay')
+        dropdownContent.classList.remove('showContent')
+        searchBar.classList.remove('searchBarShow')
 
-    });
-
-    backOverlay.addEventListener('click', function (e) {
-        if (e.target == this) {
-
-            headerList.classList.remove('dropdown-content-mobile');
-            btnMobile.classList.remove('active')
-            backOverlay.classList.remove('overlay')
-            dropdownContent.classList.remove('showContent')
-            searchBar.classList.toggle('searchBarShow')
-
-
+        // Use dynamic submenus if available
+        const dynamicSubMenus = window.dynamicSubMenus;
+        if (dynamicSubMenus) {
+            dynamicSubMenus.forEach(subMenu => {
+                subMenu.classList.remove('show');
+            });
         }
-    });
+    }
+});
 
 
 
@@ -380,13 +420,6 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         container.innerHTML = "<p>Termo de pesquisa não fornecido.</p>";
     }
-
-
-
-});
-
-
-
 
 // Função para abrir a janela modal maps
 function openModalMap() {

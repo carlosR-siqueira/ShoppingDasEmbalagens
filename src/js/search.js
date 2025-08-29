@@ -1,42 +1,112 @@
 // Search functionality
 document.addEventListener('DOMContentLoaded', function() {
+    setupSearchFunctionality();
+});
+
+// Also try to setup after delays to ensure compatibility with dynamic menu
+setTimeout(setupSearchFunctionality, 600);
+setTimeout(setupSearchFunctionality, 1000);
+
+function setupSearchFunctionality() {
     const searchInput = document.getElementById('searchInput');
     const searchIcon = document.getElementById('searchIcon');
+    const searchForm = document.querySelector('.searchBarContainer');
     
-    if (searchInput && searchIcon) {
-        // Search on Enter key
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
+    if (!searchInput || !searchIcon) {
+        console.log('🔍 Search elements not found, will retry...');
+        return;
+    }
+    
+    console.log('🔍 Setting up search functionality...');
+    
+    // Check if already setup to avoid duplicates
+    if (searchInput.hasAttribute('data-search-setup')) {
+        console.log('🔍 Search already setup, skipping...');
+        return;
+    }
+    
+    // Mark as setup
+    searchInput.setAttribute('data-search-setup', 'true');
+    searchIcon.setAttribute('data-search-setup', 'true');
+    
+    // Prevent form submission completely
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            performSearch();
+            return false;
+        });
+    }
+    
+    // Search on Enter key
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            performSearch();
+            return false;
+        }
+    });
+    
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return false;
+        }
+    });
+    
+    // Search on icon click - multiple event types to be sure
+    ['click', 'mousedown', 'mouseup'].forEach(eventType => {
+        searchIcon.addEventListener(eventType, function(e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            if (eventType === 'click') {
                 performSearch();
             }
+            return false;
         });
-        
-        // Search on icon click
-        searchIcon.addEventListener('click', function(e) {
-            e.preventDefault();
-            performSearch();
-        });
-        
-        // Search on input change (with debounce)
-        let searchTimeout;
-        searchInput.addEventListener('input', function() {
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(function() {
-                if (searchInput.value.length >= 3) {
-                    performSearch();
-                }
-            }, 500);
-        });
-    }
+    });
+    
+    console.log('Search functionality setup completed');
     
     function performSearch() {
-        const searchTerm = searchInput.value.trim();
+        const currentSearchInput = document.getElementById('searchInput');
+        if (!currentSearchInput) return;
+        
+        const searchTerm = currentSearchInput.value.trim();
         if (searchTerm.length > 0) {
-            // Redirect to search page with query parameter
-            window.location.href = `search.html?search=${encodeURIComponent(searchTerm)}`;
+            // Check if we're already on search.html
+            if (window.location.pathname.includes('search.html')) {
+                // Update URL and reload search results
+                const newUrl = `search.html?search=${encodeURIComponent(searchTerm)}`;
+                window.history.pushState({}, '', newUrl);
+                
+                // Trigger search results update
+                const resultsContainer = document.getElementById('searchResults');
+                if (resultsContainer) {
+                    resultsContainer.innerHTML = `
+                        <div class="loading" style="text-align: center; padding: 3rem;">
+                            <p>🔄 Buscando produtos...</p>
+                        </div>
+                    `;
+                    
+                    // Perform search and display results
+                    searchProducts(searchTerm).then(results => {
+                        displaySearchResults(results, resultsContainer);
+                    });
+                    
+                    // Update page title
+                    document.title = `Busca: ${searchTerm} - Shopping das Embalagens`;
+                }
+            } else {
+                // Redirect to search page with query parameter
+                window.location.href = `search.html?search=${encodeURIComponent(searchTerm)}`;
+            }
         }
     }
-});
+}
 
 // Product search functionality - busca dinâmica no banco de dados
 function searchProducts(query) {
