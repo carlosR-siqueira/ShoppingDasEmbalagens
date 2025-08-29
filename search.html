@@ -92,13 +92,15 @@
 
                 <li class="header-list-itens"><a href="index.html#quemSomos">Quem Somos</a></li>
                 <li class="header-list-itens"><a href="#contato">Contatos</a></li>
-                
-                <form class="searchBarContainer">
-                    <input id="searchInput" class="inputText" type="text" placeholder="Pesquisar">
-                    <a href="javascript:void(0);" id="searchIcon">
-                        <i class="fas fa-search"></i>
-                    </a>
-                </form>
+
+                <li class="header-list-itens search-item">
+                    <form class="searchBarContainer">
+                        <input id="searchInput" class="inputText" type="text" placeholder="Pesquisar">
+                        <a href="#" id="searchIcon" aria-label="Pesquisar">
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </form>
+                </li>
             </ul>
 
 
@@ -121,11 +123,13 @@
         <!-- <div class="destaque-produtos-titulo-container" id="produtos">
         </div> -->
         <div class="prodTitle destaque-produtos-titulo-container">
-
+            <h2>Resultados da Busca</h2>
         </div>
-        <section class="containerItens card-produtos" >
-
-
+        <section class="containerItens card-produtos" id="searchResults">
+            <!-- Os resultados da busca serão exibidos aqui dinamicamente -->
+            <div class="text-center py-5">
+                <p>Digite um termo de busca para ver os resultados</p>
+            </div>
         </section>
 
 
@@ -272,8 +276,9 @@
         
         <script src="./src/js/menuLoader.js"></script>
         <script src="./src/js/script.js"></script>
-        <script src="./src/js/quote-system.js"></script>
-        <script src="./src/js/modern-alerts.js"></script>
+        <script src="./src/js/fetch.js"></script>
+        <script src="./src/js/menuLoader.js"></script>
+        <script src="./src/js/search.js" type="module"></script>
         <script src="./src/js/cookies.js"></script>
     
 
