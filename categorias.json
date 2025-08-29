@@ -1,0 +1,97 @@
+[
+  {
+    "category": "Descartáveis",
+    "subcategory": [
+      "Copos",
+      "Potes",
+      "Tampas",
+      "Sacos e Sacolas Plásticas",
+      "Freezer, Microondas e Forneáveis",
+      "Talheres Descartáveis",
+      "Mexedores",
+      "Canudos",
+      "Pratos Descartáveis",
+      "Guardanapos",
+      "Quentinhas e Embalagens de Isopor",
+      "Bolos e Doces",
+      "Sacos e Sacolas de Papel",
+      "Pratos e Embalagens de Papelão",
+      "Quentinhas e Embalagens de Alumínio",
+      "Outros"
+    ]
+  },
+  {
+    "category": "Utensílios Domésticos",
+    "subcategory": [
+      "Potes e Cumbucas",
+      "Jarras",
+      "Organizadores",
+      "Boleiras",
+      "Travessas",
+      "Pratos Plásticos",
+      "Porta Guardanapos",
+      "Borrifadores e Pulverizadores",
+      "Pegadores e Artigos de Cozinha",
+      "Tesouras",
+      "Copos e Garrafas",
+      "Vidros e Louças",
+      "Formas e Utensílios de Alumínio",
+      "Talheres",
+      "Grelhas e Churrasqueiras",
+      "Caixas Térmicas"
+    ]
+  },
+  {
+    "category": "Artigos para Festas",
+    "subcategory": [
+      "Velas",
+      "Cachepot",
+      "Sacos e Sacolas",
+      "Fitilho",
+      "Toalhas de Mesa",
+      "Balde de Pipoca",
+      "Faixas",
+      "Cortinas Metalizadas",
+      "Bolas e Balões",
+      "Forminhas e Artigos para Doces",
+      "Artigos para Confeitaria",
+      "Lança Confetes",
+      "Embrulho para Presente"
+    ]
+  },
+  {
+    "category": "Limpeza e Higiene",
+    "subcategory": [
+      "Lixeiras",
+      "Papel Higiênico",
+      "Papel Toalha",
+      "Vassouras",
+      "Rodo",
+      "Pá de Lixo",
+      "Baldes",
+      "Esponjas",
+      "Panos Multiuso",
+      "Saco Alvejado",
+      "Saco de Lixo",
+      "Luvas",
+      "Pregadores",
+      "Espanadores",
+      "Sabonete Líquido",
+      "Álcool em Gel",
+      "Dispensers",
+      "Protetor Sanitário",
+      "Lençol Hospitalar",
+      "Pedra Sanitária",
+      "Escovas e Esfregões"
+    ]
+  },
+  {
+    "category": "Papelaria",
+    "subcategory": [
+      "Bobinas Térmicas",
+      "Talões",
+      "Etiquetas",
+      "Caixas de Envio e Mudança"
+    ]
+  }
+]

@@ -1,42 +1,59 @@
-// Search functionality
+// Search functionality - SIMPLIFIED VERSION
 document.addEventListener('DOMContentLoaded', function() {
+    // Simple setup - just like other pages
     const searchInput = document.getElementById('searchInput');
     const searchIcon = document.getElementById('searchIcon');
+    const searchForm = document.querySelector('.searchBarContainer');
     
     if (searchInput && searchIcon) {
-        // Search on Enter key
+        console.log('🔍 Setting up simple search functionality');
+        
+        // Simple form prevention
+        if (searchForm) {
+            searchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                performSearch();
+                return false;
+            });
+        }
+        
+        // Simple Enter key
         searchInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
+                e.preventDefault();
                 performSearch();
+                return false;
             }
         });
         
-        // Search on icon click
+        // Simple icon click
         searchIcon.addEventListener('click', function(e) {
             e.preventDefault();
             performSearch();
+            return false;
         });
         
-        // Search on input change (with debounce)
-        let searchTimeout;
-        searchInput.addEventListener('input', function() {
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(function() {
-                if (searchInput.value.length >= 3) {
-                    performSearch();
-                }
-            }, 500);
-        });
-    }
-    
-    function performSearch() {
-        const searchTerm = searchInput.value.trim();
-        if (searchTerm.length > 0) {
-            // Redirect to search page with query parameter
-            window.location.href = `search.html?search=${encodeURIComponent(searchTerm)}`;
-        }
+        console.log('🔍 Simple search setup completed');
     }
 });
+
+function performSearch() {
+    const currentSearchInput = document.getElementById('searchInput');
+    if (!currentSearchInput) {
+        console.log('🔍 Search input not found');
+        return;
+    }
+    
+    const searchTerm = currentSearchInput.value.trim();
+    console.log(`🔍 Performing search for: "${searchTerm}"`);
+    
+    if (searchTerm.length > 0) {
+        console.log('🔍 Redirecting to search page...');
+        window.location.href = `search.html?search=${encodeURIComponent(searchTerm)}`;
+    } else {
+        console.log('🔍 Empty search term');
+    }
+}
 
 // Product search functionality - busca dinâmica no banco de dados
 function searchProducts(query) {
@@ -134,7 +151,7 @@ function displaySearchResults(results, container) {
 }
 
 // Initialize search on search page - versão assíncrona
-if (window.location.pathname.includes('search.html')) {
+if (window.location.pathname.includes()) {
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get('search');
     
