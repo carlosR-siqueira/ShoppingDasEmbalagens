@@ -398,10 +398,25 @@ backOverlay.addEventListener('click', function (e) {
                 container.innerHTML = produtosEncontrados.length > 0
                     ? produtosEncontrados.map(prod => `
                     <article class="card" data-id="${prod.produtoId}">
-                        <img class="card-img-top" src="${prod.imageUrl}" alt="${prod.name}">
+                        <div class="card-img-container">
+                            <img class="card-img-top" src="${prod.imageUrl}" alt="${prod.name}" loading="lazy">
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">${prod.name}</h5>
-                            <a href="item.html?categoria=${prod.category}&subcategoria=${prod.subcategory}&produtoId=${prod.produtoId}" class="btn btn-primary">Ver Produto</a>
+                            <div class="card-text-container">
+                                <h5 class="card-title">${prod.name}</h5>
+                            </div>
+                            <div class="card-buttons">
+                                <a href="item.html?categoria=${prod.category}&subcategoria=${prod.subcategory}&produtoId=${prod.produtoId}" class="btn btn-primary">Ver Produto</a>
+                                <button class="add-to-quote-btn" data-product-id="${prod.produtoId}" onclick="addToQuoteList({
+                                    id: '${prod.produtoId}',
+                                    name: '${prod.name}',
+                                    category: '${prod.category}',
+                                    subcategory: '${prod.subcategory}',
+                                    imageUrl: '${prod.imageUrl}'
+                                })">
+                                    <i class="fas fa-plus"></i> Adicionar à Lista
+                                </button>
+                            </div>
                         </div>
                     </article>
                 `).join("")
@@ -509,6 +524,7 @@ function loadFeaturedProducts() {
                         <p>⚠️ Não foi possível carregar os produtos em destaque no momento.</p>
                         <p>Tente recarregar a página ou entre em contato conosco.</p>
                     </div>
+                    
                 `;
             }
         });
@@ -532,7 +548,7 @@ function renderFeaturedProducts(products) {
         return;
     }
     
-    // Renderizar cada produto
+    // Renderizar cada produto.
     products.forEach(produto => {
       
         const cardHTML = `
