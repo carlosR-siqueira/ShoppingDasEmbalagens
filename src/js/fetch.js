@@ -83,9 +83,13 @@ function renderProducts() {
     productsToShow.forEach(produto => {
         const prodCard = `
             <article class="card" data-id="${produto.id}">
-                <img class="card-img-top" src="${produto.imageUrl}" alt="${produto.name}" loading="lazy">
+                <div class="card-img-container">
+                    <img class="card-img-top" src="${produto.imageUrl}" alt="${produto.name}" loading="lazy">
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">${produto.name}</h5>
+                    <div class="card-text-container">
+                        <h5 class="card-title">${produto.name}</h5>
+                    </div>
                     <div class="card-buttons">
                         <a href="item.html?categoria=${currentCategoria}&subcategoria=${currentSubcategoria}&produtoId=${produto.id}" class="btn btn-primary">Ver Produto</a>
                         <button class="add-to-quote-btn" data-product-id="${produto.id}" onclick="addToQuoteList({

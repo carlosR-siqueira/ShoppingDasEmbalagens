@@ -110,7 +110,7 @@ function searchProducts(query) {
         });
 }
 
-// Display search results - versão melhorada com imagens e mais detalhes
+// Display search results - padronizado com o card dos produtos em destaque
 function displaySearchResults(results, container) {
     if (!container) return;
     
@@ -118,7 +118,7 @@ function displaySearchResults(results, container) {
     
     if (results.length === 0) {
         container.innerHTML = `
-            <div class="no-results" style="text-align: center; padding: 3rem; color: #666;">
+            <div class="no-results" style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #666;">
                 <h3>🔍 Nenhum produto encontrado</h3>
                 <p>Tente usar termos diferentes ou navegue pelas nossas categorias.</p>
                 <a href="produtos.html" class="btn btn-primary" style="margin-top: 1rem;">Ver Todos os Produtos</a>
@@ -127,31 +127,44 @@ function displaySearchResults(results, container) {
         return;
     }
     
-    // Criar grid de resultados
-    container.innerHTML = `<div class="search-results-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 1rem 0;"></div>`;
-    const grid = container.querySelector('.search-results-grid');
-    
+    // Renderizar cada produto com a mesma estrutura dos produtos em destaque
     results.forEach(product => {
-        const productElement = document.createElement('div');
-        productElement.className = 'search-result-item card';
-        productElement.innerHTML = `
-            <img class="card-img-top" src="${product.imageUrl}" alt="${product.name}" loading="lazy" style="height: 200px; object-fit: cover;">
-            <div class="card-body">
-                <h5 class="card-title">${product.name}</h5>
-                <p class="card-text">Categoria: ${product.category} > ${product.subcategory}</p>
-                ${product.description ? `<p class="card-description" style="font-size: 0.9rem; color: #666;">${product.description.substring(0, 100)}${product.description.length > 100 ? '...' : ''}</p>` : ''}
-                <div class="card-buttons" style="margin-top: auto;">
-                    <a href="item.html?categoria=${encodeURIComponent(product.category)}&subcategoria=${encodeURIComponent(product.subcategory)}&produtoId=${product.id}" class="btn btn-primary">Ver Produto</a>
-                    <a href="produtos.html?categoria=${encodeURIComponent(product.category)}&subcategoria=${encodeURIComponent(product.subcategory)}" class="btn btn-secondary">Ver Categoria</a>
+        const cardHTML = `
+            <article class="card">
+                <div class="card-img-container">
+                    <img class="card-img-top" src="${product.imageUrl}" alt="${product.name}" loading="lazy">
                 </div>
-            </div>
+                <div class="card-body">
+                    <div class="card-text-container">
+                        <h5 class="card-title">${product.name}</h5>
+                      
+                    </div>
+                    <div class="card-buttons">
+                        <a href="item.html?categoria=${encodeURIComponent(product.category)}&subcategoria=${encodeURIComponent(product.subcategory)}&produtoId=${product.id}" class="btn btn-primary">Ver Produto</a>
+                        <button class="add-to-quote-btn" data-product-id="${product.id}" onclick="addToQuoteList({
+                            id: '${product.id}',
+                            name: '${product.name}',
+                            category: '${product.category}',
+                            subcategory: '${product.subcategory}',
+                            imageUrl: '${product.imageUrl}'
+                        })">
+                            <i class="fas fa-plus"></i> Adicionar à Lista
+                        </button>
+                    </div>
+                </div>
+            </article>
         `;
-        grid.appendChild(productElement);
+        container.insertAdjacentHTML('beforeend', cardHTML);
     });
+    
+    // Atualizar botões "Adicionar à Lista" se o sistema de orçamento estiver disponível
+    if (typeof quoteSystem !== 'undefined') {
+        quoteSystem.updateAddButtons();
+    }
 }
 
 // Initialize search on search page - versão assíncrona
-if (window.location.pathname.includes()) {
+if (window.location.pathname.includes('search.html')) {
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get('search');
     
