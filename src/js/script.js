@@ -9,7 +9,7 @@ const dropdownContent = document.querySelector('.dropdown-content');
 const contentMobile = document.querySelector('.content-mobile')
 const dropdown = document.querySelector('.dropdown');
 const headerListItens = document.querySelectorAll(".header-list-itens");
-const voltarBtn = document.querySelectorAll('.item-title-container');
+const voltarBtn = document.querySelector('.item-title-container');
 const prodEmDestaque = document.querySelector('.prod-em-destaque');
 const backOverlay = document.querySelector('.back-overlay');
 const subMenuItens = document.querySelectorAll('subMenu-itens')
@@ -115,7 +115,7 @@ function setupMenuFunctionality() {
 
     voltarBtn[0].addEventListener('click', function () {
 
-        dropdownContent.classList.remove('showContent')
+        dropdownContent.classList.toggle('showContent')
 
     })
 
@@ -586,9 +586,20 @@ function renderFeaturedProducts(products) {
     }
 }
 
-// Carregar produtos em destaque quando a página carregar
+// Configurar o botão voltar do menu principal
 document.addEventListener('DOMContentLoaded', function() {
-    // Verificar se estamos na página principal (index.html)
+    const mainMenuBackButton = document.querySelector('.dropdown-content > .item-title-container .voltar-btn');
+    if (mainMenuBackButton) {
+        mainMenuBackButton.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const dropdownContent = document.querySelector('.dropdown-content');
+            if (dropdownContent) {
+                dropdownContent.classList.remove('showContent');
+            }
+        });
+    }
+
+    // Verificar se estamos na página principal (index.html) para carregar produtos em destaque
     if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/')) {
         loadFeaturedProducts();
     }
