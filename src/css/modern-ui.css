@@ -81,6 +81,8 @@ body {
 }
 
 /* ===== TÍTULOS MODERNOS ===== */
+
+
 .destaque-produtos-titulo-container {
     display: flex;
     flex-direction: column;
@@ -102,6 +104,8 @@ body {
     height: 4px;
     background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
 }
+
+
 
 .titulo-destaque-produtos {
     font-size: var(--font-size-3xl);
