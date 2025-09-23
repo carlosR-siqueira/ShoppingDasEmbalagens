@@ -384,8 +384,8 @@ function abrirModal(index) {
             <div class="modal-caption">${imagemAtual + 1} / ${totalImagens}</div> <!-- Legenda aqui -->
             <img src="${imagens[imagemAtual].src}" class="modal-img">
             <div class="modal-navigation">
-                <span onclick="mudarImagemModal(-1)">&#10094;</span>
-                <span onclick="mudarImagemModal(1)">&#10095;</span>
+                <span class="btn-primary" onclick="mudarImagemModal(-1)"> &#10094;</span>
+                <span class="btn-primary" onclick="mudarImagemModal(1)"> &#10095;</span>
             </div>
         </div>
     `;
