@@ -80,7 +80,7 @@ class DynamicMenuGenerator {
         // Clear existing content except for the header elements
         const headerElements = this.menuContainer.querySelector('.item-title-container');
         const hrHeader = this.menuContainer.querySelector('.hr-header');
-        const produtosDestaque = this.menuContainer.querySelector('a[href="#produtos"]');
+        const produtosDestaque = this.menuContainer.querySelector('a[href="index.html#produtos"]');
         
         // Clear all content
         this.menuContainer.innerHTML = '';
@@ -108,7 +108,7 @@ class DynamicMenuGenerator {
                 <div class="hr-header">
                     <hr>
                 </div>
-                <a class="header-list-itens" href="#produtos">Produtos em Destaque</a>
+                <a class="header-list-itens" href="index.html#produtos">Produtos em Destaque</a>
             `;
         }
 
