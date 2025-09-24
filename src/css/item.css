@@ -338,7 +338,8 @@ main {
 }
 
 .related-products-container .btn-primary {
-    background: linear-gradient(135deg, #25D366, #1d3883) !important;
+    /* background: linear-gradient(135deg,  #1d3883, #25D366) !important; */
+    background: linear-gradient(135deg, #1d3883 0%, #1a9ea3 100%);
     border: none !important;
     padding: 8px 10px !important;
     font-size: 0.78rem !important;
@@ -358,8 +359,10 @@ main {
 }
 
 .related-products-container .btn-primary:hover {
-    background: linear-gradient(135deg, #20bd5a, #172d6e);
+    background: linear-gradient(135deg, #1a9ea3 0%, #1d3883 100%);
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(29, 56, 131, 0.4);
+    color: #ffffff;
 }
 
 .related-products-container .add-to-quote-btn {
