@@ -2483,6 +2483,18 @@ hr {
         width: 100%;
     }
 
+    .produto-actions {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .produto-actions .add-to-quote-btn{
+        width: 60% !important;
+        font-size: 0.75rem !important;
+        margin: 0 0 10px 0;
+    }
+
 
 }
 
