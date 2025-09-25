@@ -174,7 +174,7 @@ a {
 
     display: none;
     border-radius: 3px;
-    width: 220%;
+    width: 240%;
     /* padding: 10px; */
     position: absolute;
     background-color: #f1f1f1f6;
@@ -233,6 +233,10 @@ a {
 
 .subMenu-itens {
     display: none;
+    height: 50vh;
+    width: 140%;
+
+
 
 
 }
@@ -241,6 +245,19 @@ a {
     color: black;
     text-decoration: none;
     text-align: center;
+
+   
+    
+
+}
+
+.subMenu-itens a{
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    border-bottom: #00000027 solid 1px;
+
+
 }
 
 .subMenu a:hover {
@@ -251,13 +268,13 @@ a {
 .subMenu-itens::-webkit-scrollbar {
     border-radius: 2pc;
     width: 10px;
-    background-color: #2788f7;
+    background-color: #0000003d;
 }
 
 
 
 .subMenu-itens::-webkit-scrollbar-thumb {
-    background-color: #ecececcb;
+    background-color: #2788f7;
     width: 2px;
     border-radius: 2pc;
 }
@@ -266,9 +283,9 @@ a {
     border-radius: 3px;
 }
 
-.limpeza-subMenu {
+/* .limpeza-subMenu {
     line-height: 30px;
-}
+} */
 
 /* botão de pesquisa */
 
@@ -396,17 +413,17 @@ a {
         grid-template-columns: repeat(1, 1fr);
         gap: 1rem;
     }
-    
+
     .card {
         min-height: 350px;
         max-width: 100%;
     }
-    
+
     .card-title {
         font-size: 15px;
         min-height: 38px;
     }
-    
+
     .card-buttons .btn,
     .card-buttons .add-to-quote-btn {
         font-size: 13px;
@@ -471,7 +488,7 @@ a {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .card img,
@@ -1159,7 +1176,7 @@ hr {
 
 }
 
-.footer-container .footer-icons a:hover{
+.footer-container .footer-icons a:hover {
     background-color: #1d3883;
 }
 
@@ -1197,14 +1214,14 @@ hr {
     font-family: 'DM Sans', sans-serif;
     font-size: 11pt;
     transition: 0.3s;
-    
+
 }
 
 .contact-link:hover {
     color: #ffffff85 !important;
 }
 
-.contact-link:focus{
+.contact-link:focus {
     outline: none;
     border: none;
 }
@@ -1275,7 +1292,7 @@ hr {
     border-top: 3px solid #1d3883;
     overflow: hidden;
 
-    
+
 }
 
 .cookie-consent.show {
@@ -1422,7 +1439,7 @@ hr {
 }
 
 .cookie-settings-header {
-    
+
     background: linear-gradient(135deg, #1d3883 0%, #1a9ea3 100%);
     color: #ffffff;
     padding: 20px;
@@ -1475,7 +1492,7 @@ hr {
 .cookie-category h4 {
     margin: 0 0 10px 0;
     color: #1d3883;
-    
+
     font-family: 'DM Sans', sans-serif;
     font-weight: 600;
     display: flex;
@@ -1527,11 +1544,11 @@ hr {
     border-radius: 50%;
 }
 
-.cookie-toggle input:checked + .cookie-toggle-slider {
+.cookie-toggle input:checked+.cookie-toggle-slider {
     background-color: #1d3883;
 }
 
-.cookie-toggle input:checked + .cookie-toggle-slider:before {
+.cookie-toggle input:checked+.cookie-toggle-slider:before {
     transform: translateX(26px);
 }
 
@@ -1575,12 +1592,12 @@ hr {
     .legal-links {
         margin: 10px 0;
     }
-    
+
     .legal-link {
         font-size: 13px;
         padding: 5px 8px;
     }
-    
+
     .legal-separator {
         margin: 0 8px;
     }
@@ -1592,30 +1609,30 @@ hr {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .cookie-consent-text {
         min-width: auto;
     }
-    
+
     .cookie-consent-buttons {
         justify-content: center;
         width: 100%;
     }
-    
+
     .cookie-btn {
         flex: 1;
         min-width: 120px;
     }
-    
+
     .cookie-settings-content {
         margin: 10px;
         max-height: 90vh;
     }
-    
+
     .cookie-settings-footer {
         flex-direction: column;
     }
-    
+
     .cookie-settings-footer .cookie-btn {
         width: 100%;
         justify-content: center;
@@ -1982,7 +1999,8 @@ hr {
     .descartaveis-subMenu-itens,
     .domesticos-subMenu-itens,
     .festa-subMenu-itens,
-    .limpeza-subMenu-itens {
+    .limpeza-subMenu-itens,
+    .papelaria-subMenu-itens {
         display: flex;
         z-index: 9999999999;
         position: fixed;
@@ -2043,7 +2061,6 @@ hr {
 
         padding: 0 10px;
         background-color: #ffffff;
-
     }
 
     .header-list span {
@@ -2093,7 +2110,6 @@ hr {
     .showContent {
 
         right: 15%;
-
     }
 
 
@@ -2467,6 +2483,18 @@ hr {
         width: 100%;
     }
 
+    .produto-actions {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .produto-actions .add-to-quote-btn{
+        width: 60% !important;
+        font-size: 0.75rem !important;
+        margin: 0 0 10px 0;
+    }
+
 
 }
 
@@ -2522,9 +2550,17 @@ hr {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Modal da lista de orçamento */
@@ -2558,6 +2594,7 @@ hr {
         opacity: 0;
         transform: translateY(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -2823,7 +2860,7 @@ hr {
 /* Responsividade */
 @media (max-width: 768px) {
 
-    .quote-modal{
+    .quote-modal {
         top: 65px;
         z-index: 99999999;
     }
@@ -2835,63 +2872,63 @@ hr {
         height: 55px;
         font-size: 20px;
     }
-    
+
     .quote-cart-count {
         width: 20px;
         height: 20px;
         font-size: 10px;
     }
-    
+
     .quote-modal-content {
         width: 95%;
         margin: 5% auto;
         max-height: 85vh;
     }
-    
+
     .quote-modal-header {
         padding: 15px;
     }
-    
+
     .quote-modal-header h2 {
         font-size: 1.3rem;
     }
-    
+
     .quote-modal-body {
         padding: 15px;
         max-height: 350px;
     }
-    
+
     .quote-customer-info {
         margin-bottom: 15px;
         padding-bottom: 12px;
     }
-    
+
     .quote-name-input {
         padding: 10px 12px;
         font-size: 0.95rem;
     }
-    
+
     .quote-item {
         padding: 12px;
     }
-    
+
     .quote-item-image {
         width: 50px;
         height: 50px;
         margin-right: 12px;
     }
-    
+
     .quote-modal-footer {
         padding: 15px;
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .quote-actions {
         width: 100%;
         justify-content: center;
     }
-    
+
     .quote-btn {
         flex: 1;
         justify-content: center;
@@ -2904,6 +2941,7 @@ hr {
         transform: translateX(100%);
         opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;
@@ -2915,6 +2953,7 @@ hr {
         transform: translateX(0);
         opacity: 1;
     }
+
     to {
         transform: translateX(100%);
         opacity: 0;

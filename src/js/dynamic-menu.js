@@ -80,7 +80,7 @@ class DynamicMenuGenerator {
         // Clear existing content except for the header elements
         const headerElements = this.menuContainer.querySelector('.item-title-container');
         const hrHeader = this.menuContainer.querySelector('.hr-header');
-        const produtosDestaque = this.menuContainer.querySelector('a[href="#produtos"]');
+        const produtosDestaque = this.menuContainer.querySelector('a[href="index.html#produtos"]');
         
         // Clear all content
         this.menuContainer.innerHTML = '';
@@ -108,7 +108,7 @@ class DynamicMenuGenerator {
                 <div class="hr-header">
                     <hr>
                 </div>
-                <a class="header-list-itens" href="#produtos">Produtos em Destaque</a>
+                <a class="header-list-itens" href="index.html#produtos">Produtos em Destaque</a>
             `;
         }
 
@@ -276,7 +276,7 @@ class DynamicMenuGenerator {
         });
 
         // Setup back button functionality for mobile
-        const voltarBtns = this.menuContainer.querySelectorAll('.voltar-btn');
+        const voltarBtns = this.menuContainer.querySelectorAll('.voltar-btn-container');
         voltarBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 subMenuItems.forEach(subMenu => {
@@ -336,19 +336,39 @@ class DynamicMenuGenerator {
         const dropdownContent = document.querySelector('.dropdown-content');
         const voltarBtns = this.menuContainer.querySelectorAll('.voltar-btn');
         
-        // Setup back button functionality for mobile
+        // Setup back button and title click functionality for mobile
         voltarBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Close all submenus
-                allSubMenus.forEach(subMenu => {
-                    subMenu.classList.remove('show');
-                });
+            // Get the parent container which holds both the button and title
+            const container = btn.closest('.item-title-container');
+            if (!container) return;
+            
+            // Function to handle the back action
+            const handleBackAction = (event) => {
+                event.stopPropagation(); // Impede a propagação do evento
                 
-                // Close dropdown content
-                if (dropdownContent) {
-                    dropdownContent.classList.remove('showContent');
+                // Verifica se estamos em um submenu
+                const subMenu = container.closest('.subMenu-itens');
+                if (subMenu) {
+                    // Se estiver em um submenu, fecha apenas esse submenu
+                    subMenu.classList.remove('show');
+                } else {
+                    // Se estiver na lista principal de categorias, fecha o menu inteiro
+                    const dropdownContent = document.querySelector('.dropdown-content');
+                    if (dropdownContent) {
+                        dropdownContent.classList.remove('showContent');
+                    }
                 }
-            });
+            };
+            
+            // Add click event to the back button
+            btn.addEventListener('click', handleBackAction);
+            
+            // Also add click event to the title container if it's not the back button
+            const titleContainer = container.querySelector('.title-container');
+            if (titleContainer && !titleContainer.contains(btn)) {
+                titleContainer.addEventListener('click', handleBackAction);
+                titleContainer.style.cursor = 'pointer'; // Make it look clickable
+            }
         });
 
         // Integrate with existing mobile menu button functionality
