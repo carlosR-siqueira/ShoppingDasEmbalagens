@@ -512,11 +512,11 @@ a {
 }
 
 .card-text-container {
-    flex-grow: 1;
-    margin-bottom: 1rem;
+    /* flex-grow: none; */
+    /* margin-bottom: 1rem; */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     min-height: 80px;
 }
 
@@ -2495,6 +2495,12 @@ hr {
         margin: 0 0 10px 0;
     }
 
+        .card-body {
+        padding: 3px 3px;
+        display: flex;
+        justify-content: space-evenly !important;
+        
+    }
 
 }
 
