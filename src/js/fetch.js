@@ -397,7 +397,7 @@ function renderizarProdutosRelacionados(produtos, categoria, subcategoria) {
         });
         
         return `
-            <article class="card" data-id="${produto.id}">
+            <article class="card related-card" data-id="${produto.id}">
                 <div class="card-img-container">
                     <img class="card-img-top" src="${produto.imageUrl || ''}" alt="${produto.name || ''}" loading="lazy">
                 </div>
@@ -433,8 +433,14 @@ function renderizarProdutosRelacionados(produtos, categoria, subcategoria) {
     return `
         <div class="produtos-relacionados-container related-products-container">
             <h3>Produtos Relacionados</h3>
-            <div class="produtos-relacionados-lista">
-                ${produtosHtml}
+            <div class="related-carousel" aria-label="Carrossel de produtos relacionados">
+                <button class="related-nav related-prev" aria-label="Anterior" type="button">&#10094;</button>
+                <div class="related-viewport">
+                    <div class="related-track">
+                        ${produtosHtml}
+                    </div>
+                </div>
+                <button class="related-nav related-next" aria-label="Próximo" type="button">&#10095;</button>
             </div>
         </div>
     `;
@@ -532,6 +538,8 @@ function exibirDetalhesProduto(produto) {
                 const produtosRelacionadosElement = document.getElementById('produtos-relacionados-container');
                 if (produtosRelacionadosElement) {
                     produtosRelacionadosElement.innerHTML = html;
+                    // Inicializar carrossel depois que o HTML for inserido
+                    initRelatedProductsCarousel(produtosRelacionadosElement);
                 }
             }
         })
@@ -667,6 +675,154 @@ function stopDrag() {
 function voltarParaCategoria(categoria, subcategoria) {
     const voltarBtn = `<a href="produtos.html?categoria=${categoria}&subcategoria=${subcategoria}" class="voltarBtn btn btn-primary">Voltar</a>`;
     document.querySelector(".voltarBtnContainer").innerHTML = voltarBtn;
+}
+
+
+
+
+
+
+
+
+// Carrossel para Produtos Relacionados (3 por vez em desktop e mobile)
+function initRelatedProductsCarousel(containerRoot) {
+    try {
+        const root = containerRoot.querySelector('.related-products-container');
+        if (!root) return;
+
+        const viewport = root.querySelector('.related-viewport');
+        const track = root.querySelector('.related-track');
+        const prevBtn = root.querySelector('.related-prev');
+        const nextBtn = root.querySelector('.related-next');
+        const items = Array.from(root.querySelectorAll('.related-card'));
+        if (!viewport || !track || items.length === 0) return;
+
+        let itemsPerView = 3; // padrão desktop
+        let currentIndexGroup = 0; // índice do grupo/card
+        let totalGroups = 1;
+
+        function computeItemsPerView() {
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            return isMobile ? 1 : 3; // mobile: 1 por view (deslize por card), desktop: 3 por view
+        }
+
+        function getGapPx() {
+            const trackStyles = window.getComputedStyle(track);
+            return parseFloat(trackStyles.gap || '16');
+        }
+
+        function applyItemWidths() {
+            // Em desktop, definimos 3 por view via inline. Em mobile deixamos o CSS controlar (85%).
+            const gapPx = getGapPx();
+            if (itemsPerView === 1) {
+                items.forEach((item) => {
+                    item.style.flex = '';
+                    item.style.minWidth = '';
+                });
+                return;
+            }
+            const itemWidthPercent = 100 / itemsPerView;
+            items.forEach((item) => {
+                item.style.flex = `0 0 calc(${itemWidthPercent}% - ${(gapPx * (itemsPerView - 1)) / itemsPerView}px)`;
+                item.style.minWidth = `calc(${itemWidthPercent}% - ${(gapPx * (itemsPerView - 1)) / itemsPerView}px)`;
+            });
+        }
+
+        function updateButtons() {
+            if (currentIndexGroup <= 0) {
+                prevBtn.setAttribute('disabled', 'disabled');
+                prevBtn.classList.add('is-disabled');
+            } else {
+                prevBtn.removeAttribute('disabled');
+                prevBtn.classList.remove('is-disabled');
+            }
+            if (currentIndexGroup >= totalGroups - 1) {
+                nextBtn.setAttribute('disabled', 'disabled');
+                nextBtn.classList.add('is-disabled');
+            } else {
+                nextBtn.removeAttribute('disabled');
+                nextBtn.classList.remove('is-disabled');
+            }
+        }
+
+        function applyTransform() {
+            if (itemsPerView === 1) {
+                const gapPx = getGapPx();
+                const padLeft = parseFloat(window.getComputedStyle(viewport).paddingLeft || '0');
+                const cardWidth = items[0]?.getBoundingClientRect().width || viewport.clientWidth;
+                const offset = Math.max(0, currentIndexGroup * (cardWidth + gapPx) - padLeft);
+                track.style.transform = `translateX(-${offset}px)`;
+            } else {
+                const translatePercent = currentIndexGroup * 100; // cada grupo equivale a 100% da viewport
+                track.style.transform = `translateX(-${translatePercent}%)`;
+            }
+        }
+
+        function goToGroup(index) {
+            currentIndexGroup = Math.max(0, Math.min(totalGroups - 1, index));
+            applyTransform();
+            updateButtons();
+        }
+
+        function setupMeasurements() {
+            itemsPerView = computeItemsPerView();
+            totalGroups = Math.max(1, itemsPerView === 1 ? items.length : Math.ceil(items.length / itemsPerView));
+            if (currentIndexGroup > totalGroups - 1) {
+                currentIndexGroup = totalGroups - 1;
+            }
+            applyItemWidths();
+            applyTransform();
+            updateButtons();
+        }
+
+        prevBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToGroup(currentIndexGroup - 1);
+        });
+        nextBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToGroup(currentIndexGroup + 1);
+        });
+
+        // Suporte básico a swipe/touch
+        let startX = 0;
+        let isPointerDown = false;
+        viewport.addEventListener('mousedown', (e) => { isPointerDown = true; startX = e.clientX; });
+        viewport.addEventListener('touchstart', (e) => { isPointerDown = true; startX = e.touches[0].clientX; }, { passive: true });
+        function onPointerMove(clientX) {
+            if (!isPointerDown) return;
+            const delta = clientX - startX;
+            const threshold = 40;
+            if (Math.abs(delta) > threshold) {
+                if (delta < 0) {
+                    goToGroup(currentIndexGroup + 1);
+                } else {
+                    goToGroup(currentIndexGroup - 1);
+                }
+                isPointerDown = false;
+            }
+        }
+        viewport.addEventListener('mousemove', (e) => onPointerMove(e.clientX));
+        viewport.addEventListener('touchmove', (e) => onPointerMove(e.touches[0].clientX), { passive: true });
+        ['mouseup', 'mouseleave', 'touchend', 'touchcancel'].forEach(evt => viewport.addEventListener(evt, () => { isPointerDown = false; }));
+
+        // Recalcular ao redimensionar
+        window.addEventListener('resize', () => {
+            const prevItemsPerView = itemsPerView;
+            setupMeasurements();
+            if (itemsPerView !== prevItemsPerView) {
+                currentIndexGroup = Math.min(currentIndexGroup, totalGroups - 1);
+                applyTransform();
+                updateButtons();
+            }
+        });
+
+        // Inicializar posição e medidas
+        setupMeasurements();
+        goToGroup(0);
+    } catch (err) {
+        console.error('Falha ao inicializar o carrossel de relacionados:', err);
+    }
 }
 
 
