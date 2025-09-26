@@ -68,7 +68,7 @@ main {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    background: var(--white);
+    background: var(--light-gray);
     width: 100%;
     padding: var(--spacing-2xl) 0;
     position: relative;
@@ -101,9 +101,11 @@ main {
     display: flex;
     gap: 20px;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px #0000003f;
-    margin: 30px;
+    border-radius: 6px;
+    /* box-shadow: 2px 2px 5px #0000003f; */
+    /* border: solid 1px #00000025; */
+
+    margin: 130px;
     background-color: white;
     width: 100%;
 
@@ -162,7 +164,7 @@ main {
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: var(--white);
+    background-color: var(--light-gray);
     padding: 0 0 35px 0;
 }
 
@@ -249,8 +251,8 @@ main {
 .detalhes-produto {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
-    max-width: 1200px;
+    /* gap: 130px; */
+    max-width: 1290px;
 
     margin: 0 auto;
     padding: 20px;
@@ -260,13 +262,13 @@ main {
     flex-direction: column;
     flex: 1;
     min-width: 300px;
-    max-width: 600px;
+    /* max-width: 600px; */
 }
 
 .produto-coluna-direita {
     flex: 1;
     min-width: 300px;
-    max-width: 500px;
+    /* max-width: 500px; */
 }
 
 /* Estilos para a seção de produtos relacionados */
@@ -511,7 +513,7 @@ main {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
     background-color: #f8f9fa;
 }
 
@@ -541,7 +543,7 @@ main {
     background: #fff;
     border-radius: 8px;
     padding: 25px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); */
     border: 1px solid #eee;
 }
 
@@ -643,6 +645,12 @@ main {
         min-width: 0;
         width: 100%;
     }
+
+    .descricao-produto-container{
+        margin: 30px 0;
+    }
+   
+    
 }
 
 @media (max-width: 768px) {
@@ -910,7 +918,13 @@ main {
         margin: 15px 0;
         padding: 0 15px;
         box-sizing: border-box;
+        gap: 0px;
     }
+
+    .detalhes-produto-container{
+        padding: 0%;
+    }
+    
 
     .modal {
         z-index: 1000000000000;
