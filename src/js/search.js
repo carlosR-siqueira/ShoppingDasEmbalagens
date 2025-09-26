@@ -163,34 +163,4 @@ function displaySearchResults(results, container) {
     }
 }
 
-// Initialize search on search page - versão assíncrona
-if (window.location.pathname.includes('search.html')) {
-    const urlParams = new URLSearchParams(window.location.search);
-    const query = urlParams.get('search');
-    
-    if (query) {
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.value = query;
-        }
-        
-        const resultsContainer = document.getElementById('searchResults');
-        
-        // Mostrar loading
-        if (resultsContainer) {
-            resultsContainer.innerHTML = `
-                <div class="loading" style="text-align: center; padding: 3rem;">
-                    <p>🔄 Buscando produtos...</p>
-                </div>
-            `;
-        }
-        
-        // Buscar produtos (função agora é assíncrona)
-        searchProducts(query).then(results => {
-            displaySearchResults(results, resultsContainer);
-        });
-        
-        // Update page title
-        document.title = `Busca: ${query} - Shopping das Embalagens`;
-    }
-}
+
