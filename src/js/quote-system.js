@@ -248,36 +248,35 @@ class QuoteSystem {
             showWarning('Adicione produtos à lista antes de enviar o orçamento.');
             return;
         }
-
+    
         const customerName = document.getElementById('customer-name').value.trim();
         if (!customerName) {
             showWarning('Por favor, digite seu nome antes de enviar o orçamento.');
             document.getElementById('customer-name').focus();
             return;
         }
-
+    
         const phoneNumber = '5521975956593'; // Número do WhatsApp da loja
         const message = this.formatWhatsAppMessage(customerName);
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         
         window.open(whatsappUrl, '_blank');
     }
-
+    
     // Formatar mensagem para WhatsApp
     formatWhatsAppMessage(customerName) {
         let message = `Olá, me chamo ${customerName}!\n\n`;
         message += `Desejo fazer um orçamento com os seguintes itens:\n\n`;
         
         this.quoteItems.forEach((item, index) => {
-            message += `${index + 1}. *${item.name}*\n\n`;
-            
+            message += `${index + 1}. *${item.name.trim()}*\n`;
         });
         
-        
-        message += `Aguardo o retorno com os preços e disponibilidade de estoque!`;
+        message += `\nAguardo o retorno com os preços e disponibilidade de estoque!`;
         
         return message;
     }
+    
 
     // Atualizar botões "Adicionar à Lista" nos cards de produtos
     updateAddButtons() {
