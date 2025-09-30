@@ -2483,8 +2483,8 @@ hr {
         color: whitesmoke;
         justify-content: center;
         align-items: center;
-        padding: 30px 0;
-        margin: 0%;
+        padding: 0;
+        margin: 3%;
         z-index: 1;
         border-top: solid 2px #0000006b;
         background-color: #1d3883;
