@@ -89,7 +89,7 @@ body {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    background: var(--white);
+    
     width: 100%;
     padding: var(--spacing-2xl) 0;
     position: relative;
@@ -140,7 +140,8 @@ body {
     gap: var(--spacing-lg);
     justify-content: center;
     padding: var(--spacing-xl) 0 var(--spacing-2xl) 0;
-    background: var(--white);
+    background-color: var(--light-gray);
+
 }
 
 .card {
@@ -150,7 +151,7 @@ body {
     padding: var(--spacing-lg);
     width: 18rem;
     min-width: 12rem;
-    box-shadow: var(--shadow-md);
+    /* box-shadow: var(--shadow-md); */
     border-radius: var(--border-radius-lg);
     margin-bottom: var(--spacing-lg);
     background: var(--white);
@@ -176,7 +177,7 @@ body {
 
 .card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
+    /* box-shadow: var(--shadow-xl); */
     border-color: var(--primary-color);
 }
 
@@ -313,7 +314,7 @@ body {
     gap: var(--spacing-lg);
     justify-content: center;
     padding: var(--spacing-xl) 0;
-    background: var(--white);
+    
    
 }
 
@@ -324,8 +325,8 @@ body {
     justify-content: space-around;
     align-items: center;
     width: 95%;
-    margin: auto;
-    margin-top: var(--spacing-2xl);
+    /* margin: var(--spacing-2xl) ; */
+    /* margin-top: var(--spacing-2xl); */
     padding: var(--spacing-2xl) var(--spacing-lg);
     color: var(--white);
     border-radius: var(--border-radius-lg);
