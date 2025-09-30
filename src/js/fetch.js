@@ -524,6 +524,13 @@ function exibirDetalhesProduto(produto) {
     // Inserir os detalhes do produto
     document.querySelector('.detalhes-produto-container').innerHTML = detalhesProduto;
     
+    // Habilitar arrastar para trocar imagens no carrossel (mouse e toque)
+    const carouselImagesEl = document.querySelector('.carousel-images');
+    if (carouselImagesEl) {
+        carouselImagesEl.addEventListener('mousedown', startDrag);
+        carouselImagesEl.addEventListener('touchstart', startDrag, { passive: true });
+    }
+    
     // Buscar e exibir produtos relacionados
     const urlParamsRelacionados = new URLSearchParams(window.location.search);
     const categoriaRelacionados = urlParamsRelacionados.get('categoria');

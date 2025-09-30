@@ -113,6 +113,30 @@ class QuoteSystem {
                 this.closeQuoteModal();
             }
         });
+
+        // Clique no card do item para ir à página do produto (delegação de eventos)
+        const quoteItemsContainer = document.querySelector('.quote-items-container');
+        if (quoteItemsContainer) {
+            quoteItemsContainer.addEventListener('click', (e) => {
+                const removeButton = e.target.closest('.quote-item-remove');
+                if (removeButton) return; // não navegar ao clicar para remover
+
+                const itemCard = e.target.closest('.quote-item');
+                if (!itemCard) return;
+
+                const productId = itemCard.getAttribute('data-id');
+                const item = this.quoteItems.find(i => i.id === productId);
+                if (!item) return;
+
+                const categoria = encodeURIComponent(item.category || '');
+                const subcategoria = encodeURIComponent(item.subcategory || '');
+                const produtoId = encodeURIComponent(item.id || '');
+
+                const url = `item.html?categoria=${categoria}&subcategoria=${subcategoria}&produtoId=${produtoId}`;
+                this.closeQuoteModal();
+                window.location.href = url;
+            });
+        }
     }
 
     // Adicionar produto à lista
