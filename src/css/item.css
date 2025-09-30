@@ -595,7 +595,7 @@ main {
     }
 
     .detalhes-produto {
-        flex-direction: column;
+        flex-direction: column-reverse !important;
         margin: 10px;
         padding: 10px;
         display: flex;

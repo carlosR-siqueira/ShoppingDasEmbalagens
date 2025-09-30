@@ -530,6 +530,33 @@ function exibirDetalhesProduto(produto) {
         carouselImagesEl.addEventListener('mousedown', startDrag);
         carouselImagesEl.addEventListener('touchstart', startDrag, { passive: true });
     }
+
+    // Reposicionar "produtos relacionados" conforme o viewport
+    (function setupRelatedPlacement() {
+        const relatedEl = document.getElementById('produtos-relacionados-container');
+        const leftCol = document.querySelector('.produto-coluna-esquerda');
+        const rightCol = document.querySelector('.produto-coluna-direita');
+        const descContainer = document.querySelector('.descricao-produto-container');
+        if (!relatedEl || !leftCol || !rightCol || !descContainer) return;
+
+        function placeRelated() {
+            const isMobile = window.innerWidth <= 921;
+            if (isMobile) {
+                // Ordem desejada no mobile: 1-imagem (coluna esquerda), 2-descrição (coluna direita), 3-relacionados
+                if (relatedEl.parentElement !== rightCol) {
+                    rightCol.appendChild(relatedEl);
+                }
+            } else {
+                // Desktop: manter como estava (relacionados dentro da coluna esquerda)
+                if (relatedEl.parentElement !== leftCol) {
+                    leftCol.appendChild(relatedEl);
+                }
+            }
+        }
+
+        placeRelated();
+        window.addEventListener('resize', placeRelated);
+    })();
     
     // Buscar e exibir produtos relacionados
     const urlParamsRelacionados = new URLSearchParams(window.location.search);
