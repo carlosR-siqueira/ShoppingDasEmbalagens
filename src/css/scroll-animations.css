@@ -1,0 +1,56 @@
+/* Animações de Scroll - Versão Ultra Simples */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease;
+}
+
+.slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease;
+}
+
+.slide-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Específico para header e banner - começam invisíveis e só aparecem com delay */
+.header.fade-in {
+    opacity: 0 !important;
+    transform: translateY(-30px) !important;
+    transition: all 5s ease !important;
+}
+
+.header.fade-in.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.banner-container.fade-in {
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: all 5s ease !important;
+}
+
+.banner-container.fade-in.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
