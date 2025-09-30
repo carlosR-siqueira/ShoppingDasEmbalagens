@@ -414,12 +414,12 @@ function renderizarProdutosRelacionados(produtos, categoria, subcategoria) {
                             Ver Produto
                         </a>
                         <button class="add-to-quote-btn" 
-                                data-product-id="${produtoIdEncoded}" 
+                                data-product-id="${produto.id}" 
                                 onclick="addToQuoteList({
-                                    id: '${produtoIdEncoded.replace(/'/g, "\\'")}',
-                                    name: '${nomeProdutoEncoded.replace(/'/g, "\\'")}',
-                                    category: '${categoriaEncoded.replace(/'/g, "\\'")}',
-                                    subcategory: '${subcategoriaEncoded.replace(/'/g, "\\'")}',
+                                    id: '${(produto.id || '').replace(/'/g, "\\'")}',
+                                    name: '${(produto.name || '').replace(/'/g, "\\'")}',
+                                    category: '${(categoria || '').replace(/'/g, "\\'")}',
+                                    subcategory: '${(subcategoria || '').replace(/'/g, "\\'")}',
                                     imageUrl: '${(produto.imageUrl || '').replace(/'/g, "\\'")}'
                                 }); return false;">
                             <i class="fas fa-plus"></i> Adicionar à Lista
