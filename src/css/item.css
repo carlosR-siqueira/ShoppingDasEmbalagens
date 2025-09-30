@@ -58,7 +58,8 @@
 }
 
 main {
-    background-color: #ffffff;
+    background-color: var(--light-gray);
+
 
 }
 
@@ -1130,6 +1131,7 @@ main {
     gap: 20px;
     will-change: transform;
     transition: transform 300ms ease;
+    padding-top: 4px;
 }
 
 .related-card {
