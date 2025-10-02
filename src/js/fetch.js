@@ -864,4 +864,3 @@ function initRelatedProductsCarousel(containerRoot) {
 
 
 
-
