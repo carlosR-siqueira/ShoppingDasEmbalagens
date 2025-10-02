@@ -28,7 +28,7 @@ function initScrollAnimations() {
     }
     
     // Adicionar animações aos elementos
-    addAnimation(document.querySelector('.header'), 'fade-in');
+    
     addAnimation(document.querySelector('.banner-container'), 'fade-in');
     addAnimation(document.querySelector('.destaque-produtos-titulo-container'), 'fade-in');
     addAnimation(document.querySelector('.card-produtos'), 'fade-in');
@@ -45,16 +45,10 @@ function initScrollAnimations() {
         card.classList.add('fade-in');
     });
     
-    // Ativar header e banner com delay muito maior
-    const header = document.querySelector('.header');
+    // Ativar banner com delay muito maior
+
     const banner = document.querySelector('.banner-container');
-    
-    if (header) {
-        setTimeout(() => {
-            header.classList.add('visible');
-            console.log('Header ativado após delay de 5 segundos');
-        }, 5000); // 5 segundos
-    }
+
     
     if (banner) {
         setTimeout(() => {
