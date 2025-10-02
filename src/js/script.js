@@ -552,9 +552,9 @@ function renderFeaturedProducts(products) {
     products.forEach(produto => {
       
         const cardHTML = `
-            <article class="card">
+            <article class="card" data-id="${produto.id}">
                 <div class="card-img-container">
-                    <img class="card-img-top" src="${produto.imageUrl}" alt="${produto.name}" loading="lazy" ;">
+                    <img class="card-img-top" src="${produto.imageUrl}" alt="${produto.name}" loading="lazy">
                     ${produto.featured ? '<span class="featured-badge">Destaque</span>' : ''}
                 </div>
                 <div class="card-body">
@@ -584,6 +584,14 @@ function renderFeaturedProducts(products) {
     if (typeof quoteSystem !== 'undefined') {
         quoteSystem.updateAddButtons();
     }
+    
+    // Disparar evento para inicializar troca de imagens após os produtos serem renderizados
+    setTimeout(() => {
+        if (typeof imageCarousel !== 'undefined') {
+            console.log('🎠 Inicializando troca de imagens após renderização dos produtos...');
+            imageCarousel.reinitialize();
+        }
+    }, 500);
 }
 
 // Configurar o botão voltar do menu principal
