@@ -1,4 +1,11 @@
 /* Animações de Scroll - Versão Ultra Simples */
+/* Corrigir overflow horizontal no mobile */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -33,17 +40,6 @@
 }
 
 /* Específico para header e banner - começam invisíveis e só aparecem com delay */
-.header.fade-in {
-    opacity: 0 !important;
-    transform: translateY(-30px) !important;
-    transition: all 5s ease !important;
-}
-
-.header.fade-in.visible {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-
 .banner-container.fade-in {
     opacity: 0 !important;
     transform: translateY(30px) !important;
@@ -53,4 +49,67 @@
 .banner-container.fade-in.visible {
     opacity: 1 !important;
     transform: translateY(0) !important;
+}
+
+/* Desabilitar animações de slide no mobile - usar apenas fade-in */
+@media (max-width: 768px) {
+    .slide-left,
+    .slide-right {
+        transform: translateY(20px) !important;
+    }
+    
+    .slide-left.visible,
+    .slide-right.visible {
+        transform: translateY(0) !important;
+    }
+    
+    .fade-in {
+        transform: translateY(20px);
+    }
+    
+    .banner-container.fade-in {
+        transform: translateY(20px) !important;
+    }
+    
+    /* Garantir que containers não causem overflow */
+    .quemSomosContainer {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .quemSomosContent {
+        min-width: unset;
+        width: 100%;
+    }
+    
+    .quemSomosImg {
+        width: 100%;
+    }
+    
+    .quemSomosImg img {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Ajustes para mobile muito pequeno */
+@media (max-width: 480px) {
+    .slide-left,
+    .slide-right {
+        transform: translateY(15px) !important;
+    }
+    
+    .slide-left.visible,
+    .slide-right.visible {
+        transform: translateY(0) !important;
+    }
+    
+    .fade-in {
+        transform: translateY(15px);
+    }
+    
+    .banner-container.fade-in {
+        transform: translateY(15px) !important;
+    }
 }

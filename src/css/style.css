@@ -687,12 +687,6 @@ a {
 }
 
 
-
-
-
-
-
-
 .facaContatoContainer {
 
     display: flex;
@@ -819,9 +813,9 @@ a {
 
 }
 
-.quemSomosContent h2 {
-    /* text-shadow: #000 1px 1px 2px; */
-}
+/* .quemSomosContent h2 {
+    text-shadow: #000 1px 1px 2px;
+} */
 
 .quemSomosContent p {
     color: #ededed;
@@ -876,10 +870,10 @@ a {
 
 }
 
-.quemSomosTopicos article:nth-child(2) p {
-    /* text-shadow: #000 1px 1px 2px; */
+/* .quemSomosTopicos article:nth-child(2) p {
+    text-shadow: #000 1px 1px 2px;
 
-}
+} */
 
 .quemSomosTopicos article:nth-child(2) {
     background-color: #1d3883;
@@ -1824,9 +1818,6 @@ hr {
     .footer-container .funcionamento {
         margin-top: 20px;
     }
-
-
-
 
 }
 
