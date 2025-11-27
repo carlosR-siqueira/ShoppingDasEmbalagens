@@ -966,7 +966,7 @@ main {
 
     .right-btn {
         position: relative;
-        right: -4%;
+        right: -20px; /* Mover o botão para fora do container dos cartões */
     }
 
     @media (max-width: 768px) {
@@ -1160,7 +1160,7 @@ main {
 }
 
 .related-next {
-    right: 4px;
+    right: -20px; /* Mover o botão para fora do container dos cartões */
 }
 
 .related-nav.is-disabled,

@@ -356,9 +356,9 @@ async function buscarProdutosRelacionados(categoria, subcategoria, produtoAtualI
         
         console.log('Produtos encontrados:', produtos);
         
-        // Retornar no máximo 4 produtos relacionados, embaralhados para variedade
+        // Retornar todos os produtos relacionados, embaralhados para variedade
         const produtosEmbaralhados = [...produtos].sort(() => 0.5 - Math.random());
-        const produtosLimitados = produtosEmbaralhados.slice(0, 4);
+        const produtosLimitados = produtosEmbaralhados; // Remover limitação de 4 produtos
         
         console.log('Produtos relacionados retornados:', produtosLimitados);
         return produtosLimitados;
@@ -733,7 +733,7 @@ function initRelatedProductsCarousel(containerRoot) {
 
         let itemsPerView = 3; // padrão desktop
         let currentIndexGroup = 0; // índice do grupo/card
-        let totalGroups = 1;
+        let totalGroups = Math.ceil(items.length / itemsPerView);
 
         function computeItemsPerView() {
             const isMobile = window.matchMedia('(max-width: 768px)').matches;
@@ -746,17 +746,24 @@ function initRelatedProductsCarousel(containerRoot) {
         }
 
         function applyItemWidths() {
-            // Em desktop, definimos 3 por view via inline. Em mobile deixamos o CSS controlar (85%).
+            // Garantir box-sizing para cálculos previsíveis
+            items.forEach(i => i.style.boxSizing = 'border-box');
+
             const gapPx = getGapPx();
             if (itemsPerView === 1) {
+                // Em mobile, deixamos o CSS cuidar do tamanho (por exemplo 85% definido no CSS),
+                // mas resetamos eventuais estilos inline que possam conflitar.
                 items.forEach((item) => {
                     item.style.flex = '';
                     item.style.minWidth = '';
                 });
                 return;
             }
+
+            // Em desktop definimos larguras em porcentagem para que 3 itens preencham a viewport
             const itemWidthPercent = 100 / itemsPerView;
             items.forEach((item) => {
+                // Subtrair uma parte proporcional do gap para evitar overflow visual
                 item.style.flex = `0 0 calc(${itemWidthPercent}% - ${(gapPx * (itemsPerView - 1)) / itemsPerView}px)`;
                 item.style.minWidth = `calc(${itemWidthPercent}% - ${(gapPx * (itemsPerView - 1)) / itemsPerView}px)`;
             });
@@ -780,15 +787,27 @@ function initRelatedProductsCarousel(containerRoot) {
         }
 
         function applyTransform() {
+            // Forçar estilos que ajudam a evitar que elementos fiquem por trás de outros
+            viewport.style.overflow = 'hidden';
+            track.style.display = 'flex';
+            track.style.transition = 'transform 0.35s ease';
+            track.style.willChange = 'transform';
+
+            const gapPx = getGapPx();
+
+            // Largura real de um card (inclui padding/border no getBoundingClientRect)
+            const cardWidth = items[0]?.getBoundingClientRect().width || 0;
+
             if (itemsPerView === 1) {
-                const gapPx = getGapPx();
                 const padLeft = parseFloat(window.getComputedStyle(viewport).paddingLeft || '0');
-                const cardWidth = items[0]?.getBoundingClientRect().width || viewport.clientWidth;
                 const offset = Math.max(0, currentIndexGroup * (cardWidth + gapPx) - padLeft);
-                track.style.transform = `translateX(-${offset}px)`;
+                const maxOffset = Math.max(0, track.scrollWidth - viewport.clientWidth);
+                track.style.transform = `translateX(-${Math.min(offset, maxOffset)}px)`;
             } else {
-                const translatePercent = currentIndexGroup * 100; // cada grupo equivale a 100% da viewport
-                track.style.transform = `translateX(-${translatePercent}%)`;
+                // Calcular deslocamento em pixels por grupo (grupo = itemsPerView itens)
+                const offset = currentIndexGroup * itemsPerView * (cardWidth + gapPx);
+                const maxOffset = Math.max(0, track.scrollWidth - viewport.clientWidth);
+                track.style.transform = `translateX(-${Math.min(offset, maxOffset)}px)`;
             }
         }
 
@@ -800,13 +819,22 @@ function initRelatedProductsCarousel(containerRoot) {
 
         function setupMeasurements() {
             itemsPerView = computeItemsPerView();
-            totalGroups = Math.max(1, itemsPerView === 1 ? items.length : Math.ceil(items.length / itemsPerView));
+            totalGroups = Math.ceil(items.length / itemsPerView);
             if (currentIndexGroup > totalGroups - 1) {
                 currentIndexGroup = totalGroups - 1;
             }
+            // Garantir que o viewport esconda overflow (para não deixar cards por trás de elementos adjacentes)
+            viewport.style.overflow = 'hidden';
+            // Garantir track como flex container e sem wrap
+            track.style.display = 'flex';
+            track.style.flexWrap = 'nowrap';
+            track.style.alignItems = 'stretch';
             applyItemWidths();
-            applyTransform();
-            updateButtons();
+            // Forçar recalculo do layout antes de aplicar transform
+            requestAnimationFrame(() => {
+                applyTransform();
+                updateButtons();
+            });
         }
 
         prevBtn?.addEventListener('click', (e) => {
@@ -858,9 +886,3 @@ function initRelatedProductsCarousel(containerRoot) {
         console.error('Falha ao inicializar o carrossel de relacionados:', err);
     }
 }
-
-
-
-
-
-
