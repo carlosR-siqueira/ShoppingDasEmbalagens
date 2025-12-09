@@ -159,7 +159,8 @@ body {
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
-    gap: 15%;
+    /* gap: 15%; */
+    height: 75vh;
     
 }
 
